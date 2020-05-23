@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Meal_Application
 {
-    public partial class Form1 : Form
+    public partial class FormMealApp : Form
     {
-        public Form1()
+        public FormMealApp()
         {
             InitializeComponent();
         }

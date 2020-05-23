@@ -1,7 +1,8 @@
 ﻿
 namespace ClientApi
 {
-    public class Class1
+    public class ClientAPI
     {
+
     }
 }

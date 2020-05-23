@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meal-Application", "Meal-Application\Meal-Application.csproj", "{D8983BA3-A2DA-45B8-AD6B-3C662C466635}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApi", "ClientApi\ClientApi.csproj", "{CD42C416-6960-478E-9932-32DF9178C186}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileParser", "FileParser\FileParser.csproj", "{39B9E4DA-4FEC-464C-854C-993F9D9981F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{D8983BA3-A2DA-45B8-AD6B-3C662C466635}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8983BA3-A2DA-45B8-AD6B-3C662C466635}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8983BA3-A2DA-45B8-AD6B-3C662C466635}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD42C416-6960-478E-9932-32DF9178C186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD42C416-6960-478E-9932-32DF9178C186}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD42C416-6960-478E-9932-32DF9178C186}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD42C416-6960-478E-9932-32DF9178C186}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39B9E4DA-4FEC-464C-854C-993F9D9981F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39B9E4DA-4FEC-464C-854C-993F9D9981F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39B9E4DA-4FEC-464C-854C-993F9D9981F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39B9E4DA-4FEC-464C-854C-993F9D9981F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Headers;
-
+using System.Json;
 namespace ClientApi
 {
     /**
@@ -33,6 +33,18 @@ namespace ClientApi
                 instance = new ClientAPI();
             }
             return instance;
+        }
+        public JsonObject sendSearch1()
+        {
+            throw new System.Exception("nu este implementat");
+        }
+        public JsonObject sendSearch2()
+        {
+            throw new System.Exception("nu este implementat");
+        }
+        public JsonObject sendGet1()
+        {
+            throw new System.Exception("nu este implementat");
         }
     }
 }

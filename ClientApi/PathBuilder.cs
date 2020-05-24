@@ -4,10 +4,10 @@ namespace ClientApi
 {
     public class PathBuilder
     {
-        public string buildPathIngredients(string apiKey, Dictionary<string, Dictionary<string, int>> parameters)
+        public string buildPathIngredients(string apiKey, string ingredients)
         {
             string path = "recipes/findByIngredients";
-            path += "?" + apiKey;
+            path += "?" + apiKey + "&" + ingredients;
             return path;
         }
         public string buildPathNutrients(string apiKey, Dictionary<string, Dictionary<string, int>> parameters)

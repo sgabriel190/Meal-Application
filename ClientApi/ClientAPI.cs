@@ -2,6 +2,7 @@
 using System.Net.Http.Headers;
 using System.Json;
 using System.Collections.Generic;
+using System.IO;
 
 namespace ClientApi
 {
@@ -15,12 +16,13 @@ namespace ClientApi
         private const string apiURL = "https://api.spoonacular.com";
         private const string apiKey = "apiKey=7b137a9d00974ba4b92d25f4d51d11c6";
         private HttpClient httpClient = null;
-        //viitor parser pentru request string
+        private PathBuilder pathBuilder = null;
 
         private ClientAPI()
         {
             //Instantiere si setari client HTTP
             httpClient = new HttpClient();
+            pathBuilder = new PathBuilder();
             httpClient.BaseAddress = new System.Uri(apiURL);
             httpClient.DefaultRequestHeaders
                 .Accept
@@ -40,8 +42,7 @@ namespace ClientApi
         {
             throw new System.Exception("nu este implementat");
         }
-        public JsonObject searchByNutrients(Dictionary<string,int> carbs, Dictionary<string, int> protein,
-            Dictionary<string, int> fat, Dictionary<string, int> calories)
+        public JsonObject searchByNutrients(Dictionary<string, Dictionary<string, int>> ingredients)
         {
             throw new System.Exception("nu este implementat");
         }

@@ -1,7 +1,6 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Json;
-
+using Newtonsoft.Json.Linq;
 namespace ClientApi
 {
     /**
@@ -37,35 +36,50 @@ namespace ClientApi
             }
             return instance;
         }
-        public JsonObject searchByIngredients(string ingredientQuery, int numberRecipes)
+        public JArray searchByIngredients(string ingredientQuery, int numberRecipes)
         {
             string path = pathBuilder.buildPathIngredients(apiKey, ingredientQuery, numberRecipes);
             HttpResponseMessage response = httpClient.GetAsync(path).Result;
             if(response.IsSuccessStatusCode)
             {
-                var dataObject = response.Content.ReadAsStreamAsync().Result;
+                string dataObject = response.Content.ReadAsStringAsync().Result;
+                JArray json = JArray.Parse(dataObject);
+                return json;
             }
-            throw new System.Exception("nu este implementat");
+            else
+            {
+                throw new System.Exception("HTTP error");
+            }
         }
-        public JsonObject searchByNutrients(string nutrientsQuery, int numberRecipes)
+        public JArray searchByNutrients(string nutrientsQuery, int numberRecipes)
         {
             string path = pathBuilder.buildPathNutrients(apiKey, nutrientsQuery, numberRecipes);
             HttpResponseMessage response = httpClient.GetAsync(path).Result;
             if (response.IsSuccessStatusCode)
             {
-
+                string dataObject = response.Content.ReadAsStringAsync().Result;
+                JArray json = JArray.Parse(dataObject);
+                return json;
             }
-            throw new System.Exception("nu este implementat");
+            else
+            {
+                throw new System.Exception("HTTP error");
+            }
         }
-        public JsonObject getById(int id)
+        public JObject getById(int id)
         {
             string path = pathBuilder.buildPathInformationId(apiKey, id);
             HttpResponseMessage response = httpClient.GetAsync(path).Result;
             if (response.IsSuccessStatusCode)
             {
-
+                string dataObject = response.Content.ReadAsStringAsync().Result;
+                JObject json = JObject.Parse(dataObject);
+                return json;
             }
-            throw new System.Exception("nu este implementat");
+            else
+            {
+                throw new System.Exception("HTTP error");
+            }
         }
     }
 }

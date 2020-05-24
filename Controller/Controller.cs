@@ -14,7 +14,7 @@ namespace Controller
 
         public Controller()
         {
-            clientAPI = ClientAPI.getInstance();
+            clientAPI = ClientAPI.GetInstance();
         }
 
     }

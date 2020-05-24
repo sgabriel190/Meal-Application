@@ -1,6 +1,5 @@
-﻿using System.Drawing;
-
-namespace Controller
+﻿
+namespace DataModel
 {
     class RecipeData
     {

@@ -1,7 +1,7 @@
 ﻿
 namespace FileParser
 {
-    public class ParseJSON: IFile
+    public interface IFilter
     {
 
     }

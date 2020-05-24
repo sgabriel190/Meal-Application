@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meal-Application", "Meal-Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApi", "ClientApi\ClientApi.csproj", "{CD42C416-6960-478E-9932-32DF9178C186}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileParser", "FileParser\FileParser.csproj", "{39B9E4DA-4FEC-464C-854C-993F9D9981F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileFilter", "FileParser\FileFilter.csproj", "{39B9E4DA-4FEC-464C-854C-993F9D9981F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{685284F5-AA83-4D48-AD18-15E63B1376E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{91CE34DA-1E59-4123-AAE0-0D723E8B788D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{685284F5-AA83-4D48-AD18-15E63B1376E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{685284F5-AA83-4D48-AD18-15E63B1376E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{685284F5-AA83-4D48-AD18-15E63B1376E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91CE34DA-1E59-4123-AAE0-0D723E8B788D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91CE34DA-1E59-4123-AAE0-0D723E8B788D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91CE34DA-1E59-4123-AAE0-0D723E8B788D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91CE34DA-1E59-4123-AAE0-0D723E8B788D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

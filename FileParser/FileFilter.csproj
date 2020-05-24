@@ -44,8 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IFile.cs" />
-    <Compile Include="ParseJSON.cs" />
+    <Compile Include="IFilter.cs" />
+    <Compile Include="FilterJSON.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

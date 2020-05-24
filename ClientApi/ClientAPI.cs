@@ -10,7 +10,7 @@ namespace ClientApi
      */
     public class ClientAPI
     {
-        private ClientAPI instance = null;
+        private static ClientAPI instance = null;
         private const string apiURL = "https://api.spoonacular.com";
         private const string apiKey = "apiKey=7b137a9d00974ba4b92d25f4d51d11c6";
         private HttpClient httpClient = null;
@@ -22,13 +22,14 @@ namespace ClientApi
             httpClient = new HttpClient();
             pathBuilder = new PathBuilder();
             httpClient.BaseAddress = new System.Uri(apiURL);
+            httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders
                 .Accept
                 .Add(new MediaTypeWithQualityHeaderValue("application/json"));
             
         }
 
-        public ClientAPI getInstance()
+        public static ClientAPI getInstance()
         {
             if(instance == null)
             {
@@ -42,13 +43,13 @@ namespace ClientApi
             HttpResponseMessage response = httpClient.GetAsync(path).Result;
             if(response.IsSuccessStatusCode)
             {
-
+                var dataObject = response.Content.ReadAsStreamAsync().Result;
             }
             throw new System.Exception("nu este implementat");
         }
-        public JsonObject searchByNutrients(string nutrientsQuery)
+        public JsonObject searchByNutrients(string nutrientsQuery, int numberRecipes)
         {
-            string path = pathBuilder.buildPathNutrients(apiKey, nutrientsQuery);
+            string path = pathBuilder.buildPathNutrients(apiKey, nutrientsQuery, numberRecipes);
             HttpResponseMessage response = httpClient.GetAsync(path).Result;
             if (response.IsSuccessStatusCode)
             {

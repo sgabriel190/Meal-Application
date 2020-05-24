@@ -67,6 +67,16 @@
             this.flowLayoutPanelListItems = new System.Windows.Forms.FlowLayoutPanel();
             this.recipeSearchButton = new System.Windows.Forms.Button();
             this.recipeTextBoxSearch = new System.Windows.Forms.TextBox();
+            this.tabPageMealPlan = new System.Windows.Forms.TabPage();
+            this.buttonGenerateMealPlan = new System.Windows.Forms.Button();
+            this.flowLayoutPanelMealPlan = new System.Windows.Forms.FlowLayoutPanel();
+            this.comboBoxDiet = new System.Windows.Forms.ComboBox();
+            this.textBoxExcludeIng = new System.Windows.Forms.TextBox();
+            this.labelExcludeIng = new System.Windows.Forms.Label();
+            this.labelDiet = new System.Windows.Forms.Label();
+            this.textBoxCalories = new System.Windows.Forms.TextBox();
+            this.labelCalories = new System.Windows.Forms.Label();
+            this.labelMealPlan = new System.Windows.Forms.Label();
             this.tabControlSearch.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -86,26 +96,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinCarbs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxCarbs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeNumericUpDownSearch)).BeginInit();
+            this.tabPageMealPlan.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlSearch
             // 
             this.tabControlSearch.Controls.Add(this.tabPageSearch);
-            this.tabControlSearch.Location = new System.Drawing.Point(52, 42);
-            this.tabControlSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControlSearch.Controls.Add(this.tabPageMealPlan);
+            this.tabControlSearch.Location = new System.Drawing.Point(39, 12);
             this.tabControlSearch.Name = "tabControlSearch";
             this.tabControlSearch.SelectedIndex = 0;
-            this.tabControlSearch.Size = new System.Drawing.Size(1359, 734);
+            this.tabControlSearch.Size = new System.Drawing.Size(1019, 618);
             this.tabControlSearch.TabIndex = 0;
             // 
             // tabPageSearch
             // 
             this.tabPageSearch.Controls.Add(this.splitContainer1);
-            this.tabPageSearch.Location = new System.Drawing.Point(4, 25);
-            this.tabPageSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPageSearch.Location = new System.Drawing.Point(4, 22);
             this.tabPageSearch.Name = "tabPageSearch";
-            this.tabPageSearch.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageSearch.Size = new System.Drawing.Size(1351, 705);
+            this.tabPageSearch.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSearch.Size = new System.Drawing.Size(1011, 592);
             this.tabPageSearch.TabIndex = 0;
             this.tabPageSearch.Text = "Search";
             this.tabPageSearch.UseVisualStyleBackColor = true;
@@ -113,8 +123,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(4, 4);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -143,9 +152,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanelListItems);
             this.splitContainer1.Panel2.Controls.Add(this.recipeSearchButton);
             this.splitContainer1.Panel2.Controls.Add(this.recipeTextBoxSearch);
-            this.splitContainer1.Size = new System.Drawing.Size(1343, 697);
-            this.splitContainer1.SplitterDistance = 423;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.Size = new System.Drawing.Size(1005, 586);
+            this.splitContainer1.SplitterDistance = 316;
             this.splitContainer1.TabIndex = 0;
             // 
             // groupBoxCalories
@@ -155,20 +163,17 @@
             this.groupBoxCalories.Controls.Add(this.labelMaxCalories);
             this.groupBoxCalories.Controls.Add(this.numericUpDownMaxCalories);
             this.groupBoxCalories.Enabled = false;
-            this.groupBoxCalories.Location = new System.Drawing.Point(28, 528);
-            this.groupBoxCalories.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxCalories.Location = new System.Drawing.Point(21, 429);
             this.groupBoxCalories.Name = "groupBoxCalories";
-            this.groupBoxCalories.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxCalories.Size = new System.Drawing.Size(371, 75);
+            this.groupBoxCalories.Size = new System.Drawing.Size(278, 61);
             this.groupBoxCalories.TabIndex = 34;
             this.groupBoxCalories.TabStop = false;
             // 
             // numericUpDownMinCalories
             // 
-            this.numericUpDownMinCalories.Location = new System.Drawing.Point(47, 27);
-            this.numericUpDownMinCalories.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownMinCalories.Location = new System.Drawing.Point(35, 22);
             this.numericUpDownMinCalories.Name = "numericUpDownMinCalories";
-            this.numericUpDownMinCalories.Size = new System.Drawing.Size(127, 22);
+            this.numericUpDownMinCalories.Size = new System.Drawing.Size(95, 20);
             this.numericUpDownMinCalories.TabIndex = 13;
             this.numericUpDownMinCalories.Value = new decimal(new int[] {
             50,
@@ -179,34 +184,31 @@
             // labelMinCalories
             // 
             this.labelMinCalories.AutoSize = true;
-            this.labelMinCalories.Location = new System.Drawing.Point(8, 30);
-            this.labelMinCalories.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMinCalories.Location = new System.Drawing.Point(6, 24);
             this.labelMinCalories.Name = "labelMinCalories";
-            this.labelMinCalories.Size = new System.Drawing.Size(34, 17);
+            this.labelMinCalories.Size = new System.Drawing.Size(27, 13);
             this.labelMinCalories.TabIndex = 14;
             this.labelMinCalories.Text = "Min:";
             // 
             // labelMaxCalories
             // 
             this.labelMaxCalories.AutoSize = true;
-            this.labelMaxCalories.Location = new System.Drawing.Point(181, 30);
-            this.labelMaxCalories.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMaxCalories.Location = new System.Drawing.Point(136, 24);
             this.labelMaxCalories.Name = "labelMaxCalories";
-            this.labelMaxCalories.Size = new System.Drawing.Size(37, 17);
+            this.labelMaxCalories.Size = new System.Drawing.Size(30, 13);
             this.labelMaxCalories.TabIndex = 15;
             this.labelMaxCalories.Text = "Max:";
             // 
             // numericUpDownMaxCalories
             // 
-            this.numericUpDownMaxCalories.Location = new System.Drawing.Point(227, 27);
-            this.numericUpDownMaxCalories.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownMaxCalories.Location = new System.Drawing.Point(170, 22);
             this.numericUpDownMaxCalories.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.numericUpDownMaxCalories.Name = "numericUpDownMaxCalories";
-            this.numericUpDownMaxCalories.Size = new System.Drawing.Size(132, 22);
+            this.numericUpDownMaxCalories.Size = new System.Drawing.Size(99, 20);
             this.numericUpDownMaxCalories.TabIndex = 16;
             this.numericUpDownMaxCalories.Value = new decimal(new int[] {
             800,
@@ -218,10 +220,9 @@
             // 
             this.checkBoxCalories.AutoSize = true;
             this.checkBoxCalories.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxCalories.Location = new System.Drawing.Point(28, 503);
-            this.checkBoxCalories.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxCalories.Location = new System.Drawing.Point(21, 409);
             this.checkBoxCalories.Name = "checkBoxCalories";
-            this.checkBoxCalories.Size = new System.Drawing.Size(98, 24);
+            this.checkBoxCalories.Size = new System.Drawing.Size(80, 20);
             this.checkBoxCalories.TabIndex = 33;
             this.checkBoxCalories.Text = "Calories:";
             this.checkBoxCalories.UseVisualStyleBackColor = true;
@@ -233,30 +234,26 @@
             this.groupBoxFat.Controls.Add(this.labelMaxFat);
             this.groupBoxFat.Controls.Add(this.numericUpDownMaxFat);
             this.groupBoxFat.Enabled = false;
-            this.groupBoxFat.Location = new System.Drawing.Point(28, 421);
-            this.groupBoxFat.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxFat.Location = new System.Drawing.Point(21, 342);
             this.groupBoxFat.Name = "groupBoxFat";
-            this.groupBoxFat.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxFat.Size = new System.Drawing.Size(371, 75);
+            this.groupBoxFat.Size = new System.Drawing.Size(278, 61);
             this.groupBoxFat.TabIndex = 31;
             this.groupBoxFat.TabStop = false;
             // 
             // labelMinFat
             // 
             this.labelMinFat.AutoSize = true;
-            this.labelMinFat.Location = new System.Drawing.Point(8, 30);
-            this.labelMinFat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMinFat.Location = new System.Drawing.Point(6, 24);
             this.labelMinFat.Name = "labelMinFat";
-            this.labelMinFat.Size = new System.Drawing.Size(34, 17);
+            this.labelMinFat.Size = new System.Drawing.Size(27, 13);
             this.labelMinFat.TabIndex = 19;
             this.labelMinFat.Text = "Min:";
             // 
             // numericUpDownMinFat
             // 
-            this.numericUpDownMinFat.Location = new System.Drawing.Point(47, 27);
-            this.numericUpDownMinFat.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownMinFat.Location = new System.Drawing.Point(35, 22);
             this.numericUpDownMinFat.Name = "numericUpDownMinFat";
-            this.numericUpDownMinFat.Size = new System.Drawing.Size(127, 22);
+            this.numericUpDownMinFat.Size = new System.Drawing.Size(95, 20);
             this.numericUpDownMinFat.TabIndex = 18;
             this.numericUpDownMinFat.Value = new decimal(new int[] {
             1,
@@ -267,19 +264,17 @@
             // labelMaxFat
             // 
             this.labelMaxFat.AutoSize = true;
-            this.labelMaxFat.Location = new System.Drawing.Point(181, 30);
-            this.labelMaxFat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMaxFat.Location = new System.Drawing.Point(136, 24);
             this.labelMaxFat.Name = "labelMaxFat";
-            this.labelMaxFat.Size = new System.Drawing.Size(37, 17);
+            this.labelMaxFat.Size = new System.Drawing.Size(30, 13);
             this.labelMaxFat.TabIndex = 20;
             this.labelMaxFat.Text = "Max:";
             // 
             // numericUpDownMaxFat
             // 
-            this.numericUpDownMaxFat.Location = new System.Drawing.Point(227, 27);
-            this.numericUpDownMaxFat.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownMaxFat.Location = new System.Drawing.Point(170, 22);
             this.numericUpDownMaxFat.Name = "numericUpDownMaxFat";
-            this.numericUpDownMaxFat.Size = new System.Drawing.Size(132, 22);
+            this.numericUpDownMaxFat.Size = new System.Drawing.Size(99, 20);
             this.numericUpDownMaxFat.TabIndex = 21;
             this.numericUpDownMaxFat.Value = new decimal(new int[] {
             100,
@@ -291,10 +286,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(28, 583);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(21, 474);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 20);
+            this.label5.Size = new System.Drawing.Size(53, 16);
             this.label5.TabIndex = 32;
             this.label5.Text = "Protein:";
             // 
@@ -302,10 +296,9 @@
             // 
             this.checkBoxFat.AutoSize = true;
             this.checkBoxFat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxFat.Location = new System.Drawing.Point(28, 396);
-            this.checkBoxFat.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxFat.Location = new System.Drawing.Point(21, 322);
             this.checkBoxFat.Name = "checkBoxFat";
-            this.checkBoxFat.Size = new System.Drawing.Size(60, 24);
+            this.checkBoxFat.Size = new System.Drawing.Size(49, 20);
             this.checkBoxFat.TabIndex = 30;
             this.checkBoxFat.Text = "Fat:";
             this.checkBoxFat.UseVisualStyleBackColor = true;
@@ -317,20 +310,17 @@
             this.groupBoxProtein.Controls.Add(this.labelMaxProtein);
             this.groupBoxProtein.Controls.Add(this.numericUpDownMaxProtein);
             this.groupBoxProtein.Enabled = false;
-            this.groupBoxProtein.Location = new System.Drawing.Point(28, 314);
-            this.groupBoxProtein.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxProtein.Location = new System.Drawing.Point(21, 255);
             this.groupBoxProtein.Name = "groupBoxProtein";
-            this.groupBoxProtein.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxProtein.Size = new System.Drawing.Size(371, 75);
+            this.groupBoxProtein.Size = new System.Drawing.Size(278, 61);
             this.groupBoxProtein.TabIndex = 28;
             this.groupBoxProtein.TabStop = false;
             // 
             // numericUpDownMinProtein
             // 
-            this.numericUpDownMinProtein.Location = new System.Drawing.Point(47, 27);
-            this.numericUpDownMinProtein.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownMinProtein.Location = new System.Drawing.Point(35, 22);
             this.numericUpDownMinProtein.Name = "numericUpDownMinProtein";
-            this.numericUpDownMinProtein.Size = new System.Drawing.Size(127, 22);
+            this.numericUpDownMinProtein.Size = new System.Drawing.Size(95, 20);
             this.numericUpDownMinProtein.TabIndex = 8;
             this.numericUpDownMinProtein.Value = new decimal(new int[] {
             10,
@@ -341,29 +331,26 @@
             // labelMinProtein
             // 
             this.labelMinProtein.AutoSize = true;
-            this.labelMinProtein.Location = new System.Drawing.Point(8, 30);
-            this.labelMinProtein.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMinProtein.Location = new System.Drawing.Point(6, 24);
             this.labelMinProtein.Name = "labelMinProtein";
-            this.labelMinProtein.Size = new System.Drawing.Size(34, 17);
+            this.labelMinProtein.Size = new System.Drawing.Size(27, 13);
             this.labelMinProtein.TabIndex = 9;
             this.labelMinProtein.Text = "Min:";
             // 
             // labelMaxProtein
             // 
             this.labelMaxProtein.AutoSize = true;
-            this.labelMaxProtein.Location = new System.Drawing.Point(181, 30);
-            this.labelMaxProtein.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMaxProtein.Location = new System.Drawing.Point(136, 24);
             this.labelMaxProtein.Name = "labelMaxProtein";
-            this.labelMaxProtein.Size = new System.Drawing.Size(37, 17);
+            this.labelMaxProtein.Size = new System.Drawing.Size(30, 13);
             this.labelMaxProtein.TabIndex = 10;
             this.labelMaxProtein.Text = "Max:";
             // 
             // numericUpDownMaxProtein
             // 
-            this.numericUpDownMaxProtein.Location = new System.Drawing.Point(227, 27);
-            this.numericUpDownMaxProtein.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownMaxProtein.Location = new System.Drawing.Point(170, 22);
             this.numericUpDownMaxProtein.Name = "numericUpDownMaxProtein";
-            this.numericUpDownMaxProtein.Size = new System.Drawing.Size(132, 22);
+            this.numericUpDownMaxProtein.Size = new System.Drawing.Size(99, 20);
             this.numericUpDownMaxProtein.TabIndex = 11;
             this.numericUpDownMaxProtein.Value = new decimal(new int[] {
             100,
@@ -375,10 +362,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(28, 476);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(21, 387);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 20);
+            this.label4.Size = new System.Drawing.Size(53, 16);
             this.label4.TabIndex = 29;
             this.label4.Text = "Protein:";
             // 
@@ -386,10 +372,9 @@
             // 
             this.checkBoxProtein.AutoSize = true;
             this.checkBoxProtein.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxProtein.Location = new System.Drawing.Point(28, 289);
-            this.checkBoxProtein.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxProtein.Location = new System.Drawing.Point(21, 235);
             this.checkBoxProtein.Name = "checkBoxProtein";
-            this.checkBoxProtein.Size = new System.Drawing.Size(89, 24);
+            this.checkBoxProtein.Size = new System.Drawing.Size(72, 20);
             this.checkBoxProtein.TabIndex = 27;
             this.checkBoxProtein.Text = "Protein:";
             this.checkBoxProtein.UseVisualStyleBackColor = true;
@@ -401,30 +386,26 @@
             this.groupBoxCarbs.Controls.Add(this.labelMaxCarbs);
             this.groupBoxCarbs.Controls.Add(this.numericUpDownMaxCarbs);
             this.groupBoxCarbs.Enabled = false;
-            this.groupBoxCarbs.Location = new System.Drawing.Point(28, 210);
-            this.groupBoxCarbs.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxCarbs.Location = new System.Drawing.Point(21, 171);
             this.groupBoxCarbs.Name = "groupBoxCarbs";
-            this.groupBoxCarbs.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxCarbs.Size = new System.Drawing.Size(371, 75);
+            this.groupBoxCarbs.Size = new System.Drawing.Size(278, 61);
             this.groupBoxCarbs.TabIndex = 25;
             this.groupBoxCarbs.TabStop = false;
             // 
             // labelMinCarbs
             // 
             this.labelMinCarbs.AutoSize = true;
-            this.labelMinCarbs.Location = new System.Drawing.Point(8, 31);
-            this.labelMinCarbs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMinCarbs.Location = new System.Drawing.Point(6, 25);
             this.labelMinCarbs.Name = "labelMinCarbs";
-            this.labelMinCarbs.Size = new System.Drawing.Size(34, 17);
+            this.labelMinCarbs.Size = new System.Drawing.Size(27, 13);
             this.labelMinCarbs.TabIndex = 4;
             this.labelMinCarbs.Text = "Min:";
             // 
             // numericUpDownMinCarbs
             // 
-            this.numericUpDownMinCarbs.Location = new System.Drawing.Point(47, 28);
-            this.numericUpDownMinCarbs.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownMinCarbs.Location = new System.Drawing.Point(35, 23);
             this.numericUpDownMinCarbs.Name = "numericUpDownMinCarbs";
-            this.numericUpDownMinCarbs.Size = new System.Drawing.Size(127, 22);
+            this.numericUpDownMinCarbs.Size = new System.Drawing.Size(95, 20);
             this.numericUpDownMinCarbs.TabIndex = 2;
             this.numericUpDownMinCarbs.Value = new decimal(new int[] {
             10,
@@ -435,19 +416,17 @@
             // labelMaxCarbs
             // 
             this.labelMaxCarbs.AutoSize = true;
-            this.labelMaxCarbs.Location = new System.Drawing.Point(181, 31);
-            this.labelMaxCarbs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMaxCarbs.Location = new System.Drawing.Point(136, 25);
             this.labelMaxCarbs.Name = "labelMaxCarbs";
-            this.labelMaxCarbs.Size = new System.Drawing.Size(37, 17);
+            this.labelMaxCarbs.Size = new System.Drawing.Size(30, 13);
             this.labelMaxCarbs.TabIndex = 5;
             this.labelMaxCarbs.Text = "Max:";
             // 
             // numericUpDownMaxCarbs
             // 
-            this.numericUpDownMaxCarbs.Location = new System.Drawing.Point(227, 28);
-            this.numericUpDownMaxCarbs.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownMaxCarbs.Location = new System.Drawing.Point(170, 23);
             this.numericUpDownMaxCarbs.Name = "numericUpDownMaxCarbs";
-            this.numericUpDownMaxCarbs.Size = new System.Drawing.Size(132, 22);
+            this.numericUpDownMaxCarbs.Size = new System.Drawing.Size(99, 20);
             this.numericUpDownMaxCarbs.TabIndex = 6;
             this.numericUpDownMaxCarbs.Value = new decimal(new int[] {
             100,
@@ -459,10 +438,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(28, 369);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(21, 300);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 20);
+            this.label3.Size = new System.Drawing.Size(53, 16);
             this.label3.TabIndex = 26;
             this.label3.Text = "Protein:";
             // 
@@ -470,10 +448,9 @@
             // 
             this.checkBoxCarbs.AutoSize = true;
             this.checkBoxCarbs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxCarbs.Location = new System.Drawing.Point(28, 186);
-            this.checkBoxCarbs.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxCarbs.Location = new System.Drawing.Point(21, 151);
             this.checkBoxCarbs.Name = "checkBoxCarbs";
-            this.checkBoxCarbs.Size = new System.Drawing.Size(81, 24);
+            this.checkBoxCarbs.Size = new System.Drawing.Size(66, 20);
             this.checkBoxCarbs.TabIndex = 24;
             this.checkBoxCarbs.Text = "Carbs:";
             this.checkBoxCarbs.UseVisualStyleBackColor = true;
@@ -490,20 +467,18 @@
             "french",
             "mediterranean",
             "spanish"});
-            this.comboBoxCuisine.Location = new System.Drawing.Point(28, 145);
-            this.comboBoxCuisine.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxCuisine.Location = new System.Drawing.Point(21, 118);
             this.comboBoxCuisine.Name = "comboBoxCuisine";
-            this.comboBoxCuisine.Size = new System.Drawing.Size(369, 24);
+            this.comboBoxCuisine.Size = new System.Drawing.Size(278, 21);
             this.comboBoxCuisine.TabIndex = 23;
             // 
             // labelCuisine
             // 
             this.labelCuisine.AutoSize = true;
             this.labelCuisine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCuisine.Location = new System.Drawing.Point(24, 107);
-            this.labelCuisine.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCuisine.Location = new System.Drawing.Point(18, 87);
             this.labelCuisine.Name = "labelCuisine";
-            this.labelCuisine.Size = new System.Drawing.Size(70, 20);
+            this.labelCuisine.Size = new System.Drawing.Size(55, 16);
             this.labelCuisine.TabIndex = 22;
             this.labelCuisine.Text = "Cuisine:";
             // 
@@ -511,36 +486,34 @@
             // 
             this.labelProtein.AutoSize = true;
             this.labelProtein.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProtein.Location = new System.Drawing.Point(28, 266);
-            this.labelProtein.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelProtein.Location = new System.Drawing.Point(21, 216);
             this.labelProtein.Name = "labelProtein";
-            this.labelProtein.Size = new System.Drawing.Size(67, 20);
+            this.labelProtein.Size = new System.Drawing.Size(53, 16);
             this.labelProtein.TabIndex = 7;
             this.labelProtein.Text = "Protein:";
             // 
             // textBoxIngredients
             // 
-            this.textBoxIngredients.Location = new System.Drawing.Point(28, 58);
-            this.textBoxIngredients.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxIngredients.Location = new System.Drawing.Point(21, 47);
             this.textBoxIngredients.Name = "textBoxIngredients";
-            this.textBoxIngredients.Size = new System.Drawing.Size(369, 22);
+            this.textBoxIngredients.Size = new System.Drawing.Size(278, 20);
             this.textBoxIngredients.TabIndex = 1;
             // 
             // labelIngredients
             // 
             this.labelIngredients.AutoSize = true;
             this.labelIngredients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIngredients.Location = new System.Drawing.Point(24, 23);
-            this.labelIngredients.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelIngredients.Location = new System.Drawing.Point(18, 19);
             this.labelIngredients.Name = "labelIngredients";
-            this.labelIngredients.Size = new System.Drawing.Size(96, 20);
+            this.labelIngredients.Size = new System.Drawing.Size(77, 16);
             this.labelIngredients.TabIndex = 0;
             this.labelIngredients.Text = "Ingredients:";
             // 
             // recipeNumericUpDownSearch
             // 
             this.recipeNumericUpDownSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recipeNumericUpDownSearch.Location = new System.Drawing.Point(696, 53);
+            this.recipeNumericUpDownSearch.Location = new System.Drawing.Point(522, 43);
+            this.recipeNumericUpDownSearch.Margin = new System.Windows.Forms.Padding(2);
             this.recipeNumericUpDownSearch.Maximum = new decimal(new int[] {
             50,
             0,
@@ -552,7 +525,7 @@
             0,
             0});
             this.recipeNumericUpDownSearch.Name = "recipeNumericUpDownSearch";
-            this.recipeNumericUpDownSearch.Size = new System.Drawing.Size(53, 28);
+            this.recipeNumericUpDownSearch.Size = new System.Drawing.Size(40, 24);
             this.recipeNumericUpDownSearch.TabIndex = 4;
             this.recipeNumericUpDownSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.recipeNumericUpDownSearch.Value = new decimal(new int[] {
@@ -564,18 +537,16 @@
             // flowLayoutPanelListItems
             // 
             this.flowLayoutPanelListItems.AutoScroll = true;
-            this.flowLayoutPanelListItems.Location = new System.Drawing.Point(36, 107);
-            this.flowLayoutPanelListItems.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanelListItems.Location = new System.Drawing.Point(27, 87);
             this.flowLayoutPanelListItems.Name = "flowLayoutPanelListItems";
-            this.flowLayoutPanelListItems.Size = new System.Drawing.Size(812, 566);
+            this.flowLayoutPanelListItems.Size = new System.Drawing.Size(609, 460);
             this.flowLayoutPanelListItems.TabIndex = 3;
             // 
             // recipeSearchButton
             // 
-            this.recipeSearchButton.Location = new System.Drawing.Point(756, 52);
-            this.recipeSearchButton.Margin = new System.Windows.Forms.Padding(4);
+            this.recipeSearchButton.Location = new System.Drawing.Point(567, 42);
             this.recipeSearchButton.Name = "recipeSearchButton";
-            this.recipeSearchButton.Size = new System.Drawing.Size(92, 30);
+            this.recipeSearchButton.Size = new System.Drawing.Size(69, 24);
             this.recipeSearchButton.TabIndex = 1;
             this.recipeSearchButton.Text = "Search";
             this.recipeSearchButton.UseVisualStyleBackColor = true;
@@ -583,19 +554,122 @@
             // recipeTextBoxSearch
             // 
             this.recipeTextBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recipeTextBoxSearch.Location = new System.Drawing.Point(36, 53);
-            this.recipeTextBoxSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.recipeTextBoxSearch.Location = new System.Drawing.Point(27, 43);
             this.recipeTextBoxSearch.Name = "recipeTextBoxSearch";
-            this.recipeTextBoxSearch.Size = new System.Drawing.Size(653, 29);
+            this.recipeTextBoxSearch.Size = new System.Drawing.Size(491, 24);
             this.recipeTextBoxSearch.TabIndex = 0;
+            // 
+            // tabPageMealPlan
+            // 
+            this.tabPageMealPlan.Controls.Add(this.buttonGenerateMealPlan);
+            this.tabPageMealPlan.Controls.Add(this.flowLayoutPanelMealPlan);
+            this.tabPageMealPlan.Controls.Add(this.comboBoxDiet);
+            this.tabPageMealPlan.Controls.Add(this.textBoxExcludeIng);
+            this.tabPageMealPlan.Controls.Add(this.labelExcludeIng);
+            this.tabPageMealPlan.Controls.Add(this.labelDiet);
+            this.tabPageMealPlan.Controls.Add(this.textBoxCalories);
+            this.tabPageMealPlan.Controls.Add(this.labelCalories);
+            this.tabPageMealPlan.Controls.Add(this.labelMealPlan);
+            this.tabPageMealPlan.Location = new System.Drawing.Point(4, 22);
+            this.tabPageMealPlan.Name = "tabPageMealPlan";
+            this.tabPageMealPlan.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageMealPlan.Size = new System.Drawing.Size(1011, 592);
+            this.tabPageMealPlan.TabIndex = 1;
+            this.tabPageMealPlan.Text = "Meal Plan";
+            this.tabPageMealPlan.UseVisualStyleBackColor = true;
+            // 
+            // buttonGenerateMealPlan
+            // 
+            this.buttonGenerateMealPlan.Location = new System.Drawing.Point(470, 164);
+            this.buttonGenerateMealPlan.Name = "buttonGenerateMealPlan";
+            this.buttonGenerateMealPlan.Size = new System.Drawing.Size(92, 26);
+            this.buttonGenerateMealPlan.TabIndex = 11;
+            this.buttonGenerateMealPlan.Text = "Generate";
+            this.buttonGenerateMealPlan.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanelMealPlan
+            // 
+            this.flowLayoutPanelMealPlan.AutoScroll = true;
+            this.flowLayoutPanelMealPlan.Location = new System.Drawing.Point(53, 228);
+            this.flowLayoutPanelMealPlan.Name = "flowLayoutPanelMealPlan";
+            this.flowLayoutPanelMealPlan.Size = new System.Drawing.Size(912, 323);
+            this.flowLayoutPanelMealPlan.TabIndex = 10;
+            // 
+            // comboBoxDiet
+            // 
+            this.comboBoxDiet.FormattingEnabled = true;
+            this.comboBoxDiet.Items.AddRange(new object[] {
+            "Gluten Free",
+            "Vegetarian",
+            "Lacto-Vegetarian",
+            "Ovo-Vegetarian",
+            "Vegan",
+            "Pescetarian"});
+            this.comboBoxDiet.Location = new System.Drawing.Point(470, 95);
+            this.comboBoxDiet.Name = "comboBoxDiet";
+            this.comboBoxDiet.Size = new System.Drawing.Size(123, 21);
+            this.comboBoxDiet.TabIndex = 9;
+            // 
+            // textBoxExcludeIng
+            // 
+            this.textBoxExcludeIng.Location = new System.Drawing.Point(470, 129);
+            this.textBoxExcludeIng.Name = "textBoxExcludeIng";
+            this.textBoxExcludeIng.Size = new System.Drawing.Size(201, 20);
+            this.textBoxExcludeIng.TabIndex = 8;
+            // 
+            // labelExcludeIng
+            // 
+            this.labelExcludeIng.AutoSize = true;
+            this.labelExcludeIng.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelExcludeIng.Location = new System.Drawing.Point(397, 131);
+            this.labelExcludeIng.Name = "labelExcludeIng";
+            this.labelExcludeIng.Size = new System.Drawing.Size(64, 18);
+            this.labelExcludeIng.TabIndex = 7;
+            this.labelExcludeIng.Text = "Exclude:";
+            // 
+            // labelDiet
+            // 
+            this.labelDiet.AutoSize = true;
+            this.labelDiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDiet.Location = new System.Drawing.Point(397, 98);
+            this.labelDiet.Name = "labelDiet";
+            this.labelDiet.Size = new System.Drawing.Size(38, 18);
+            this.labelDiet.TabIndex = 6;
+            this.labelDiet.Text = "Diet:";
+            // 
+            // textBoxCalories
+            // 
+            this.textBoxCalories.Location = new System.Drawing.Point(470, 66);
+            this.textBoxCalories.Name = "textBoxCalories";
+            this.textBoxCalories.Size = new System.Drawing.Size(123, 20);
+            this.textBoxCalories.TabIndex = 5;
+            // 
+            // labelCalories
+            // 
+            this.labelCalories.AutoSize = true;
+            this.labelCalories.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCalories.Location = new System.Drawing.Point(397, 66);
+            this.labelCalories.Name = "labelCalories";
+            this.labelCalories.Size = new System.Drawing.Size(67, 18);
+            this.labelCalories.TabIndex = 4;
+            this.labelCalories.Text = "Calories:";
+            // 
+            // labelMealPlan
+            // 
+            this.labelMealPlan.AutoSize = true;
+            this.labelMealPlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMealPlan.Location = new System.Drawing.Point(466, 32);
+            this.labelMealPlan.Name = "labelMealPlan";
+            this.labelMealPlan.Size = new System.Drawing.Size(87, 20);
+            this.labelMealPlan.TabIndex = 1;
+            this.labelMealPlan.Text = "Meal Plan";
             // 
             // FormMealApp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1461, 800);
+            this.ClientSize = new System.Drawing.Size(1096, 655);
             this.Controls.Add(this.tabControlSearch);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMealApp";
             this.Text = "Meal Application";
             this.Load += new System.EventHandler(this.FormMealApp_Load);
@@ -624,6 +698,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinCarbs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxCarbs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeNumericUpDownSearch)).EndInit();
+            this.tabPageMealPlan.ResumeLayout(false);
+            this.tabPageMealPlan.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -669,6 +745,16 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelListItems;
         private System.Windows.Forms.NumericUpDown recipeNumericUpDownSearch;
+        private System.Windows.Forms.TabPage tabPageMealPlan;
+        private System.Windows.Forms.ComboBox comboBoxDiet;
+        private System.Windows.Forms.TextBox textBoxExcludeIng;
+        private System.Windows.Forms.Label labelExcludeIng;
+        private System.Windows.Forms.Label labelDiet;
+        private System.Windows.Forms.TextBox textBoxCalories;
+        private System.Windows.Forms.Label labelCalories;
+        private System.Windows.Forms.Label labelMealPlan;
+        private System.Windows.Forms.Button buttonGenerateMealPlan;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelMealPlan;
     }
 }
 

@@ -23,6 +23,7 @@ namespace Meal_Application
                list[i] = new ListItem();
                list[i].Title = "Recipe name";
                 list[i].Info = "Info";
+                list[i].Image = "https://spoonacular.com/recipeImages/284420-312x231.jpg";
                flowLayoutPanelListItems.Controls.Add(list[i]);
            }
 

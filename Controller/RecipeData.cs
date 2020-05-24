@@ -6,7 +6,7 @@ namespace Controller
     {
         private int _id;
         private string _title;
-        private Bitmap _img;
+        private string _imgLocation;
         private string _description;
         private string _url;
 
@@ -14,11 +14,11 @@ namespace Controller
         {      
         }
 
-        public RecipeData(int id, string title, Bitmap img, string description)
+        public RecipeData(int id, string title, string imgLocation, string description)
         {
             _id = id;
             _title = title;
-            _img = img;
+            _imgLocation = imgLocation;
             _description = description;
         }
         public int ID
@@ -31,10 +31,10 @@ namespace Controller
             get { return _title; }
             set { _title = value; }
         }
-        public Bitmap Image
+        public string ImageLocation
         {
-            get { return _img; }
-            set { _img = value; }
+            get { return _imgLocation; }
+            set { _imgLocation = value; }
         }
         public string Description
         {

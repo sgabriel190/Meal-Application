@@ -20,7 +20,7 @@ namespace Meal_Application
 
         private string _title;
         private string _info;
-        private Image _img;
+        private string _img;
         
         public string Title
         {
@@ -33,10 +33,10 @@ namespace Meal_Application
             set { _info = value; labelListItemInfo.Text = value; }
         } 
 
-        public Image Image
+        public string Image
         {
             get { return _img; }
-            set { _img = value; pictureBoxListItem.Image = value; }
+            set { _img = value; pictureBoxListItem.ImageLocation = value; }
         }
         
     }

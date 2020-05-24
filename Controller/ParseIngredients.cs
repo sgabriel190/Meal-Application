@@ -15,11 +15,13 @@ namespace Controller
             string query = "";
             string []words;
             int i;
-
+            
             _input = _input.Replace(" ", "");
             words = _input.Split(',');
             for (i = 0; i < words.Length - 1; i++)
+            {
                 query += words[i] + ",+";
+            }
             query += words[i];
 
             return query;

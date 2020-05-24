@@ -1,8 +1,6 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Json;
-using System.Collections.Generic;
-using System.IO;
 
 namespace ClientApi
 {

@@ -92,7 +92,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelListItemTitle);
             this.Name = "ListItem";
-            this.Size = new System.Drawing.Size(570, 97);
+            this.Size = new System.Drawing.Size(502, 97);
             this.panelPictureListItem.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxListItem)).EndInit();
             this.ResumeLayout(false);

@@ -1,7 +1,7 @@
 ﻿
 namespace DataModel
 {
-    class RecipeData
+    public class RecipeData
     {
         private int _id;
         private string _title;

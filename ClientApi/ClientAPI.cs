@@ -41,16 +41,31 @@ namespace ClientApi
         public JsonObject searchByIngredients(string ingredientQuery, int numberRecipes)
         {
             string path = pathBuilder.buildPathIngredients(apiKey, ingredientQuery, numberRecipes);
+            HttpResponseMessage response = httpClient.GetAsync(path).Result;
+            if(response.IsSuccessStatusCode)
+            {
+
+            }
             throw new System.Exception("nu este implementat");
         }
         public JsonObject searchByNutrients(string nutrientsQuery)
         {
             string path = pathBuilder.buildPathNutrients(apiKey, nutrientsQuery);
+            HttpResponseMessage response = httpClient.GetAsync(path).Result;
+            if (response.IsSuccessStatusCode)
+            {
+
+            }
             throw new System.Exception("nu este implementat");
         }
         public JsonObject getById(int id)
         {
             string path = pathBuilder.buildPathInformationId(apiKey, id);
+            HttpResponseMessage response = httpClient.GetAsync(path).Result;
+            if (response.IsSuccessStatusCode)
+            {
+
+            }
             throw new System.Exception("nu este implementat");
         }
     }

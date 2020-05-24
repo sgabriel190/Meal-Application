@@ -1,19 +1,18 @@
-﻿using System.Collections.Generic;
-
+﻿
 namespace ClientApi
 {
     public class PathBuilder
     {
-        public string buildPathIngredients(string apiKey, string ingredients)
+        public string buildPathIngredients(string apiKey, string ingredientsQuery, int numberRecipes)
         {
             string path = "recipes/findByIngredients";
-            path += "?" + apiKey + "&" + ingredients;
+            path += "?" + apiKey + "&" + ingredientsQuery;
             return path;
         }
-        public string buildPathNutrients(string apiKey, Dictionary<string, Dictionary<string, int>> parameters)
+        public string buildPathNutrients(string apiKey, string nutrientsQuery)
         {
             string path = "recipes/findByNutrients";
-            path += "?" + apiKey;
+            path += "?" + apiKey + "&" + nutrientsQuery;
             return path;
         }
         public string buildPathInformationId(string apiKey, int id)

@@ -38,16 +38,19 @@ namespace ClientApi
             }
             return instance;
         }
-        public JsonObject searchByIngredients(List<string> ingredients, int numberRecipes)
+        public JsonObject searchByIngredients(string ingredientQuery, int numberRecipes)
         {
+            string path = pathBuilder.buildPathIngredients(apiKey, ingredientQuery, numberRecipes);
             throw new System.Exception("nu este implementat");
         }
-        public JsonObject searchByNutrients(Dictionary<string, Dictionary<string, int>> ingredients)
+        public JsonObject searchByNutrients(string nutrientsQuery)
         {
+            string path = pathBuilder.buildPathNutrients(apiKey, nutrientsQuery);
             throw new System.Exception("nu este implementat");
         }
         public JsonObject getById(int id)
         {
+            string path = pathBuilder.buildPathInformationId(apiKey, id);
             throw new System.Exception("nu este implementat");
         }
     }

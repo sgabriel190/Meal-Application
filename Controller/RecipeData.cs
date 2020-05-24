@@ -10,6 +10,17 @@ namespace Controller
         private string _description;
         private string _url;
 
+        public RecipeData()
+        {      
+        }
+
+        public RecipeData(int id, string title, Bitmap img, string description)
+        {
+            _id = id;
+            _title = title;
+            _img = img;
+            _description = description;
+        }
         public int ID
         {
             get { return _id; }

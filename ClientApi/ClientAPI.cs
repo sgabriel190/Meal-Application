@@ -1,6 +1,8 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Json;
+using System.Collections.Generic;
+
 namespace ClientApi
 {
     /**
@@ -34,15 +36,16 @@ namespace ClientApi
             }
             return instance;
         }
-        public JsonObject sendSearch1()
+        public JsonObject searchByIngredients(List<string> ingredients, int numberRecipes)
         {
             throw new System.Exception("nu este implementat");
         }
-        public JsonObject sendSearch2()
+        public JsonObject searchByNutrients(Dictionary<string,int> carbs, Dictionary<string, int> protein,
+            Dictionary<string, int> fat, Dictionary<string, int> calories)
         {
             throw new System.Exception("nu este implementat");
         }
-        public JsonObject sendGet1()
+        public JsonObject getById(int id)
         {
             throw new System.Exception("nu este implementat");
         }

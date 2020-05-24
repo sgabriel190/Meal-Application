@@ -29,7 +29,7 @@ namespace ClientApi
             
         }
 
-        public static ClientAPI getInstance()
+        public static ClientAPI GetInstance()
         {
             if(instance == null)
             {
@@ -37,9 +37,9 @@ namespace ClientApi
             }
             return instance;
         }
-        public JArray searchByIngredients(string ingredientQuery, int numberRecipes)
+        public JArray SearchByIngredients(string ingredientQuery, int numberRecipes)
         {
-            string path = pathBuilder.buildPathIngredients(apiKey, ingredientQuery, numberRecipes);
+            string path = pathBuilder.BuildPathIngredients(apiKey, ingredientQuery, numberRecipes);
             HttpResponseMessage response = httpClient.GetAsync(path).Result;
             if(response.IsSuccessStatusCode)
             {
@@ -52,9 +52,9 @@ namespace ClientApi
                 throw new System.Exception("HTTP error");
             }
         }
-        public JArray searchByNutrients(string nutrientsQuery, int numberRecipes)
+        public JArray SearchByNutrients(string nutrientsQuery, int numberRecipes)
         {
-            string path = pathBuilder.buildPathNutrients(apiKey, nutrientsQuery, numberRecipes);
+            string path = pathBuilder.BuildPathNutrients(apiKey, nutrientsQuery, numberRecipes);
             HttpResponseMessage response = httpClient.GetAsync(path).Result;
             if (response.IsSuccessStatusCode)
             {
@@ -67,9 +67,9 @@ namespace ClientApi
                 throw new System.Exception("HTTP error");
             }
         }
-        public JObject getById(int id)
+        public JObject GetById(int id)
         {
-            string path = pathBuilder.buildPathInformationId(apiKey, id);
+            string path = pathBuilder.BuildPathInformationId(apiKey, id);
             HttpResponseMessage response = httpClient.GetAsync(path).Result;
             if (response.IsSuccessStatusCode)
             {

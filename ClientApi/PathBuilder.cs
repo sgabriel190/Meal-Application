@@ -11,21 +11,21 @@ namespace ClientApi
     public class PathBuilder
     {
         // Metoda care construieste resursa specifica functiei searchByIngredients
-        public string buildPathIngredients(string apiKey, string ingredientsQuery, int numberRecipes)
+        public string BuildPathIngredients(string apiKey, string ingredientsQuery, int numberRecipes)
         {
             string path = "recipes/findByIngredients";
             path += "?" + apiKey + "&" + ingredientsQuery + $"&number={numberRecipes}";
             return path;
         }
         // Metoda care construieste resursa specifica functiei searchByNutrients
-        public string buildPathNutrients(string apiKey, string nutrientsQuery, int numberRecipes)
+        public string BuildPathNutrients(string apiKey, string nutrientsQuery, int numberRecipes)
         {
             string path = "recipes/findByNutrients";
             path += "?" + apiKey + "&" + nutrientsQuery + $"&number={numberRecipes}";
             return path;
         }
         // Metoda care construieste resursa specifica functiei getRecipeInformation
-        public string buildPathInformationId(string apiKey, int id)
+        public string BuildPathInformationId(string apiKey, int id)
         {
             string path = $"recipes/{id}/information";
             path += "?" + apiKey;

@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClientApi">
+      <HintPath>..\ClientApi\bin\Debug\ClientApi.dll</HintPath>
+    </Reference>
     <Reference Include="Controller">
       <HintPath>..\Controller\obj\Debug\Controller.dll</HintPath>
+    </Reference>
+    <Reference Include="DataModel">
+      <HintPath>..\DataModel\obj\Debug\DataModel.dll</HintPath>
+    </Reference>
+    <Reference Include="FileParser">
+      <HintPath>..\FileParser\obj\Debug\FileParser.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

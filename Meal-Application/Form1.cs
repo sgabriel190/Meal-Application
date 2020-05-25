@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using ControllerNamespace;
+using DataModel;
 
 namespace Meal_Application
 {
     public partial class FormMealApp : Form
     {
         private Controller controller = null;
+        ListItem[] previewList = null;
 
 
         public FormMealApp()
@@ -25,15 +27,13 @@ namespace Meal_Application
         
         private void ShowListItems()
         {
-           ListItem[] list = new ListItem[10];
-           for(int i=0;i<list.Length;i++)
-           {
-               list[i] = new ListItem();
-               list[i].Title = "Recipe name";
-               list[i].Info = "Info";
-               list[i].Image = "https://spoonacular.com/recipeImages/284420-312x231.jpg";
-               flowLayoutPanelListItems.Controls.Add(list[i]);
-           }
+            if (previewList != null)
+            {
+                for (int i = 0; i < previewList.Length; i++)
+                {
+                    flowLayoutPanelListItems.Controls.Add(previewList[i]);
+                }
+            }
 
         }
 
@@ -97,7 +97,26 @@ namespace Meal_Application
             
             if(radioButtonIngredients.Checked)
             {
+                if(textBoxIngredients.Text == "")
+                {
+                    MessageBox.Show("You have to add some ingredients.");
+                }
+                else
+                {
+                    string ingredientsInput = textBoxIngredients.Text;
+                    int numberOfRecipes = Decimal.ToInt32(recipeNumericUpDownSearch.Value);
 
+                    List<RecipeData> recipeList = controller.GetRecipiesFromIngridients(ingredientsInput, numberOfRecipes);
+                    previewList = new ListItem[recipeList.Count];
+                    for (int i = 0; i < recipeList.Count; ++i)
+                    {
+                        previewList[i] = new ListItem();
+                        previewList[i].Title = recipeList[i].Title;
+                        previewList[i].Info = recipeList[i].Description;
+                        previewList[i].Image = recipeList[i].ImageLocation;
+                    }
+                    ShowListItems();
+                }
             }
             else if(radioButtonNutrients.Checked)
             {

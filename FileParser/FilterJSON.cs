@@ -46,7 +46,7 @@ namespace FileParser
             }
             if (objectJSON.ContainsKey("sourceURL"))
             {
-                dataToBeCompleted.Instructions = objectJSON.GetValue("sourceURL").ToString();
+                dataToBeCompleted.URL = objectJSON.GetValue("sourceURL").ToString();
             }
             return dataToBeCompleted;
         }

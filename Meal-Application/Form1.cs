@@ -28,7 +28,6 @@ namespace Meal_Application
         }
         private void AddNewTab(int idxSelected)
         {
-
             DetailedListItem detailedItem = new DetailedListItem();
             string tabName;
             if (previewList[idxSelected].Title.Length > 15) tabName = previewList[idxSelected].Title.Substring(0, 15);

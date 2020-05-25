@@ -123,7 +123,9 @@ namespace Meal_Application
                     _nutrients["maxCalories"] = Decimal.ToInt32(numericUpDownMaxCalories.Value);
                 }
                 if (_nutrients.Count == 0)
+                {
                     MessageBox.Show("You have to choose a category of nutrients first.");
+                }
             }
         }
     }

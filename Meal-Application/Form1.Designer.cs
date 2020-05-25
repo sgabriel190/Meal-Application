@@ -603,6 +603,7 @@
             this.buttonGenerateMealPlan.TabIndex = 11;
             this.buttonGenerateMealPlan.Text = "Generate";
             this.buttonGenerateMealPlan.UseVisualStyleBackColor = true;
+            this.buttonGenerateMealPlan.Click += new System.EventHandler(this.buttonGenerateMealPlan_Click);
             // 
             // flowLayoutPanelMealPlan
             // 

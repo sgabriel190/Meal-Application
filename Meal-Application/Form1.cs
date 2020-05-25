@@ -13,6 +13,7 @@ namespace Meal_Application
         private Controller controller = null;
         private ListItem[] previewList = null;
         private List<RecipeData> recipesList = null;
+        private List<RecipeData> generatedMealList = null;
 
 
         public FormMealApp()
@@ -20,6 +21,7 @@ namespace Meal_Application
             InitializeComponent();
             controller = new Controller();
             recipesList = new List<RecipeData>();
+            generatedMealList = new List<RecipeData>();
         }
 
         private void FormMealApp_Load(object sender, EventArgs e)
@@ -196,5 +198,16 @@ namespace Meal_Application
             ShowListItems();
         }
 
+        private void buttonGenerateMealPlan_Click(object sender, EventArgs e)
+        {
+            if(textBoxCalories.Text == "")
+            {
+                MessageBox.Show("You have to input atleast calories number.");
+            }
+            else
+            {
+                generatedMealList = controller.GetRecipesMealPlan(Int32.Parse(textBoxCalories.Text), comboBoxDiet.Text, textBoxExcludeIng.Text);
+            }
+        }
     }
 }

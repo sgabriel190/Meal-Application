@@ -8,6 +8,7 @@ namespace DataModel
         private string _imgLocation;
         private string _description;
         private string _url;
+        private string _instructions;
 
         public RecipeData()
         {      
@@ -19,6 +20,12 @@ namespace DataModel
             _title = title;
             _imgLocation = imgLocation;
             _description = description;
+        }
+
+        public string Instructions
+        {
+            get { return _instructions; }
+            set { _instructions = value; }
         }
         public int ID
         {

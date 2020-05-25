@@ -26,17 +26,23 @@ namespace Meal_Application
             radioButtonIngredients.Checked = true;
             
         }
-        private void AddNewTab()
+        private void AddNewTab(int idxSelected)
         {
-            TabPage tp = new TabPage();
-            DetailedListItem detailedItem = new DetailedListItem();   
+
+            DetailedListItem detailedItem = new DetailedListItem();
+            string tabName;
+            if (previewList[idxSelected].Title.Length > 15) tabName = previewList[idxSelected].Title.Substring(0, 15);
+            else
+                tabName = previewList[idxSelected].Title;
+            TabPage tp = new TabPage(tabName);
             Button button = new Button();
 
             detailedItem.Size = tabPageSearch.Size;
-            string st = "Preparation                                        Make sauce:                Whisk tamarind concentrate into lime juice in a small bowl until dissolved. Stir in remaining sauce ingredients and chill, covered.                                                            Prepare shrimp:                Coarsely chop coconut and transfer half to a shallow soup bowl or pie plate.                                                                Whisk together flour, beer, baking soda, salt, cayenne, and egg in a small bowl until smooth.                                                                Heat oil in a 4- to 6-quart deep heavy pot over moderately high heat until it registers 350°F on thermometer.                                                            While oil is heating, coat shrimp:                Hold 1 shrimp by tail and dip into batter, letting excess drip off, then dredge in coconut, coating completely and pressing gently to help adhere. Transfer to a plate and coat remaining shrimp in same manner, adding remaining coconut to bowl as needed.                                                                Fry shrimp in oil in batches of 8, turning once, until golden, about 1 minute. Transfer with a slotted spoon to paper towels to drain and season lightly with salt. Skim any coconut from oil and return oil to 350°F between batches.                                                                Serve shrimp with sauce.                                                                            * Available at Latino and Indian restaurants and at Kalustyan's (212-685-3451).";
-            detailedItem.Instructions = st;
-            
-            detailedItem.Image = "https://spoonacular.com/recipeImages/284420-312x231.jpg";
+            detailedItem.Title=previewList[idxSelected].Title;
+            detailedItem.Image = previewList[idxSelected].Image;
+            detailedItem.Info = previewList[idxSelected].Info;
+            //detailedItem.Instructions = ..;
+            //detailedItem.URL=...;
 
             button.Click += (s, ev) => { tabControlSearch.TabPages.Remove(tp); };
             button.Location = new Point(965, 10);
@@ -48,6 +54,8 @@ namespace Meal_Application
             tp.AutoScroll = true;
             tabControlSearch.TabPages.Add(tp);
             tabControlSearch.SelectedTab=tp;
+
+           
         }
         private void ShowListItems()
         {
@@ -179,10 +187,12 @@ namespace Meal_Application
             for (int i = 0; i < recipeList.Count; ++i)
             {
                 previewList[i] = new ListItem();
+                previewList[i].ID = recipeList[i].ID;
                 previewList[i].Title = recipeList[i].Title;
                 previewList[i].Info = recipeList[i].Description;
                 previewList[i].Image = recipeList[i].ImageLocation;
-                previewList[i].ClickEvent = (s, ev) => { MessageBox.Show("here"); };
+                int idx = i;
+                previewList[i].ClickEvent = (s, ev) => {  AddNewTab(idx); };
             }
             ShowListItems();
         }

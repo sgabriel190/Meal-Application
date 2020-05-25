@@ -22,6 +22,7 @@ namespace Meal_Application
         private string _title;
         private string _info;
         private string _img;
+        private int _separator;
         private EventHandler _eh;
         public int ID
         {
@@ -43,6 +44,11 @@ namespace Meal_Application
         {
             get { return _img; }
             set { _img = value; pictureBoxListItem.ImageLocation = value; }
+        }
+        public int SeparatorSize
+        {
+            get { return _separator; }
+            set { _separator= value; panelSeparator.Width = value; }
         }
         public EventHandler ClickEvent
         {

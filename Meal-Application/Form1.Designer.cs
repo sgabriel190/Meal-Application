@@ -606,10 +606,9 @@
             // 
             // flowLayoutPanelMealPlan
             // 
-            this.flowLayoutPanelMealPlan.AutoScroll = true;
-            this.flowLayoutPanelMealPlan.Location = new System.Drawing.Point(53, 228);
+            this.flowLayoutPanelMealPlan.Location = new System.Drawing.Point(53, 196);
             this.flowLayoutPanelMealPlan.Name = "flowLayoutPanelMealPlan";
-            this.flowLayoutPanelMealPlan.Size = new System.Drawing.Size(912, 323);
+            this.flowLayoutPanelMealPlan.Size = new System.Drawing.Size(912, 390);
             this.flowLayoutPanelMealPlan.TabIndex = 10;
             // 
             // comboBoxDiet

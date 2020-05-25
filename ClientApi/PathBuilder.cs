@@ -34,7 +34,12 @@ namespace ClientApi
         public string BuildPathGenerateMealPlan(string apiKey, string mealPlannerQuery)
         {
             string path = "mealplanner/generate";
-            path += "?" + apiKey + "&" + mealPlannerQuery;
+            path += "?" + apiKey + "&timeFrame=day";
+            if(mealPlannerQuery != "")
+            {
+                path += mealPlannerQuery;
+            }
+            
             return path;
         }
     }

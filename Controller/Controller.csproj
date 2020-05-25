@@ -57,6 +57,7 @@
     <Compile Include="Controller.cs" />
     <Compile Include="IParse.cs" />
     <Compile Include="ParseIngredients.cs" />
+    <Compile Include="ParseMealGenerate.cs" />
     <Compile Include="ParseNutrients.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

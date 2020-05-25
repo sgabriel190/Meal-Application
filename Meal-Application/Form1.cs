@@ -119,10 +119,10 @@ namespace Meal_Application
 
         private void recipeSearchButton_Click(object sender, EventArgs e)
         {
-            
-            if(radioButtonIngredients.Checked)
+            flowLayoutPanelListItems.Controls.Clear();
+            if (radioButtonIngredients.Checked)
             {
-                if(textBoxIngredients.Text == "")
+                if (textBoxIngredients.Text == "")
                 {
                     MessageBox.Show("You have to add some ingredients.");
                 }
@@ -153,17 +153,17 @@ namespace Meal_Application
                     _nutrients["minCarbs"] = Decimal.ToInt32(numericUpDownMinCarbs.Value);
                     _nutrients["maxCarbs"] = Decimal.ToInt32(numericUpDownMaxCarbs.Value);
                 }
-                if(checkBoxProtein.Checked)
+                if (checkBoxProtein.Checked)
                 {
                     _nutrients["minProtein"] = Decimal.ToInt32(numericUpDownMinProtein.Value);
                     _nutrients["maxProtein"] = Decimal.ToInt32(numericUpDownMaxProtein.Value);
                 }
-                if(checkBoxFat.Checked)
+                if (checkBoxFat.Checked)
                 {
                     _nutrients["minFat"] = Decimal.ToInt32(numericUpDownMinFat.Value);
                     _nutrients["maxFat"] = Decimal.ToInt32(numericUpDownMaxFat.Value);
                 }
-                if(checkBoxCalories.Checked)
+                if (checkBoxCalories.Checked)
                 {
                     _nutrients["minCalories"] = Decimal.ToInt32(numericUpDownMinCalories.Value);
                     _nutrients["maxCalories"] = Decimal.ToInt32(numericUpDownMaxCalories.Value);
@@ -172,8 +172,28 @@ namespace Meal_Application
                 {
                     MessageBox.Show("You have to choose a category of nutrients first.");
                 }
+                else
+                {
+                    int numberOfRecipes = Decimal.ToInt32(recipeNumericUpDownSearch.Value);
+                    List<RecipeData> recipeList = controller.GetRecipiesFromNutrients(_nutrients, numberOfRecipes);
+
+                    refreshPreviewList(recipeList);
+                }
             }
-          
         }
+
+        private void refreshPreviewList(List<RecipeData> recipeList)
+        {
+            previewList = new ListItem[recipeList.Count];
+            for (int i = 0; i < recipeList.Count; ++i)
+            {
+                previewList[i] = new ListItem();
+                previewList[i].Title = recipeList[i].Title;
+                previewList[i].Info = recipeList[i].Description;
+                previewList[i].Image = recipeList[i].ImageLocation;
+            }
+            ShowListItems();
+        }
+
     }
 }

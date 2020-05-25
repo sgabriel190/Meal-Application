@@ -138,7 +138,6 @@ namespace Meal_Application
                 {
                     string ingredientsInput = textBoxIngredients.Text;
                     int numberOfRecipes = Decimal.ToInt32(recipeNumericUpDownSearch.Value);
-
                     List<RecipeData> recipeList = controller.GetRecipiesFromIngridients(ingredientsInput, numberOfRecipes);
                     
                     refreshPreviewList(recipeList);

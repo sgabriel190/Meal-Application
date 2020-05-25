@@ -132,17 +132,8 @@ namespace Meal_Application
                     int numberOfRecipes = Decimal.ToInt32(recipeNumericUpDownSearch.Value);
 
                     List<RecipeData> recipeList = controller.GetRecipiesFromIngridients(ingredientsInput, numberOfRecipes);
-                    previewList = new ListItem[recipeList.Count];
-                    for (int i = 0; i < recipeList.Count; ++i)
-                    {
-                        previewList[i] = new ListItem();
-                        previewList[i].Title = recipeList[i].Title;
-                        previewList[i].Info = recipeList[i].Description;
-                        previewList[i].Image = recipeList[i].ImageLocation;
-                        previewList[i].Click+= (s, ev) => { MessageBox.Show("here"); };
-                       
-                    }
-                    ShowListItems();
+                    
+                    refreshPreviewList(recipeList);
                 }
             }
             else if(radioButtonNutrients.Checked)
@@ -191,6 +182,7 @@ namespace Meal_Application
                 previewList[i].Title = recipeList[i].Title;
                 previewList[i].Info = recipeList[i].Description;
                 previewList[i].Image = recipeList[i].ImageLocation;
+                previewList[i].ClickEvent = (s, ev) => { MessageBox.Show("here"); };
             }
             ShowListItems();
         }

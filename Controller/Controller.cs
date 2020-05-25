@@ -15,12 +15,11 @@ namespace ControllerNamespace
     {
         private ClientAPI clientAPI = null;
         private IParse queryParser = null;
-        private FilterJSON filter = null;
+        private IFilter filter = null;
 
         public Controller()
         {
             clientAPI = ClientAPI.GetInstance();
-            filter = new FilterJSON();
         }
 
         public List<RecipeData> GetRecipiesFromIngridients(string inputIngredients, int numberOfRecipes)
@@ -31,7 +30,8 @@ namespace ControllerNamespace
             string query = queryParser.CreateQuery();
             JArray searchResult = clientAPI.SearchByIngredients(query);
 
-            listOfRecipies = filter.FilterMultipleData(searchResult);
+            filter = new FilterJSON(searchResult);
+            listOfRecipies = filter.FilterMultipleData();
 
             return listOfRecipies;
         }
@@ -44,7 +44,8 @@ namespace ControllerNamespace
             string query = queryParser.CreateQuery();
             JArray searchResult = clientAPI.SearchByNutrients(query);
 
-            listOfRecipies = filter.FilterMultipleData(searchResult);
+            filter = new FilterJSON(searchResult);
+            listOfRecipies = filter.FilterMultipleData();
 
 
             return listOfRecipies;

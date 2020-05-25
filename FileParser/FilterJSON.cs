@@ -8,15 +8,25 @@ namespace FileParser
     public class FilterJSON : IFilter
     {
         private JObject objectJSON;
+        private JArray arrayJSON;
+
+        public FilterJSON(JArray arrayJSON)
+        {
+            this.arrayJSON = arrayJSON;
+        }
+        public FilterJSON(JObject objectJSON)
+        {
+            this.objectJSON = objectJSON;
+        }
         public RecipeData FilterData()
         {
             return new RecipeData(Int32.Parse(objectJSON.GetValue("id").ToString()), objectJSON.GetValue("title").ToString(),
-                objectJSON.GetValue("image").ToString(), "Likes :" + objectJSON.GetValue("likes").ToString());
+                 objectJSON.GetValue("image").ToString(), "Likes :" + objectJSON.GetValue("likes").ToString());
         }
-        public List<RecipeData> FilterMultipleData(JArray arrayDataToFilter)
+        public List<RecipeData> FilterMultipleData()
         {
             List<RecipeData> dataList = new List<RecipeData>();
-            foreach (JObject JSONobj in arrayDataToFilter)
+            foreach (JObject JSONobj in arrayJSON)
             {
                 RecipeData dataCreated = new RecipeData();
 
@@ -30,9 +40,9 @@ namespace FileParser
                 else if(JSONobj.ContainsKey("calories") && JSONobj.ContainsKey("carbs"))
                 {
                     dataCreated.Description = "Calories: " + JSONobj.GetValue("calories").ToString() +
-                        "\tProteins: " + JSONobj.GetValue("protein").ToString() +
-                        "\tCarbs: " + JSONobj.GetValue("carbs").ToString() +
-                        "\tFat: " + JSONobj.GetValue("fat").ToString();
+                        "   Proteins: " + JSONobj.GetValue("protein").ToString() +
+                        "   Carbs: " + JSONobj.GetValue("carbs").ToString() +
+                        "   Fat: " + JSONobj.GetValue("fat").ToString();
                 }
                 dataList.Add(dataCreated);
             }
@@ -49,10 +59,6 @@ namespace FileParser
                 dataToBeCompleted.URL = objectJSON.GetValue("sourceURL").ToString();
             }
             return dataToBeCompleted;
-        }
-        public void SetData(JObject objectJSON)
-        {
-            this.objectJSON = objectJSON;
         }
     }
 }

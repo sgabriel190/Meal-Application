@@ -73,7 +73,7 @@ namespace ControllerNamespace
             return listOfRecipies;
         }
 
-        public RecipeData GetRecipeById(RecipeData dataModel)
+        public RecipeData GetCompleteRecipe(RecipeData dataModel)
         {
             JObject searchResult = clientAPI.GetById(dataModel.ID);
             filter = new FilterJSON(searchResult);

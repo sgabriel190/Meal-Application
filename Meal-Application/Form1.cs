@@ -1,9 +1,12 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Meal_Application
 {
     public partial class FormMealApp : Form
     {
+       
         public FormMealApp()
         {
             InitializeComponent();
@@ -36,7 +39,6 @@ namespace Meal_Application
                 groupBoxCarbs.Enabled = true;
             else
                 groupBoxCarbs.Enabled = false;
-
         }
 
         private void checkBoxProtein_CheckedChanged(object sender, System.EventArgs e)
@@ -72,7 +74,6 @@ namespace Meal_Application
             }
             else
                 textBoxIngredients.Enabled = false;
-
         }
 
 
@@ -85,7 +86,41 @@ namespace Meal_Application
             }
             else
                 groupBoxNutrients.Enabled = false;
+        }
 
+        private void recipeSearchButton_Click(object sender, System.EventArgs e)
+        {
+            
+            if(radioButtonIngredients.Checked)
+            {
+
+            }
+            else if(radioButtonNutrients.Checked)
+            {
+                Dictionary<string, int> _nutrients = new Dictionary<string, int>();
+                if (checkBoxCarbs.Checked)
+                {
+                    _nutrients["minCarbs"] = Decimal.ToInt32(numericUpDownMinCarbs.Value);
+                    _nutrients["maxCarbs"] = Decimal.ToInt32(numericUpDownMaxCarbs.Value);
+                }
+                if(checkBoxProtein.Checked)
+                {
+                    _nutrients["minProtein"] = Decimal.ToInt32(numericUpDownMinProtein.Value);
+                    _nutrients["maxProtein"] = Decimal.ToInt32(numericUpDownMaxProtein.Value);
+                }
+                if(checkBoxFat.Checked)
+                {
+                    _nutrients["minFat"] = Decimal.ToInt32(numericUpDownMinFat.Value);
+                    _nutrients["maxFat"] = Decimal.ToInt32(numericUpDownMaxFat.Value);
+                }
+                if(checkBoxCalories.Checked)
+                {
+                    _nutrients["minCalories"] = Decimal.ToInt32(numericUpDownMinCalories.Value);
+                    _nutrients["maxCalories"] = Decimal.ToInt32(numericUpDownMaxCalories.Value);
+                }
+                if (_nutrients.Count == 0)
+                    MessageBox.Show("You have to choose a category of nutrients first.");
+            }
         }
     }
 }

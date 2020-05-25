@@ -31,6 +31,7 @@
             this.tabControlSearch = new System.Windows.Forms.TabControl();
             this.tabPageSearch = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.groupBoxNutrients = new System.Windows.Forms.GroupBox();
             this.groupBoxCalories = new System.Windows.Forms.GroupBox();
             this.numericUpDownMinCalories = new System.Windows.Forms.NumericUpDown();
             this.labelMinCalories = new System.Windows.Forms.Label();
@@ -59,6 +60,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.checkBoxCarbs = new System.Windows.Forms.CheckBox();
             this.labelProtein = new System.Windows.Forms.Label();
+            this.radioButtonNutrients = new System.Windows.Forms.RadioButton();
+            this.radioButtonIngredients = new System.Windows.Forms.RadioButton();
             this.textBoxIngredients = new System.Windows.Forms.TextBox();
             this.labelResultsNumber = new System.Windows.Forms.Label();
             this.recipeNumericUpDownSearch = new System.Windows.Forms.NumericUpDown();
@@ -75,15 +78,13 @@
             this.textBoxCalories = new System.Windows.Forms.TextBox();
             this.labelCalories = new System.Windows.Forms.Label();
             this.labelMealPlan = new System.Windows.Forms.Label();
-            this.radioButtonIngredients = new System.Windows.Forms.RadioButton();
-            this.radioButtonNutrients = new System.Windows.Forms.RadioButton();
-            this.groupBoxNutrients = new System.Windows.Forms.GroupBox();
             this.tabControlSearch.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBoxNutrients.SuspendLayout();
             this.groupBoxCalories.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinCalories)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxCalories)).BeginInit();
@@ -98,7 +99,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxCarbs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeNumericUpDownSearch)).BeginInit();
             this.tabPageMealPlan.SuspendLayout();
-            this.groupBoxNutrients.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlSearch
@@ -147,6 +147,26 @@
             this.splitContainer1.Size = new System.Drawing.Size(1005, 586);
             this.splitContainer1.SplitterDistance = 316;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // groupBoxNutrients
+            // 
+            this.groupBoxNutrients.Controls.Add(this.groupBoxCalories);
+            this.groupBoxNutrients.Controls.Add(this.checkBoxCalories);
+            this.groupBoxNutrients.Controls.Add(this.groupBoxFat);
+            this.groupBoxNutrients.Controls.Add(this.label5);
+            this.groupBoxNutrients.Controls.Add(this.checkBoxFat);
+            this.groupBoxNutrients.Controls.Add(this.groupBoxProtein);
+            this.groupBoxNutrients.Controls.Add(this.label4);
+            this.groupBoxNutrients.Controls.Add(this.checkBoxProtein);
+            this.groupBoxNutrients.Controls.Add(this.groupBoxCarbs);
+            this.groupBoxNutrients.Controls.Add(this.label3);
+            this.groupBoxNutrients.Controls.Add(this.checkBoxCarbs);
+            this.groupBoxNutrients.Controls.Add(this.labelProtein);
+            this.groupBoxNutrients.Location = new System.Drawing.Point(12, 113);
+            this.groupBoxNutrients.Name = "groupBoxNutrients";
+            this.groupBoxNutrients.Size = new System.Drawing.Size(296, 378);
+            this.groupBoxNutrients.TabIndex = 37;
+            this.groupBoxNutrients.TabStop = false;
             // 
             // groupBoxCalories
             // 
@@ -461,6 +481,32 @@
             this.labelProtein.TabIndex = 7;
             this.labelProtein.Text = "Protein:";
             // 
+            // radioButtonNutrients
+            // 
+            this.radioButtonNutrients.AutoSize = true;
+            this.radioButtonNutrients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonNutrients.Location = new System.Drawing.Point(15, 87);
+            this.radioButtonNutrients.Name = "radioButtonNutrients";
+            this.radioButtonNutrients.Size = new System.Drawing.Size(78, 20);
+            this.radioButtonNutrients.TabIndex = 36;
+            this.radioButtonNutrients.TabStop = true;
+            this.radioButtonNutrients.Text = "Nutrients";
+            this.radioButtonNutrients.UseVisualStyleBackColor = true;
+            this.radioButtonNutrients.CheckedChanged += new System.EventHandler(this.radioButtonNutrients_CheckedChanged);
+            // 
+            // radioButtonIngredients
+            // 
+            this.radioButtonIngredients.AutoSize = true;
+            this.radioButtonIngredients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonIngredients.Location = new System.Drawing.Point(12, 22);
+            this.radioButtonIngredients.Name = "radioButtonIngredients";
+            this.radioButtonIngredients.Size = new System.Drawing.Size(92, 20);
+            this.radioButtonIngredients.TabIndex = 35;
+            this.radioButtonIngredients.TabStop = true;
+            this.radioButtonIngredients.Text = "Ingredients";
+            this.radioButtonIngredients.UseVisualStyleBackColor = true;
+            this.radioButtonIngredients.CheckedChanged += new System.EventHandler(this.radioButtonIngredients_CheckedChanged);
+            // 
             // textBoxIngredients
             // 
             this.textBoxIngredients.Location = new System.Drawing.Point(12, 47);
@@ -481,7 +527,7 @@
             // recipeNumericUpDownSearch
             // 
             this.recipeNumericUpDownSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recipeNumericUpDownSearch.Location = new System.Drawing.Point(458, 40);
+            this.recipeNumericUpDownSearch.Location = new System.Drawing.Point(458, 42);
             this.recipeNumericUpDownSearch.Margin = new System.Windows.Forms.Padding(2);
             this.recipeNumericUpDownSearch.Maximum = new decimal(new int[] {
             50,
@@ -519,6 +565,7 @@
             this.recipeSearchButton.TabIndex = 1;
             this.recipeSearchButton.Text = "Search";
             this.recipeSearchButton.UseVisualStyleBackColor = true;
+            this.recipeSearchButton.Click += new System.EventHandler(this.recipeSearchButton_Click);
             // 
             // recipeTextBoxSearch
             // 
@@ -634,52 +681,6 @@
             this.labelMealPlan.TabIndex = 1;
             this.labelMealPlan.Text = "Meal Plan";
             // 
-            // radioButtonIngredients
-            // 
-            this.radioButtonIngredients.AutoSize = true;
-            this.radioButtonIngredients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonIngredients.Location = new System.Drawing.Point(12, 22);
-            this.radioButtonIngredients.Name = "radioButtonIngredients";
-            this.radioButtonIngredients.Size = new System.Drawing.Size(92, 20);
-            this.radioButtonIngredients.TabIndex = 35;
-            this.radioButtonIngredients.TabStop = true;
-            this.radioButtonIngredients.Text = "Ingredients";
-            this.radioButtonIngredients.UseVisualStyleBackColor = true;
-            this.radioButtonIngredients.CheckedChanged += new System.EventHandler(this.radioButtonIngredients_CheckedChanged);
-            // 
-            // radioButtonNutrients
-            // 
-            this.radioButtonNutrients.AutoSize = true;
-            this.radioButtonNutrients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonNutrients.Location = new System.Drawing.Point(15, 87);
-            this.radioButtonNutrients.Name = "radioButtonNutrients";
-            this.radioButtonNutrients.Size = new System.Drawing.Size(78, 20);
-            this.radioButtonNutrients.TabIndex = 36;
-            this.radioButtonNutrients.TabStop = true;
-            this.radioButtonNutrients.Text = "Nutrients";
-            this.radioButtonNutrients.UseVisualStyleBackColor = true;
-            this.radioButtonNutrients.CheckedChanged += new System.EventHandler(this.radioButtonNutrients_CheckedChanged);
-            // 
-            // groupBoxNutrients
-            // 
-            this.groupBoxNutrients.Controls.Add(this.groupBoxCalories);
-            this.groupBoxNutrients.Controls.Add(this.checkBoxCalories);
-            this.groupBoxNutrients.Controls.Add(this.groupBoxFat);
-            this.groupBoxNutrients.Controls.Add(this.label5);
-            this.groupBoxNutrients.Controls.Add(this.checkBoxFat);
-            this.groupBoxNutrients.Controls.Add(this.groupBoxProtein);
-            this.groupBoxNutrients.Controls.Add(this.label4);
-            this.groupBoxNutrients.Controls.Add(this.checkBoxProtein);
-            this.groupBoxNutrients.Controls.Add(this.groupBoxCarbs);
-            this.groupBoxNutrients.Controls.Add(this.label3);
-            this.groupBoxNutrients.Controls.Add(this.checkBoxCarbs);
-            this.groupBoxNutrients.Controls.Add(this.labelProtein);
-            this.groupBoxNutrients.Location = new System.Drawing.Point(12, 113);
-            this.groupBoxNutrients.Name = "groupBoxNutrients";
-            this.groupBoxNutrients.Size = new System.Drawing.Size(296, 378);
-            this.groupBoxNutrients.TabIndex = 37;
-            this.groupBoxNutrients.TabStop = false;
-            // 
             // FormMealApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -687,6 +688,7 @@
             this.ClientSize = new System.Drawing.Size(1096, 655);
             this.Controls.Add(this.tabControlSearch);
             this.Name = "FormMealApp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Meal Application";
             this.Load += new System.EventHandler(this.FormMealApp_Load);
             this.tabControlSearch.ResumeLayout(false);
@@ -697,6 +699,8 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.groupBoxNutrients.ResumeLayout(false);
+            this.groupBoxNutrients.PerformLayout();
             this.groupBoxCalories.ResumeLayout(false);
             this.groupBoxCalories.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinCalories)).EndInit();
@@ -716,8 +720,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.recipeNumericUpDownSearch)).EndInit();
             this.tabPageMealPlan.ResumeLayout(false);
             this.tabPageMealPlan.PerformLayout();
-            this.groupBoxNutrients.ResumeLayout(false);
-            this.groupBoxNutrients.PerformLayout();
             this.ResumeLayout(false);
 
         }

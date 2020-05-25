@@ -1,5 +1,5 @@
 ﻿
-namespace Controller
+namespace ControllerNamespace
 {
     class ParseIngredients : IParse
     {

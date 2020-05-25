@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using ControllerNamespace;
 
 namespace Meal_Application
 {
     public partial class FormMealApp : Form
     {
-       
+        private Controller controller = null;
+
+
         public FormMealApp()
         {
             InitializeComponent();
+            controller = new Controller();
         }
 
-        private void FormMealApp_Load(object sender, System.EventArgs e)
+        private void FormMealApp_Load(object sender, EventArgs e)
         {
             //tested view list of recipes
             ShowListItems();
@@ -33,7 +37,7 @@ namespace Meal_Application
 
         }
 
-        private void checkBoxCarbs_CheckedChanged(object sender, System.EventArgs e)
+        private void checkBoxCarbs_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxCarbs.Checked)
                 groupBoxCarbs.Enabled = true;
@@ -41,7 +45,7 @@ namespace Meal_Application
                 groupBoxCarbs.Enabled = false;
         }
 
-        private void checkBoxProtein_CheckedChanged(object sender, System.EventArgs e)
+        private void checkBoxProtein_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxProtein.Checked)
                 groupBoxProtein.Enabled = true;
@@ -49,7 +53,7 @@ namespace Meal_Application
                 groupBoxProtein.Enabled = false;
         }
 
-        private void checkBoxFat_CheckedChanged(object sender, System.EventArgs e)
+        private void checkBoxFat_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxFat.Checked)
                 groupBoxFat.Enabled = true;
@@ -57,7 +61,7 @@ namespace Meal_Application
                 groupBoxFat.Enabled = false;
         }
 
-        private void checkBoxCalories_CheckedChanged(object sender, System.EventArgs e)
+        private void checkBoxCalories_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxCalories.Checked)
                 groupBoxCalories.Enabled = true;
@@ -65,7 +69,7 @@ namespace Meal_Application
                 groupBoxCalories.Enabled = false;
         }
 
-        private void radioButtonIngredients_CheckedChanged(object sender, System.EventArgs e)
+        private void radioButtonIngredients_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButtonIngredients.Checked)
             {
@@ -77,7 +81,7 @@ namespace Meal_Application
         }
 
 
-        private void radioButtonNutrients_CheckedChanged(object sender, System.EventArgs e)
+        private void radioButtonNutrients_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButtonNutrients.Checked)
             {
@@ -88,7 +92,7 @@ namespace Meal_Application
                 groupBoxNutrients.Enabled = false;
         }
 
-        private void recipeSearchButton_Click(object sender, System.EventArgs e)
+        private void recipeSearchButton_Click(object sender, EventArgs e)
         {
             
             if(radioButtonIngredients.Checked)

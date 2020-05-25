@@ -1,7 +1,7 @@
 ﻿using ClientApi;
 using Newtonsoft.Json.Linq;
 
-namespace Controller
+namespace ControllerNamespace
 {
     /**
      * Clasa controller detine acces direct care toate functionalitatile aplicatiei,

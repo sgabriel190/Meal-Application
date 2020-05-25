@@ -1,6 +1,6 @@
 ﻿
 
-namespace Controller
+namespace ControllerNamespace
 {
     interface IParse
     {

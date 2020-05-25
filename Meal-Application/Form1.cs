@@ -207,6 +207,27 @@ namespace Meal_Application
             else
             {
                 generatedMealList = controller.GetRecipesMealPlan(Int32.Parse(textBoxCalories.Text), comboBoxDiet.Text, textBoxExcludeIng.Text);
+                previewList = new ListItem[3];
+                for (int i = 0; i < 3; ++i)
+                {
+                    previewList[i] = new ListItem();
+                    previewList[i].ID = generatedMealList[i].ID;
+                    previewList[i].Title = generatedMealList[i].Title;
+                    previewList[i].Info = generatedMealList[i].Description;
+                    previewList[i].Image = generatedMealList[i].ImageLocation;
+                    int idx = i;
+                    previewList[i].ClickEvent = (s, ev) => { };//AddNewTab(idx); 
+                }
+                flowLayoutPanelMealPlan.Controls.Clear();
+                if (previewList != null)
+                {
+                    for (int i = 0; i < previewList.Length; i++)
+                    {
+                        previewList[i].SeparatorSize = flowLayoutPanelMealPlan.Width;
+                        previewList[i].Width = flowLayoutPanelMealPlan.Width;
+                        flowLayoutPanelMealPlan.Controls.Add(previewList[i]);
+                    }
+                }
             }
         }
     }

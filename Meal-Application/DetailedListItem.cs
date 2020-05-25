@@ -42,7 +42,7 @@ namespace Meal_Application
         public string URL
         {
             get { return _url; }
-            set { _url = value; labelURL.Text = value; }
+            set { _url = value; linkLabel.Text = value; }
         }
         public string Instructions
         {
@@ -50,5 +50,10 @@ namespace Meal_Application
             set { _instructions = value; labelInstructions.Text = value; }
         }
 
+        private void linkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabel.LinkVisited = true;
+            System.Diagnostics.Process.Start(_url);
+        }
     }
 }

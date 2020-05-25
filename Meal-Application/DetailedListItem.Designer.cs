@@ -32,7 +32,7 @@
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelInfo = new System.Windows.Forms.Label();
             this.labelInstructions = new System.Windows.Forms.Label();
-            this.labelURL = new System.Windows.Forms.Label();
+            this.linkLabel = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,22 +76,24 @@
             this.labelInstructions.TabIndex = 3;
             this.labelInstructions.Text = "Instructions";
             // 
-            // labelURL
+            // linkLabel
             // 
-            this.labelURL.AutoSize = true;
-            this.labelURL.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelURL.Location = new System.Drawing.Point(319, 109);
-            this.labelURL.Name = "labelURL";
-            this.labelURL.Size = new System.Drawing.Size(38, 18);
-            this.labelURL.TabIndex = 4;
-            this.labelURL.Text = "URL";
+            this.linkLabel.AutoSize = true;
+            this.linkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel.Location = new System.Drawing.Point(319, 110);
+            this.linkLabel.Name = "linkLabel";
+            this.linkLabel.Size = new System.Drawing.Size(73, 18);
+            this.linkLabel.TabIndex = 5;
+            this.linkLabel.TabStop = true;
+            this.linkLabel.Text = "linkLabel1";
+            this.linkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_LinkClicked);
             // 
             // DetailedListItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Controls.Add(this.labelURL);
+            this.Controls.Add(this.linkLabel);
             this.Controls.Add(this.labelInstructions);
             this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.labelTitle);
@@ -110,6 +112,6 @@
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.Label labelInstructions;
-        private System.Windows.Forms.Label labelURL;
+        private System.Windows.Forms.LinkLabel linkLabel;
     }
 }

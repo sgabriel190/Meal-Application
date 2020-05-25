@@ -11,17 +11,17 @@ namespace ClientApi
     public class PathBuilder
     {
         // Metoda care construieste resursa specifica functiei searchByIngredients
-        public string BuildPathIngredients(string apiKey, string ingredientsQuery, int numberRecipes)
+        public string BuildPathIngredients(string apiKey, string ingredientsQuery)
         {
             string path = "recipes/findByIngredients";
-            path += "?" + apiKey + "&" + ingredientsQuery + $"&number={numberRecipes}";
+            path += "?" + apiKey + "&" + ingredientsQuery;
             return path;
         }
         // Metoda care construieste resursa specifica functiei searchByNutrients
-        public string BuildPathNutrients(string apiKey, string nutrientsQuery, int numberRecipes)
+        public string BuildPathNutrients(string apiKey, string nutrientsQuery)
         {
             string path = "recipes/findByNutrients";
-            path += "?" + apiKey + "&" + nutrientsQuery + $"&number={numberRecipes}";
+            path += "?" + apiKey + "&" + nutrientsQuery;
             return path;
         }
         // Metoda care construieste resursa specifica functiei getRecipeInformation
@@ -29,6 +29,12 @@ namespace ClientApi
         {
             string path = $"recipes/{id}/information";
             path += "?" + apiKey;
+            return path;
+        }
+        public string BuildPathGenerateMealPlan(string apiKey, string mealPlannerQuery)
+        {
+            string path = "mealplanner/generate";
+            path += "?" + apiKey + "&" + mealPlannerQuery;
             return path;
         }
     }

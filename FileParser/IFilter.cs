@@ -1,6 +1,4 @@
 ﻿using DataModel;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
 
 namespace FileParser
 {

@@ -37,9 +37,9 @@ namespace ClientApi
             }
             return instance;
         }
-        public JArray SearchByIngredients(string ingredientQuery, int numberRecipes)
+        public JArray SearchByIngredients(string ingredientQuery)
         {
-            string path = pathBuilder.BuildPathIngredients(apiKey, ingredientQuery, numberRecipes);
+            string path = pathBuilder.BuildPathIngredients(apiKey, ingredientQuery);
             HttpResponseMessage response = httpClient.GetAsync(path).Result;
             if(response.IsSuccessStatusCode)
             {
@@ -52,14 +52,29 @@ namespace ClientApi
                 throw new System.Exception("HTTP error");
             }
         }
-        public JArray SearchByNutrients(string nutrientsQuery, int numberRecipes)
+        public JArray SearchByNutrients(string nutrientsQuery)
         {
-            string path = pathBuilder.BuildPathNutrients(apiKey, nutrientsQuery, numberRecipes);
+            string path = pathBuilder.BuildPathNutrients(apiKey, nutrientsQuery);
             HttpResponseMessage response = httpClient.GetAsync(path).Result;
             if (response.IsSuccessStatusCode)
             {
                 string dataObject = response.Content.ReadAsStringAsync().Result;
                 JArray json = JArray.Parse(dataObject);
+                return json;
+            }
+            else
+            {
+                throw new System.Exception("HTTP error");
+            }
+        }
+        public JObject GenerateMealPlan(string mealPlannerQuery)
+        {
+            string path = pathBuilder.BuildPathGenerateMealPlan(apiKey, mealPlannerQuery);
+            HttpResponseMessage response = httpClient.GetAsync(path).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                string dataObject = response.Content.ReadAsStringAsync().Result;
+                JObject json = JObject.Parse(dataObject);
                 return json;
             }
             else

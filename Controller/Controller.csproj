@@ -63,5 +63,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FileParser\FileFilter.csproj">
+      <Project>{39B9E4DA-4FEC-464C-854C-993F9D9981F1}</Project>
+      <Name>FileFilter</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -94,7 +94,7 @@ namespace Meal_Application
 
         private void recipeSearchButton_Click(object sender, EventArgs e)
         {
-            
+            flowLayoutPanelListItems.Controls.Clear();
             if(radioButtonIngredients.Checked)
             {
                 if(textBoxIngredients.Text == "")

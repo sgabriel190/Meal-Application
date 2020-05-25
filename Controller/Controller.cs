@@ -26,9 +26,23 @@ namespace ControllerNamespace
         public List<RecipeData> GetRecipiesFromIngridients(string inputIngredients, int numberOfRecipes)
         {
             List<RecipeData> listOfRecipies = new List<RecipeData>();
+
             queryParser = new ParseIngredients(inputIngredients, numberOfRecipes);
             string query = queryParser.CreateQuery();
             JArray searchResult = clientAPI.SearchByIngredients(query);
+
+            listOfRecipies = filter.FilterMultipleData(searchResult);
+
+            return listOfRecipies;
+        }
+
+        public List<RecipeData> GetRecipiesFromNutrients(Dictionary<string, int> inputedNutrients, int numberOfRecipes)
+        {
+            List<RecipeData> listOfRecipies = new List<RecipeData>();
+
+            queryParser = new ParseNutrients(inputedNutrients, numberOfRecipes);
+            string query = queryParser.CreateQuery();
+            JArray searchResult = clientAPI.SearchByNutrients(query);
 
             listOfRecipies = filter.FilterMultipleData(searchResult);
 

@@ -14,7 +14,7 @@ namespace ControllerNamespace
 
         public string CreateQuery()
         {
-            string query = "";
+            string query = "ingredients=";
             string []words;
             int i;
             

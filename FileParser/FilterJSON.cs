@@ -1,5 +1,4 @@
-﻿
-using DataModel;
+﻿using DataModel;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
@@ -7,19 +6,22 @@ namespace FileParser
 {
     public class FilterJSON : IFilter
     {
-        public RecipeData FilterDataFromID(JObject json)
+        private JObject objectJSON;
+        public RecipeData FilterData()
         {
             throw new System.NotImplementedException();
         }
-
-        public List<RecipeData> FilterDataFromIngredients(JArray json)
+        public List<RecipeData> FilterMultipleData(JArray arrayDataToFilter)
         {
-            throw new System.NotImplementedException();
+            return null;
         }
-
-        public List<RecipeData> FilterDataFromNutrients(JArray json)
+        public RecipeData CompleteData(RecipeData dataToBeCompleted)
         {
-            throw new System.NotImplementedException();
+            return null;
+        }
+        public void SetData(JObject objectJSON)
+        {
+            this.objectJSON = objectJSON;
         }
     }
 }

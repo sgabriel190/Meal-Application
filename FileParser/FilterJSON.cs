@@ -21,7 +21,7 @@ namespace FileParser
         public RecipeData FilterData()
         {
             return new RecipeData(Int32.Parse(objectJSON.GetValue("id").ToString()), objectJSON.GetValue("title").ToString(),
-                 objectJSON.GetValue("image").ToString(), "Likes :" + objectJSON.GetValue("likes").ToString());
+                 objectJSON.GetValue("image").ToString(), "Source name:" + objectJSON.GetValue("sourceName").ToString());
         }
         public List<RecipeData> FilterMultipleData()
         {
@@ -54,9 +54,9 @@ namespace FileParser
             {
                 dataToBeCompleted.Instructions = objectJSON.GetValue("instructions").ToString();
             }
-            if (objectJSON.ContainsKey("sourceURL"))
+            if (objectJSON.ContainsKey("sourceUrl"))
             {
-                dataToBeCompleted.URL = objectJSON.GetValue("sourceURL").ToString();
+                dataToBeCompleted.URL = objectJSON.GetValue("sourceUrl").ToString();
             }
             return dataToBeCompleted;
         }

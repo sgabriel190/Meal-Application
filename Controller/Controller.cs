@@ -3,6 +3,8 @@ using DataModel;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using FileParser;
+using System.Globalization;
+using System;
 
 namespace ControllerNamespace
 {
@@ -32,6 +34,26 @@ namespace ControllerNamespace
 
             filter = new FilterJSON(searchResult);
             listOfRecipies = filter.FilterMultipleData();
+
+            return listOfRecipies;
+        }
+
+        public List<RecipeData> GetRecipesMealPlan(int targetCalories, string diet, string exclude)
+        {
+            List<RecipeData> listOfRecipies = new List<RecipeData>();
+            queryParser = new ParseMealGenerate(targetCalories, diet, exclude);
+            string query = queryParser.CreateQuery();
+            JObject searchResult = clientAPI.GenerateMealPlan(query);
+            JArray listMeals = (JArray)searchResult.GetValue("meals");
+
+            foreach (JObject JSONobj in listMeals)
+            {
+                JObject resultById = clientAPI.GetById(Int32.Parse(JSONobj.GetValue("id").ToString()));
+                filter = new FilterJSON(resultById);
+                RecipeData meal = filter.FilterData();
+                meal = filter.CompleteData(meal);
+                listOfRecipies.Add(meal);
+            }
 
             return listOfRecipies;
         }

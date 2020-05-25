@@ -18,10 +18,16 @@ namespace Meal_Application
             InitializeComponent();
         }
 
+        private int _id;
         private string _title;
         private string _info;
         private string _img;
   
+        public int ID
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
         public string Title
         {
             get { return _title; }

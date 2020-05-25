@@ -69,7 +69,7 @@
             // labelListItemInfo
             // 
             this.labelListItemInfo.AutoSize = true;
-            this.labelListItemInfo.Location = new System.Drawing.Point(157, 46);
+            this.labelListItemInfo.Location = new System.Drawing.Point(157, 55);
             this.labelListItemInfo.MaximumSize = new System.Drawing.Size(300, 0);
             this.labelListItemInfo.Name = "labelListItemInfo";
             this.labelListItemInfo.Size = new System.Drawing.Size(25, 13);

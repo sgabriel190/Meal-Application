@@ -24,8 +24,7 @@ namespace Meal_Application
         {
             ShowListItems();
             radioButtonIngredients.Checked = true;
-
-            AddNewTab();
+            
         }
         private void AddNewTab()
         {
@@ -38,6 +37,7 @@ namespace Meal_Application
             detailedItem.Instructions = st;
             
             detailedItem.Image = "https://spoonacular.com/recipeImages/284420-312x231.jpg";
+
             button.Click += (s, ev) => { tabControlSearch.TabPages.Remove(tp); };
             button.Location = new Point(965, 10);
             button.Image = Resources.close_img;
@@ -47,9 +47,11 @@ namespace Meal_Application
             tp.Controls.Add(detailedItem);
             tp.AutoScroll = true;
             tabControlSearch.TabPages.Add(tp);
+            tabControlSearch.SelectedTab=tp;
         }
         private void ShowListItems()
         {
+            flowLayoutPanelListItems.Controls.Clear();
             if (previewList != null)
             {
                 for (int i = 0; i < previewList.Length; i++)
@@ -117,7 +119,7 @@ namespace Meal_Application
 
         private void recipeSearchButton_Click(object sender, EventArgs e)
         {
-            flowLayoutPanelListItems.Controls.Clear();
+            
             if(radioButtonIngredients.Checked)
             {
                 if(textBoxIngredients.Text == "")
@@ -137,6 +139,8 @@ namespace Meal_Application
                         previewList[i].Title = recipeList[i].Title;
                         previewList[i].Info = recipeList[i].Description;
                         previewList[i].Image = recipeList[i].ImageLocation;
+                        previewList[i].Click+= (s, ev) => { MessageBox.Show("here"); };
+                       
                     }
                     ShowListItems();
                 }
@@ -169,8 +173,7 @@ namespace Meal_Application
                     MessageBox.Show("You have to choose a category of nutrients first.");
                 }
             }
-
-            
+          
         }
     }
 }

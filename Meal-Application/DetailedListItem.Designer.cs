@@ -86,7 +86,7 @@
             this.labelURL.TabIndex = 4;
             this.labelURL.Text = "URL";
             // 
-            // DetaliedListItem
+            // DetailedListItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -96,7 +96,7 @@
             this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.pictureBox);
-            this.Name = "DetaliedListItem";
+            this.Name = "DetailedListItem";
             this.Size = new System.Drawing.Size(876, 323);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);

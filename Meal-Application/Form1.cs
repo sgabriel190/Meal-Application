@@ -11,13 +11,15 @@ namespace Meal_Application
     public partial class FormMealApp : Form
     {
         private Controller controller = null;
-        ListItem[] previewList = null;
+        private ListItem[] previewList = null;
+        private List<RecipeData> recipesList = null;
 
 
         public FormMealApp()
         {
             InitializeComponent();
             controller = new Controller();
+            recipesList = new List<RecipeData>();
         }
 
         private void FormMealApp_Load(object sender, EventArgs e)
@@ -28,20 +30,21 @@ namespace Meal_Application
         }
         private void AddNewTab(int idxSelected)
         {
+            recipesList[idxSelected] = controller.GetCompleteRecipe(recipesList[idxSelected]);
             DetailedListItem detailedItem = new DetailedListItem();
             string tabName;
-            if (previewList[idxSelected].Title.Length > 15) tabName = previewList[idxSelected].Title.Substring(0, 15);
+            if (recipesList[idxSelected].Title.Length > 15) tabName = recipesList[idxSelected].Title.Substring(0, 15) + "...";
             else
-                tabName = previewList[idxSelected].Title;
+                tabName = recipesList[idxSelected].Title;
             TabPage tp = new TabPage(tabName);
             Button button = new Button();
 
             detailedItem.Size = tabPageSearch.Size;
-            detailedItem.Title=previewList[idxSelected].Title;
-            detailedItem.Image = previewList[idxSelected].Image;
-            detailedItem.Info = previewList[idxSelected].Info;
-            //detailedItem.Instructions = ..;
-            //detailedItem.URL=...;
+            detailedItem.Title=recipesList[idxSelected].Title;
+            detailedItem.Image = recipesList[idxSelected].ImageLocation;
+            detailedItem.Info = recipesList[idxSelected].Description;
+            detailedItem.Instructions = recipesList[idxSelected].Instructions;
+            detailedItem.URL = recipesList[idxSelected].URL;
 
             button.Click += (s, ev) => { tabControlSearch.TabPages.Remove(tp); };
             button.Location = new Point(965, 10);
@@ -53,8 +56,6 @@ namespace Meal_Application
             tp.AutoScroll = true;
             tabControlSearch.TabPages.Add(tp);
             tabControlSearch.SelectedTab=tp;
-
-           
         }
         private void ShowListItems()
         {
@@ -137,9 +138,9 @@ namespace Meal_Application
                 {
                     string ingredientsInput = textBoxIngredients.Text;
                     int numberOfRecipes = Decimal.ToInt32(recipeNumericUpDownSearch.Value);
-                    List<RecipeData> recipeList = controller.GetRecipiesFromIngridients(ingredientsInput, numberOfRecipes);
+                    recipesList = controller.GetRecipiesFromIngridients(ingredientsInput, numberOfRecipes);
                     
-                    refreshPreviewList(recipeList);
+                    refreshPreviewList();
                 }
             }
             else if(radioButtonNutrients.Checked)
@@ -172,23 +173,23 @@ namespace Meal_Application
                 else
                 {
                     int numberOfRecipes = Decimal.ToInt32(recipeNumericUpDownSearch.Value);
-                    List<RecipeData> recipeList = controller.GetRecipiesFromNutrients(_nutrients, numberOfRecipes);
+                    recipesList = controller.GetRecipiesFromNutrients(_nutrients, numberOfRecipes);
 
-                    refreshPreviewList(recipeList);
+                    refreshPreviewList();
                 }
             }
         }
 
-        private void refreshPreviewList(List<RecipeData> recipeList)
+        private void refreshPreviewList()
         {
-            previewList = new ListItem[recipeList.Count];
-            for (int i = 0; i < recipeList.Count; ++i)
+            previewList = new ListItem[recipesList.Count];
+            for (int i = 0; i < recipesList.Count; ++i)
             {
                 previewList[i] = new ListItem();
-                previewList[i].ID = recipeList[i].ID;
-                previewList[i].Title = recipeList[i].Title;
-                previewList[i].Info = recipeList[i].Description;
-                previewList[i].Image = recipeList[i].ImageLocation;
+                previewList[i].ID = recipesList[i].ID;
+                previewList[i].Title = recipesList[i].Title;
+                previewList[i].Info = recipesList[i].Description;
+                previewList[i].Image = recipesList[i].ImageLocation;
                 int idx = i;
                 previewList[i].ClickEvent = (s, ev) => {  AddNewTab(idx); };
             }

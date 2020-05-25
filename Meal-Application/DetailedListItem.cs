@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Meal_Application
+{
+    public partial class DetailedListItem : UserControl
+    {
+        public DetailedListItem()
+        {
+            InitializeComponent();
+        }
+
+        private string _title;
+        private string _info;
+        private string _img;
+        private string _url;
+        private string _instructions;
+
+        public string Title
+        {
+            get { return _title; }
+            set { _title = value; labelTitle.Text = value; }
+        }
+        public string Info
+        {
+            get { return _info; }
+            set { _info = value; labelInfo.Text = value; }
+        }
+
+        public string Image
+        {
+            get { return _img; }
+            set { _img = value; pictureBox.ImageLocation = value; }
+        }
+        public string URL
+        {
+            get { return _url; }
+            set { _url = value; labelURL.Text = value; }
+        }
+        public string Instructions
+        {
+            get { return _instructions; }
+            set { _instructions = value; labelInstructions.Text = value; }
+        }
+
+    }
+}

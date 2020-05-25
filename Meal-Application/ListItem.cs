@@ -21,7 +21,7 @@ namespace Meal_Application
         private string _title;
         private string _info;
         private string _img;
-        
+  
         public string Title
         {
             get { return _title; }
@@ -38,6 +38,6 @@ namespace Meal_Application
             get { return _img; }
             set { _img = value; pictureBoxListItem.ImageLocation = value; }
         }
-        
+
     }
 }

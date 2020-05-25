@@ -15,7 +15,8 @@ namespace ControllerNamespace
         }
         public string CreateQuery()
         {
-            string query=string.Join("&", _input.Select(elem => elem.Key + "=" + elem.Value));
+            string query = "nutrients=";
+            query += string.Join("&", _input.Select(elem => elem.Key + "=" + elem.Value));
             query += $"&number={_number}";
             return query;
         }

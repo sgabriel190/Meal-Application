@@ -32,7 +32,7 @@
             this.panelPictureListItem = new System.Windows.Forms.Panel();
             this.pictureBoxListItem = new System.Windows.Forms.PictureBox();
             this.labelListItemInfo = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelSeparator = new System.Windows.Forms.Panel();
             this.panelPictureListItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxListItem)).BeginInit();
             this.SuspendLayout();
@@ -42,6 +42,7 @@
             this.labelListItemTitle.AutoSize = true;
             this.labelListItemTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelListItemTitle.Location = new System.Drawing.Point(157, 18);
+            this.labelListItemTitle.MaximumSize = new System.Drawing.Size(300, 0);
             this.labelListItemTitle.Name = "labelListItemTitle";
             this.labelListItemTitle.Size = new System.Drawing.Size(35, 18);
             this.labelListItemTitle.TabIndex = 1;
@@ -68,19 +69,20 @@
             // labelListItemInfo
             // 
             this.labelListItemInfo.AutoSize = true;
-            this.labelListItemInfo.Location = new System.Drawing.Point(157, 45);
+            this.labelListItemInfo.Location = new System.Drawing.Point(157, 46);
+            this.labelListItemInfo.MaximumSize = new System.Drawing.Size(300, 0);
             this.labelListItemInfo.Name = "labelListItemInfo";
             this.labelListItemInfo.Size = new System.Drawing.Size(25, 13);
             this.labelListItemInfo.TabIndex = 5;
             this.labelListItemInfo.Text = "Info";
             // 
-            // panel1
+            // panelSeparator
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.Location = new System.Drawing.Point(0, 93);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(584, 10);
-            this.panel1.TabIndex = 3;
+            this.panelSeparator.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelSeparator.Location = new System.Drawing.Point(0, 93);
+            this.panelSeparator.Name = "panelSeparator";
+            this.panelSeparator.Size = new System.Drawing.Size(584, 10);
+            this.panelSeparator.TabIndex = 3;
             // 
             // ListItem
             // 
@@ -89,7 +91,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.labelListItemInfo);
             this.Controls.Add(this.panelPictureListItem);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelSeparator);
             this.Controls.Add(this.labelListItemTitle);
             this.Name = "ListItem";
             this.Size = new System.Drawing.Size(502, 97);
@@ -105,6 +107,6 @@
         private System.Windows.Forms.Panel panelPictureListItem;
         private System.Windows.Forms.PictureBox pictureBoxListItem;
         private System.Windows.Forms.Label labelListItemInfo;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelSeparator;
     }
 }

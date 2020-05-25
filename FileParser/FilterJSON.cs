@@ -40,7 +40,15 @@ namespace FileParser
         }
         public RecipeData CompleteData(RecipeData dataToBeCompleted)
         {
-            return null;
+            if (objectJSON.ContainsKey("instructions"))
+            {
+                dataToBeCompleted.Instructions = objectJSON.GetValue("instructions").ToString();
+            }
+            if (objectJSON.ContainsKey("sourceURL"))
+            {
+                dataToBeCompleted.Instructions = objectJSON.GetValue("sourceURL").ToString();
+            }
+            return dataToBeCompleted;
         }
         public void SetData(JObject objectJSON)
         {

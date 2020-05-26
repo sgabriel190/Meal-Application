@@ -10,20 +10,20 @@ namespace ClientApi
      */
     public class ClientAPI
     {
-        private static ClientAPI instance = null;
-        private const string apiURL = "https://api.spoonacular.com";
-        private string apiKey = "apiKey=7b137a9d00974ba4b92d25f4d51d11c6";
-        private HttpClient httpClient = null;
-        private PathBuilder pathBuilder = null;
+        private static ClientAPI _instance = null;
+        private const string _apiURL = "https://api.spoonacular.com";
+        private string _apiKey = "apiKey=7b137a9d00974ba4b92d25f4d51d11c6";
+        private HttpClient _httpClient = null;
+        private PathBuilder _pathBuilder = null;
 
         private ClientAPI()
         {
             //Instantiere si setari client HTTP
-            httpClient = new HttpClient();
-            pathBuilder = new PathBuilder();
-            httpClient.BaseAddress = new System.Uri(apiURL);
-            httpClient.DefaultRequestHeaders.Accept.Clear();
-            httpClient.DefaultRequestHeaders
+            _httpClient = new HttpClient();
+            _pathBuilder = new PathBuilder();
+            _httpClient.BaseAddress = new System.Uri(_apiURL);
+            _httpClient.DefaultRequestHeaders.Accept.Clear();
+            _httpClient.DefaultRequestHeaders
                 .Accept
                 .Add(new MediaTypeWithQualityHeaderValue("application/json"));
             
@@ -31,20 +31,20 @@ namespace ClientApi
        
         public static ClientAPI GetInstance()
         {
-            if(instance == null)
+            if(_instance == null)
             {
-                instance = new ClientAPI();
+                _instance = new ClientAPI();
             }
-            return instance;
+            return _instance;
         }
         public string ApiKey
         {
-            set { apiKey = "apiKey=" + value; }
+            set { _apiKey = "apiKey=" + value; }
         }
         public JArray SearchByIngredients(string ingredientQuery)
         {
-            string path = pathBuilder.BuildPathIngredients(apiKey, ingredientQuery);
-            HttpResponseMessage response = httpClient.GetAsync(path).Result;
+            string path = _pathBuilder.BuildPathIngredients(_apiKey, ingredientQuery);
+            HttpResponseMessage response = _httpClient.GetAsync(path).Result;
             if(response.IsSuccessStatusCode)
             {
                 string dataObject = response.Content.ReadAsStringAsync().Result;
@@ -58,8 +58,8 @@ namespace ClientApi
         }
         public JArray SearchByNutrients(string nutrientsQuery)
         {
-            string path = pathBuilder.BuildPathNutrients(apiKey, nutrientsQuery);
-            HttpResponseMessage response = httpClient.GetAsync(path).Result;
+            string path = _pathBuilder.BuildPathNutrients(_apiKey, nutrientsQuery);
+            HttpResponseMessage response = _httpClient.GetAsync(path).Result;
             if (response.IsSuccessStatusCode)
             {
                 string dataObject = response.Content.ReadAsStringAsync().Result;
@@ -73,8 +73,8 @@ namespace ClientApi
         }
         public JObject GenerateMealPlan(string mealPlannerQuery)
         {
-            string path = pathBuilder.BuildPathGenerateMealPlan(apiKey, mealPlannerQuery);
-            HttpResponseMessage response = httpClient.GetAsync(path).Result;
+            string path = _pathBuilder.BuildPathGenerateMealPlan(_apiKey, mealPlannerQuery);
+            HttpResponseMessage response = _httpClient.GetAsync(path).Result;
             if (response.IsSuccessStatusCode)
             {
                 string dataObject = response.Content.ReadAsStringAsync().Result;
@@ -88,8 +88,8 @@ namespace ClientApi
         }
         public JObject GetById(int id)
         {
-            string path = pathBuilder.BuildPathInformationId(apiKey, id);
-            HttpResponseMessage response = httpClient.GetAsync(path).Result;
+            string path = _pathBuilder.BuildPathInformationId(_apiKey, id);
+            HttpResponseMessage response = _httpClient.GetAsync(path).Result;
             if (response.IsSuccessStatusCode)
             {
                 string dataObject = response.Content.ReadAsStringAsync().Result;

@@ -143,6 +143,7 @@ namespace Meal_Application
 
         private void refreshPreviewMealList()
         {
+
             previewList = new ListItem[generatedMealList.Count];
             for (int i = 0; i < generatedMealList.Count; ++i)
             {

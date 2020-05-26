@@ -84,6 +84,7 @@
             this.textBoxCalories = new System.Windows.Forms.TextBox();
             this.labelCalories = new System.Windows.Forms.Label();
             this.labelMealPlan = new System.Windows.Forms.Label();
+            this.buttonHelp = new System.Windows.Forms.Button();
             this.tabControlSearch.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -756,11 +757,22 @@
             this.labelMealPlan.TabIndex = 1;
             this.labelMealPlan.Text = "Meal Plan";
             // 
+            // buttonHelp
+            // 
+            this.buttonHelp.Location = new System.Drawing.Point(43, 636);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Size = new System.Drawing.Size(74, 21);
+            this.buttonHelp.TabIndex = 1;
+            this.buttonHelp.Text = "Help";
+            this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            // 
             // FormMealApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 655);
+            this.ClientSize = new System.Drawing.Size(1096, 669);
+            this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.tabControlSearch);
             this.Name = "FormMealApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -857,6 +869,7 @@
         private System.Windows.Forms.TextBox textBoxApiKeyTab2;
         private System.Windows.Forms.Label labelApiKeyTab2;
         private System.Windows.Forms.TextBox textBoxApiKey;
+        private System.Windows.Forms.Button buttonHelp;
     }
 }
 

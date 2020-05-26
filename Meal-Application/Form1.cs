@@ -274,10 +274,18 @@ namespace Meal_Application
             textBoxApiKeyTab2.ForeColor = System.Drawing.Color.Black;
         }
 
-        private void buttonHelp_Click(object sender, EventArgs e)
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Meal Plan based on preference and diet type." + "\n\n" + "Add ingredients and nutriens to get personalized recipes."
+                + "\n\n" + "(c) 2020 Proiect");
+        }
+
+        /*
+         private void buttonHelp_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Meal Plan based on preference and diet type." + "\n\n" + "Add ingredients and nutriens to get personalized recipes."
                 + "\n\n" + "(c) 2020 Proiect 1308B");
         }
+        */
     }
 }

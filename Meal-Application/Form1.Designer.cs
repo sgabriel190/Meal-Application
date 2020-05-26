@@ -84,7 +84,9 @@
             this.textBoxCalories = new System.Windows.Forms.TextBox();
             this.labelCalories = new System.Windows.Forms.Label();
             this.labelMealPlan = new System.Windows.Forms.Label();
-            this.buttonHelp = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlSearch.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -106,13 +108,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxCarbs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeNumericUpDownSearch)).BeginInit();
             this.tabPageMealPlan.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlSearch
             // 
             this.tabControlSearch.Controls.Add(this.tabPageSearch);
             this.tabControlSearch.Controls.Add(this.tabPageMealPlan);
-            this.tabControlSearch.Location = new System.Drawing.Point(39, 12);
+            this.tabControlSearch.Location = new System.Drawing.Point(43, 27);
             this.tabControlSearch.Name = "tabControlSearch";
             this.tabControlSearch.SelectedIndex = 0;
             this.tabControlSearch.Size = new System.Drawing.Size(1019, 618);
@@ -757,23 +760,40 @@
             this.labelMealPlan.TabIndex = 1;
             this.labelMealPlan.Text = "Meal Plan";
             // 
-            // buttonHelp
+            // menuStrip1
             // 
-            this.buttonHelp.Location = new System.Drawing.Point(43, 636);
-            this.buttonHelp.Name = "buttonHelp";
-            this.buttonHelp.Size = new System.Drawing.Size(74, 21);
-            this.buttonHelp.TabIndex = 1;
-            this.buttonHelp.Text = "Help";
-            this.buttonHelp.UseVisualStyleBackColor = true;
-            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1096, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helpToolStripMenuItem});
+            this.fileToolStripMenuItem.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // FormMealApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1096, 669);
-            this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.tabControlSearch);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMealApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Meal Application";
@@ -807,7 +827,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.recipeNumericUpDownSearch)).EndInit();
             this.tabPageMealPlan.ResumeLayout(false);
             this.tabPageMealPlan.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -869,7 +892,9 @@
         private System.Windows.Forms.TextBox textBoxApiKeyTab2;
         private System.Windows.Forms.Label labelApiKeyTab2;
         private System.Windows.Forms.TextBox textBoxApiKey;
-        private System.Windows.Forms.Button buttonHelp;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     }
 }
 

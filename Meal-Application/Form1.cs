@@ -174,16 +174,23 @@ namespace Meal_Application
                 {
                     string ingredientsInput = textBoxIngredients.Text;
                     int numberOfRecipes = Decimal.ToInt32(recipeNumericUpDownSearch.Value);
+                    try 
+                    { 
+                        recipesList = controller.GetRecipiesFromIngridients(ingredientsInput, numberOfRecipes); 
+                        if (recipesList.Count == 0)
+                        {
+                            Label l = new Label();
+                            l.Text = "No results.";
+                            flowLayoutPanelListItems.Controls.Add(l);
+                        }
 
-                    recipesList = controller.GetRecipiesFromIngridients(ingredientsInput, numberOfRecipes);
-                    if (recipesList.Count == 0)
-                    {
-                        Label l = new Label();
-                        l.Text = "No results.";
-                        flowLayoutPanelListItems.Controls.Add(l); 
+                        else refreshPreviewList();
                     }
-
-                    else refreshPreviewList();
+                    catch(Exception err)
+                    { 
+                        MessageBox.Show(err.Message); 
+                    }
+                    
                 }
             }
             else if(radioButtonNutrients.Checked)
@@ -216,9 +223,15 @@ namespace Meal_Application
                 else
                 {
                     int numberOfRecipes = Decimal.ToInt32(recipeNumericUpDownSearch.Value);
-                    recipesList = controller.GetRecipiesFromNutrients(_nutrients, numberOfRecipes);
-
-                    refreshPreviewList();
+                    try
+                    {
+                        recipesList = controller.GetRecipiesFromNutrients(_nutrients, numberOfRecipes);
+                        refreshPreviewList();
+                    }
+                    catch(Exception err)
+                    {
+                        MessageBox.Show(err.Message);
+                    }
                 }
             }
         }
@@ -232,9 +245,21 @@ namespace Meal_Application
             }
             else
             {
-                generatedMealList = controller.GetRecipesMealPlan(Int32.Parse(textBoxCalories.Text), comboBoxDiet.Text, textBoxExcludeIng.Text);
+                try
+                {
+                    int nrCalories = Int32.Parse(textBoxCalories.Text);
+                    generatedMealList = controller.GetRecipesMealPlan(nrCalories, comboBoxDiet.Text, textBoxExcludeIng.Text);
+                    refreshPreviewMealList();
+                }
+                catch(FormatException err)
+                {
+                    MessageBox.Show("You have to input a number.");
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+                }
 
-                refreshPreviewMealList();
             }
         }
     }

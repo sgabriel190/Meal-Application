@@ -10,18 +10,18 @@ namespace Meal_Application
 {
     public partial class FormMealApp : Form
     {
-        private Controller controller = null;
-        private ListItem[] previewList = null;
-        private List<RecipeData> recipesList = null;
-        private List<RecipeData> generatedMealList = null;
+        private Controller _controller = null;
+        private ListItem[] _previewList = null;
+        private List<RecipeData> _recipesList = null;
+        private List<RecipeData> _generatedMealList = null;
 
 
         public FormMealApp()
         {
             InitializeComponent();
-            controller = new Controller();
-            recipesList = new List<RecipeData>();
-            generatedMealList = new List<RecipeData>();
+            _controller = new Controller();
+            _recipesList = new List<RecipeData>();
+            _generatedMealList = new List<RecipeData>();
         }
 
         private void FormMealApp_Load(object sender, EventArgs e)
@@ -85,7 +85,7 @@ namespace Meal_Application
         }
         private void AddNewTab(RecipeData recipe)
         {
-            recipe = controller.GetCompleteRecipe(recipe);
+            recipe = _controller.GetCompleteRecipe(recipe);
             DetailedListItem detailedItem = new DetailedListItem();
             string tabName;
             if (recipe.Title.Length > 15) tabName = recipe.Title.Substring(0, 15) + "...";
@@ -113,52 +113,41 @@ namespace Meal_Application
             tabControlSearch.TabPages.Add(tp);
             tabControlSearch.SelectedTab = tp;
         }
-        /*private void ShowListItems()
-        {
-            flowLayoutPanelListItems.Controls.Clear();
-            if (previewList != null)
-            {
-                for (int i = 0; i < previewList.Length; i++)
-                {
-                    flowLayoutPanelListItems.Controls.Add(previewList[i]);
-                }
-            }
-        }*/
-
+    
         private void refreshPreviewList()
         {
-            previewList = new ListItem[recipesList.Count];
-            for (int i = 0; i < recipesList.Count; ++i)
+            _previewList = new ListItem[_recipesList.Count];
+            for (int i = 0; i < _recipesList.Count; ++i)
             {
-                previewList[i] = new ListItem();
-                previewList[i].ID = recipesList[i].ID;
-                previewList[i].Title = recipesList[i].Title;
-                previewList[i].Info = recipesList[i].Description;
-                previewList[i].Image = recipesList[i].ImageLocation;
+                _previewList[i] = new ListItem();
+                _previewList[i].ID = _recipesList[i].ID;
+                _previewList[i].Title = _recipesList[i].Title;
+                _previewList[i].Info = _recipesList[i].Description;
+                _previewList[i].Image = _recipesList[i].ImageLocation;
                 int idx = i;
-                previewList[i].ClickEvent = (s, ev) => { AddNewTab(recipesList[idx]); };
+                _previewList[i].ClickEvent = (s, ev) => { AddNewTab(_recipesList[idx]); };
 
-                flowLayoutPanelListItems.Controls.Add(previewList[i]);
+                flowLayoutPanelListItems.Controls.Add(_previewList[i]);
             }
         }
 
         private void refreshPreviewMealList()
         {
 
-            previewList = new ListItem[generatedMealList.Count];
-            for (int i = 0; i < generatedMealList.Count; ++i)
+            _previewList = new ListItem[_generatedMealList.Count];
+            for (int i = 0; i < _generatedMealList.Count; ++i)
             {
-                previewList[i] = new ListItem();
-                previewList[i].ID = generatedMealList[i].ID;
-                previewList[i].Title = generatedMealList[i].Title;
-                previewList[i].Info = generatedMealList[i].Description;
-                previewList[i].Image = generatedMealList[i].ImageLocation;
+                _previewList[i] = new ListItem();
+                _previewList[i].ID = _generatedMealList[i].ID;
+                _previewList[i].Title = _generatedMealList[i].Title;
+                _previewList[i].Info = _generatedMealList[i].Description;
+                _previewList[i].Image = _generatedMealList[i].ImageLocation;
                 int idx = i;
-                previewList[i].ClickEvent = (s, ev) => { AddNewTab(generatedMealList[idx]); };
+                _previewList[i].ClickEvent = (s, ev) => { AddNewTab(_generatedMealList[idx]); };
 
-                previewList[i].SeparatorSize = flowLayoutPanelMealPlan.Width;
-                previewList[i].Width = flowLayoutPanelMealPlan.Width;
-                flowLayoutPanelMealPlan.Controls.Add(previewList[i]);
+                _previewList[i].SeparatorSize = flowLayoutPanelMealPlan.Width;
+                _previewList[i].Width = flowLayoutPanelMealPlan.Width;
+                flowLayoutPanelMealPlan.Controls.Add(_previewList[i]);
             }
         }
         private void recipeSearchButton_Click(object sender, EventArgs e)
@@ -176,8 +165,8 @@ namespace Meal_Application
                     int numberOfRecipes = Decimal.ToInt32(recipeNumericUpDownSearch.Value);
                     try 
                     { 
-                        recipesList = controller.GetRecipiesFromIngridients(ingredientsInput, numberOfRecipes); 
-                        if (recipesList.Count == 0)
+                        _recipesList = _controller.GetRecipiesFromIngridients(ingredientsInput, numberOfRecipes); 
+                        if (_recipesList.Count == 0)
                         {
                             Label l = new Label();
                             l.Text = "No results.";
@@ -225,7 +214,7 @@ namespace Meal_Application
                     int numberOfRecipes = Decimal.ToInt32(recipeNumericUpDownSearch.Value);
                     try
                     {
-                        recipesList = controller.GetRecipiesFromNutrients(_nutrients, numberOfRecipes);
+                        _recipesList = _controller.GetRecipiesFromNutrients(_nutrients, numberOfRecipes);
                         refreshPreviewList();
                     }
                     catch(Exception err)
@@ -248,7 +237,7 @@ namespace Meal_Application
                 try
                 {
                     int nrCalories = Int32.Parse(textBoxCalories.Text);
-                    generatedMealList = controller.GetRecipesMealPlan(nrCalories, comboBoxDiet.Text, textBoxExcludeIng.Text);
+                    _generatedMealList = _controller.GetRecipesMealPlan(nrCalories, comboBoxDiet.Text, textBoxExcludeIng.Text);
                     refreshPreviewMealList();
                 }
                 catch(FormatException err)
@@ -263,5 +252,14 @@ namespace Meal_Application
             }
         }
 
+        private void buttonChangeApiKey_Click(object sender, EventArgs e)
+        {
+            _controller.SetApiKey(textBoxApiKey.Text);
+        }
+
+        private void buttonApiKeyTab2_Click(object sender, EventArgs e)
+        {
+            _controller.SetApiKey(textBoxApiKeyTab2.Text);
+        }
     }
 }

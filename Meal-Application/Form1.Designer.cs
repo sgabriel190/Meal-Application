@@ -78,7 +78,11 @@
             this.textBoxCalories = new System.Windows.Forms.TextBox();
             this.labelCalories = new System.Windows.Forms.Label();
             this.labelMealPlan = new System.Windows.Forms.Label();
-            this.labelapiKey = new System.Windows.Forms.Label();
+            this.labelApiKey = new System.Windows.Forms.Label();
+            this.buttonChangeApiKey = new System.Windows.Forms.Button();
+            this.buttonApiKeyTab2 = new System.Windows.Forms.Button();
+            this.textBoxApiKeyTab2 = new System.Windows.Forms.TextBox();
+            this.labelApiKeyTab2 = new System.Windows.Forms.Label();
             this.textBoxApiKey = new System.Windows.Forms.TextBox();
             this.tabControlSearch.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
@@ -135,7 +139,8 @@
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
             this.splitContainer1.Panel1.Controls.Add(this.textBoxApiKey);
-            this.splitContainer1.Panel1.Controls.Add(this.labelapiKey);
+            this.splitContainer1.Panel1.Controls.Add(this.buttonChangeApiKey);
+            this.splitContainer1.Panel1.Controls.Add(this.labelApiKey);
             this.splitContainer1.Panel1.Controls.Add(this.groupBoxNutrients);
             this.splitContainer1.Panel1.Controls.Add(this.radioButtonNutrients);
             this.splitContainer1.Panel1.Controls.Add(this.radioButtonIngredients);
@@ -493,7 +498,6 @@
             this.radioButtonNutrients.Name = "radioButtonNutrients";
             this.radioButtonNutrients.Size = new System.Drawing.Size(78, 20);
             this.radioButtonNutrients.TabIndex = 36;
-            this.radioButtonNutrients.TabStop = true;
             this.radioButtonNutrients.Text = "Nutrients";
             this.radioButtonNutrients.UseVisualStyleBackColor = true;
             this.radioButtonNutrients.CheckedChanged += new System.EventHandler(this.radioButtonNutrients_CheckedChanged);
@@ -501,6 +505,7 @@
             // radioButtonIngredients
             // 
             this.radioButtonIngredients.AutoSize = true;
+            this.radioButtonIngredients.Checked = true;
             this.radioButtonIngredients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonIngredients.Location = new System.Drawing.Point(13, 87);
             this.radioButtonIngredients.Name = "radioButtonIngredients";
@@ -583,6 +588,9 @@
             // 
             // tabPageMealPlan
             // 
+            this.tabPageMealPlan.Controls.Add(this.buttonApiKeyTab2);
+            this.tabPageMealPlan.Controls.Add(this.textBoxApiKeyTab2);
+            this.tabPageMealPlan.Controls.Add(this.labelApiKeyTab2);
             this.tabPageMealPlan.Controls.Add(this.buttonGenerateMealPlan);
             this.tabPageMealPlan.Controls.Add(this.flowLayoutPanelMealPlan);
             this.tabPageMealPlan.Controls.Add(this.comboBoxDiet);
@@ -603,7 +611,7 @@
             // 
             // buttonGenerateMealPlan
             // 
-            this.buttonGenerateMealPlan.Location = new System.Drawing.Point(470, 164);
+            this.buttonGenerateMealPlan.Location = new System.Drawing.Point(558, 154);
             this.buttonGenerateMealPlan.Name = "buttonGenerateMealPlan";
             this.buttonGenerateMealPlan.Size = new System.Drawing.Size(92, 26);
             this.buttonGenerateMealPlan.TabIndex = 11;
@@ -628,14 +636,14 @@
             "Ovo-Vegetarian",
             "Vegan",
             "Pescetarian"});
-            this.comboBoxDiet.Location = new System.Drawing.Point(470, 95);
+            this.comboBoxDiet.Location = new System.Drawing.Point(558, 85);
             this.comboBoxDiet.Name = "comboBoxDiet";
             this.comboBoxDiet.Size = new System.Drawing.Size(123, 23);
             this.comboBoxDiet.TabIndex = 9;
             // 
             // textBoxExcludeIng
             // 
-            this.textBoxExcludeIng.Location = new System.Drawing.Point(470, 129);
+            this.textBoxExcludeIng.Location = new System.Drawing.Point(558, 119);
             this.textBoxExcludeIng.Name = "textBoxExcludeIng";
             this.textBoxExcludeIng.Size = new System.Drawing.Size(201, 21);
             this.textBoxExcludeIng.TabIndex = 8;
@@ -644,7 +652,7 @@
             // 
             this.labelExcludeIng.AutoSize = true;
             this.labelExcludeIng.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelExcludeIng.Location = new System.Drawing.Point(397, 131);
+            this.labelExcludeIng.Location = new System.Drawing.Point(485, 121);
             this.labelExcludeIng.Name = "labelExcludeIng";
             this.labelExcludeIng.Size = new System.Drawing.Size(64, 18);
             this.labelExcludeIng.TabIndex = 7;
@@ -654,7 +662,7 @@
             // 
             this.labelDiet.AutoSize = true;
             this.labelDiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDiet.Location = new System.Drawing.Point(397, 98);
+            this.labelDiet.Location = new System.Drawing.Point(485, 88);
             this.labelDiet.Name = "labelDiet";
             this.labelDiet.Size = new System.Drawing.Size(38, 18);
             this.labelDiet.TabIndex = 6;
@@ -662,7 +670,7 @@
             // 
             // textBoxCalories
             // 
-            this.textBoxCalories.Location = new System.Drawing.Point(470, 66);
+            this.textBoxCalories.Location = new System.Drawing.Point(558, 56);
             this.textBoxCalories.Name = "textBoxCalories";
             this.textBoxCalories.Size = new System.Drawing.Size(123, 21);
             this.textBoxCalories.TabIndex = 5;
@@ -671,7 +679,7 @@
             // 
             this.labelCalories.AutoSize = true;
             this.labelCalories.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCalories.Location = new System.Drawing.Point(397, 66);
+            this.labelCalories.Location = new System.Drawing.Point(485, 56);
             this.labelCalories.Name = "labelCalories";
             this.labelCalories.Size = new System.Drawing.Size(67, 18);
             this.labelCalories.TabIndex = 4;
@@ -681,28 +689,71 @@
             // 
             this.labelMealPlan.AutoSize = true;
             this.labelMealPlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMealPlan.Location = new System.Drawing.Point(466, 32);
+            this.labelMealPlan.Location = new System.Drawing.Point(554, 22);
             this.labelMealPlan.Name = "labelMealPlan";
             this.labelMealPlan.Size = new System.Drawing.Size(87, 20);
             this.labelMealPlan.TabIndex = 1;
             this.labelMealPlan.Text = "Meal Plan";
             // 
-            // labelapiKey
+            // labelApiKey
             // 
-            this.labelapiKey.AutoSize = true;
-            this.labelapiKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelapiKey.Location = new System.Drawing.Point(13, 35);
-            this.labelapiKey.Name = "labelapiKey";
-            this.labelapiKey.Size = new System.Drawing.Size(57, 16);
-            this.labelapiKey.TabIndex = 39;
-            this.labelapiKey.Text = "Api Key:";
+            this.labelApiKey.AutoSize = true;
+            this.labelApiKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelApiKey.Location = new System.Drawing.Point(10, 38);
+            this.labelApiKey.Name = "labelApiKey";
+            this.labelApiKey.Size = new System.Drawing.Size(57, 16);
+            this.labelApiKey.TabIndex = 39;
+            this.labelApiKey.Text = "Api Key:";
+            // 
+            // buttonChangeApiKey
+            // 
+            this.buttonChangeApiKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonChangeApiKey.Location = new System.Drawing.Point(121, 60);
+            this.buttonChangeApiKey.Name = "buttonChangeApiKey";
+            this.buttonChangeApiKey.Size = new System.Drawing.Size(61, 21);
+            this.buttonChangeApiKey.TabIndex = 41;
+            this.buttonChangeApiKey.Text = "Change";
+            this.buttonChangeApiKey.UseVisualStyleBackColor = true;
+            this.buttonChangeApiKey.Click += new System.EventHandler(this.buttonChangeApiKey_Click);
+            // 
+            // buttonApiKeyTab2
+            // 
+            this.buttonApiKeyTab2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonApiKeyTab2.Location = new System.Drawing.Point(157, 78);
+            this.buttonApiKeyTab2.Name = "buttonApiKeyTab2";
+            this.buttonApiKeyTab2.Size = new System.Drawing.Size(61, 21);
+            this.buttonApiKeyTab2.TabIndex = 45;
+            this.buttonApiKeyTab2.Text = "Change";
+            this.buttonApiKeyTab2.UseVisualStyleBackColor = true;
+            this.buttonApiKeyTab2.Click += new System.EventHandler(this.buttonApiKeyTab2_Click);
+            // 
+            // textBoxApiKeyTab2
+            // 
+            this.textBoxApiKeyTab2.ForeColor = System.Drawing.Color.Black;
+            this.textBoxApiKeyTab2.Location = new System.Drawing.Point(109, 53);
+            this.textBoxApiKeyTab2.Name = "textBoxApiKeyTab2";
+            this.textBoxApiKeyTab2.Size = new System.Drawing.Size(236, 21);
+            this.textBoxApiKeyTab2.TabIndex = 44;
+            this.textBoxApiKeyTab2.Text = "7b137a9d00974ba4b92d25f4d51d11c6";
+            // 
+            // labelApiKeyTab2
+            // 
+            this.labelApiKeyTab2.AutoSize = true;
+            this.labelApiKeyTab2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelApiKeyTab2.Location = new System.Drawing.Point(46, 56);
+            this.labelApiKeyTab2.Name = "labelApiKeyTab2";
+            this.labelApiKeyTab2.Size = new System.Drawing.Size(57, 16);
+            this.labelApiKeyTab2.TabIndex = 43;
+            this.labelApiKeyTab2.Text = "Api Key:";
             // 
             // textBoxApiKey
             // 
-            this.textBoxApiKey.Location = new System.Drawing.Point(13, 60);
+            this.textBoxApiKey.ForeColor = System.Drawing.Color.Black;
+            this.textBoxApiKey.Location = new System.Drawing.Point(73, 35);
             this.textBoxApiKey.Name = "textBoxApiKey";
-            this.textBoxApiKey.Size = new System.Drawing.Size(296, 21);
-            this.textBoxApiKey.TabIndex = 40;
+            this.textBoxApiKey.Size = new System.Drawing.Size(236, 21);
+            this.textBoxApiKey.TabIndex = 45;
+            this.textBoxApiKey.Text = "7b137a9d00974ba4b92d25f4d51d11c6";
             // 
             // FormMealApp
             // 
@@ -799,7 +850,11 @@
         private System.Windows.Forms.RadioButton radioButtonNutrients;
         private System.Windows.Forms.RadioButton radioButtonIngredients;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelapiKey;
+        private System.Windows.Forms.Label labelApiKey;
+        private System.Windows.Forms.Button buttonChangeApiKey;
+        private System.Windows.Forms.Button buttonApiKeyTab2;
+        private System.Windows.Forms.TextBox textBoxApiKeyTab2;
+        private System.Windows.Forms.Label labelApiKeyTab2;
         private System.Windows.Forms.TextBox textBoxApiKey;
     }
 }

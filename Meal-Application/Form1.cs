@@ -26,7 +26,9 @@ namespace Meal_Application
 
         private void FormMealApp_Load(object sender, EventArgs e)
         {
-            radioButtonIngredients.Checked = true;       
+            radioButtonIngredients.Checked = true;
+            textBoxApiKey.GotFocus += textBoxApiKey_OnFocus;
+            textBoxApiKeyTab2.GotFocus+=textBoxApiKeyTab2_OnFocus;
         }
 
         private void checkBoxCarbs_CheckedChanged(object sender, EventArgs e)
@@ -260,6 +262,16 @@ namespace Meal_Application
         private void buttonApiKeyTab2_Click(object sender, EventArgs e)
         {
             _controller.SetApiKey(textBoxApiKeyTab2.Text);
+        }
+        protected void textBoxApiKey_OnFocus(Object sender, EventArgs e)
+        {
+            textBoxApiKey.Text = "";
+            textBoxApiKey.ForeColor = System.Drawing.Color.Black;
+        }
+        protected void textBoxApiKeyTab2_OnFocus(Object sender, EventArgs e)
+        {
+            textBoxApiKeyTab2.Text = "";
+            textBoxApiKeyTab2.ForeColor = System.Drawing.Color.Black;
         }
     }
 }

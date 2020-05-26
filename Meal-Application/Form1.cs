@@ -26,50 +26,7 @@ namespace Meal_Application
 
         private void FormMealApp_Load(object sender, EventArgs e)
         {
-            ShowListItems();
-            radioButtonIngredients.Checked = true;
-            
-        }
-        private void AddNewTab(int idxSelected)
-        {
-            recipesList[idxSelected] = controller.GetCompleteRecipe(recipesList[idxSelected]);
-            DetailedListItem detailedItem = new DetailedListItem();
-            string tabName;
-            if (recipesList[idxSelected].Title.Length > 15) tabName = recipesList[idxSelected].Title.Substring(0, 15) + "...";
-            else
-                tabName = recipesList[idxSelected].Title;
-            TabPage tp = new TabPage(tabName);
-            Button button = new Button();
-
-            detailedItem.Size = tabPageSearch.Size;
-            detailedItem.Title=recipesList[idxSelected].Title;
-            detailedItem.Image = recipesList[idxSelected].ImageLocation;
-            detailedItem.Info = recipesList[idxSelected].Description;
-            detailedItem.Instructions = recipesList[idxSelected].Instructions;
-            detailedItem.URL = recipesList[idxSelected].URL;
-
-            button.Click += (s, ev) => { tabControlSearch.TabPages.Remove(tp); };
-            button.Location = new Point(965, 10);
-            button.Image = Resources.close_img;
-            button.Size = button.Image.Size;
-
-            tp.Controls.Add(button);
-            tp.Controls.Add(detailedItem);
-            tp.AutoScroll = true;
-            tabControlSearch.TabPages.Add(tp);
-            tabControlSearch.SelectedTab=tp;
-        }
-        private void ShowListItems()
-        {
-            flowLayoutPanelListItems.Controls.Clear();
-            if (previewList != null)
-            {
-                for (int i = 0; i < previewList.Length; i++)
-                {
-                    flowLayoutPanelListItems.Controls.Add(previewList[i]);
-                }
-            }
-
+            radioButtonIngredients.Checked = true;       
         }
 
         private void checkBoxCarbs_CheckedChanged(object sender, EventArgs e)
@@ -126,7 +83,82 @@ namespace Meal_Application
             else
                 groupBoxNutrients.Enabled = false;
         }
+        private void AddNewTab(RecipeData recipe)
+        {
+            recipe = controller.GetCompleteRecipe(recipe);
+            DetailedListItem detailedItem = new DetailedListItem();
+            string tabName;
+            if (recipe.Title.Length > 15) tabName = recipe.Title.Substring(0, 15) + "...";
+            else
+                tabName = recipe.Title;
+            TabPage tp = new TabPage(tabName);
+            Button button = new Button();
 
+            detailedItem.Size = tabPageSearch.Size;
+            detailedItem.Title = recipe.Title;
+            detailedItem.Image = recipe.ImageLocation;
+            detailedItem.Info = recipe.Description;
+            detailedItem.Instructions = recipe.Instructions;
+            detailedItem.URL = recipe.URL;
+
+            button.Click += (s, ev) => { tabControlSearch.TabPages.Remove(tp); };
+            button.Location = new Point(965, 10);
+            button.Image = Resources.close_img;
+            button.Size = button.Image.Size;
+
+            tp.Controls.Add(button);
+            tp.Controls.Add(detailedItem);
+            tp.AutoScroll = true;
+            tabControlSearch.TabPages.Add(tp);
+            tabControlSearch.SelectedTab = tp;
+        }
+        /*private void ShowListItems()
+        {
+            flowLayoutPanelListItems.Controls.Clear();
+            if (previewList != null)
+            {
+                for (int i = 0; i < previewList.Length; i++)
+                {
+                    flowLayoutPanelListItems.Controls.Add(previewList[i]);
+                }
+            }
+        }*/
+
+        private void refreshPreviewList()
+        {
+            previewList = new ListItem[recipesList.Count];
+            for (int i = 0; i < recipesList.Count; ++i)
+            {
+                previewList[i] = new ListItem();
+                previewList[i].ID = recipesList[i].ID;
+                previewList[i].Title = recipesList[i].Title;
+                previewList[i].Info = recipesList[i].Description;
+                previewList[i].Image = recipesList[i].ImageLocation;
+                int idx = i;
+                previewList[i].ClickEvent = (s, ev) => { AddNewTab(recipesList[idx]); };
+
+                flowLayoutPanelListItems.Controls.Add(previewList[i]);
+            }
+        }
+
+        private void refreshPreviewMealList()
+        {
+            previewList = new ListItem[generatedMealList.Count];
+            for (int i = 0; i < generatedMealList.Count; ++i)
+            {
+                previewList[i] = new ListItem();
+                previewList[i].ID = generatedMealList[i].ID;
+                previewList[i].Title = generatedMealList[i].Title;
+                previewList[i].Info = generatedMealList[i].Description;
+                previewList[i].Image = generatedMealList[i].ImageLocation;
+                int idx = i;
+                previewList[i].ClickEvent = (s, ev) => { AddNewTab(generatedMealList[idx]); };
+
+                previewList[i].SeparatorSize = flowLayoutPanelMealPlan.Width;
+                previewList[i].Width = flowLayoutPanelMealPlan.Width;
+                flowLayoutPanelMealPlan.Controls.Add(previewList[i]);
+            }
+        }
         private void recipeSearchButton_Click(object sender, EventArgs e)
         {
             flowLayoutPanelListItems.Controls.Clear();
@@ -140,9 +172,16 @@ namespace Meal_Application
                 {
                     string ingredientsInput = textBoxIngredients.Text;
                     int numberOfRecipes = Decimal.ToInt32(recipeNumericUpDownSearch.Value);
+
                     recipesList = controller.GetRecipiesFromIngridients(ingredientsInput, numberOfRecipes);
-                    
-                    refreshPreviewList();
+                    if (recipesList.Count == 0)
+                    {
+                        Label l = new Label();
+                        l.Text = "No results.";
+                        flowLayoutPanelListItems.Controls.Add(l); 
+                    }
+
+                    else refreshPreviewList();
                 }
             }
             else if(radioButtonNutrients.Checked)
@@ -181,53 +220,19 @@ namespace Meal_Application
                 }
             }
         }
-
-        private void refreshPreviewList()
-        {
-            previewList = new ListItem[recipesList.Count];
-            for (int i = 0; i < recipesList.Count; ++i)
-            {
-                previewList[i] = new ListItem();
-                previewList[i].ID = recipesList[i].ID;
-                previewList[i].Title = recipesList[i].Title;
-                previewList[i].Info = recipesList[i].Description;
-                previewList[i].Image = recipesList[i].ImageLocation;
-                int idx = i;
-                previewList[i].ClickEvent = (s, ev) => {  AddNewTab(idx); };
-            }
-            ShowListItems();
-        }
-
+      
         private void buttonGenerateMealPlan_Click(object sender, EventArgs e)
         {
-            if(textBoxCalories.Text == "")
+            flowLayoutPanelMealPlan.Controls.Clear();
+            if (textBoxCalories.Text == "")
             {
                 MessageBox.Show("You have to input atleast calories number.");
             }
             else
             {
                 generatedMealList = controller.GetRecipesMealPlan(Int32.Parse(textBoxCalories.Text), comboBoxDiet.Text, textBoxExcludeIng.Text);
-                previewList = new ListItem[3];
-                for (int i = 0; i < 3; ++i)
-                {
-                    previewList[i] = new ListItem();
-                    previewList[i].ID = generatedMealList[i].ID;
-                    previewList[i].Title = generatedMealList[i].Title;
-                    previewList[i].Info = generatedMealList[i].Description;
-                    previewList[i].Image = generatedMealList[i].ImageLocation;
-                    int idx = i;
-                    previewList[i].ClickEvent = (s, ev) => { };//AddNewTab(idx); 
-                }
-                flowLayoutPanelMealPlan.Controls.Clear();
-                if (previewList != null)
-                {
-                    for (int i = 0; i < previewList.Length; i++)
-                    {
-                        previewList[i].SeparatorSize = flowLayoutPanelMealPlan.Width;
-                        previewList[i].Width = flowLayoutPanelMealPlan.Width;
-                        flowLayoutPanelMealPlan.Controls.Add(previewList[i]);
-                    }
-                }
+
+                refreshPreviewMealList();
             }
         }
     }

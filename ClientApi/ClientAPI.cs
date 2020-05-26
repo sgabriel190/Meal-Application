@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
 
@@ -12,7 +13,7 @@ namespace ClientApi
     {
         private static ClientAPI _instance = null;
         private const string _apiURL = "https://api.spoonacular.com";
-        private string _apiKey = "apiKey=7b137a9d00974ba4b92d25f4d51d11c6";
+        private string _apiKey = "apiKey=7b137a9d00974ba4b92d25f4d51d11c";
         private HttpClient _httpClient = null;
         private PathBuilder _pathBuilder = null;
 
@@ -78,25 +79,33 @@ namespace ClientApi
             {
                 if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
-                    throw new System.Exception("HTTP not found with status code: " + response.StatusCode);
+                    throw new System.Exception("HTTP not found with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
                 }
                 if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
                 {
-                    throw new System.Exception("HTTP forbidden with status code: " + response.StatusCode);
+                    throw new System.Exception("HTTP forbidden with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
                 }
                 if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                 {
-                    throw new System.Exception("HTTP bad request with status code: " + response.StatusCode);
+                    throw new System.Exception("HTTP bad request with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
                 }
                 if (response.StatusCode == System.Net.HttpStatusCode.GatewayTimeout)
                 {
-                    throw new System.Exception("HTTP gateway timeout with status code: " + response.StatusCode);
+                    throw new System.Exception("HTTP gateway timeout with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
                 }
                 if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
                 {
-                    throw new System.Exception("HTTP internal server error with status code: " + response.StatusCode);
+                    throw new System.Exception("HTTP internal server error with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
                 }
-                throw new System.Exception("HTTP unknown error error with status code: " + response.StatusCode);
+                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    throw new System.Exception("HTTP unauthorized error with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString()
+                        + Environment.NewLine + "Please create an api key!"
+                        + Environment.NewLine + " Create an account for free and get your key: https://spoonacular.com/food-api");
+                }
+                throw new System.Exception("HTTP unknown error with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString()
+                        + Environment.NewLine + "Please change the api key!"
+                        + Environment.NewLine + " Create an account for free here: https://spoonacular.com/food-api");
             }
         }
         private JObject ReturnJsonObjectFromResponse(HttpResponseMessage response)
@@ -111,25 +120,33 @@ namespace ClientApi
             {
                 if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
-                    throw new System.Exception("HTTP not found with status code: " + response.StatusCode);
+                    throw new System.Exception("HTTP not found with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
                 }
                 if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
                 {
-                    throw new System.Exception("HTTP forbidden with status code: " + response.StatusCode);
+                    throw new System.Exception("HTTP forbidden with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
                 }
                 if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                 {
-                    throw new System.Exception("HTTP bad request with status code: " + response.StatusCode);
+                    throw new System.Exception("HTTP bad request with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
                 }
                 if (response.StatusCode == System.Net.HttpStatusCode.GatewayTimeout)
                 {
-                    throw new System.Exception("HTTP gateway timeout with status code: " + response.StatusCode);
+                    throw new System.Exception("HTTP gateway timeout with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
                 }
                 if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
                 {
-                    throw new System.Exception("HTTP internal server error with status code: " + response.StatusCode);
+                    throw new System.Exception("HTTP internal server error with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
                 }
-                throw new System.Exception("HTTP unknown error error with status code: " + response.StatusCode);
+                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    throw new System.Exception("HTTP unauthorized error with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString()
+                        + Environment.NewLine + "Please create an api key!" 
+                        + Environment.NewLine + " Create an account for free and get your key: https://spoonacular.com/food-api");
+                }
+                throw new System.Exception("HTTP unknown error with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString()
+                        + Environment.NewLine + "Please change the api key!"
+                        + Environment.NewLine + " Create an account for free here: https://spoonacular.com/food-api");
             }
         }
     }

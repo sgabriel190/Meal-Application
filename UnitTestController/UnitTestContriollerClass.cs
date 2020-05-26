@@ -13,8 +13,8 @@ namespace UnitTest
         public void TestMethod1()
         {
             Controller controller = new Controller();
-            List<RecipeData> listRecipes1 = controller.GetRecipiesFromIngridients("ingredients=apples,+flour,+sugar", 2);
-            List<RecipeData> listRecipes2 = controller.GetRecipiesFromIngridients("ingredients=appless,+flouR,+sugar32", 2);
+            List<RecipeData> listRecipes1 = controller.GetRecipiesFromIngridients("apples, flour, sugar", 2);
+            List<RecipeData> listRecipes2 = controller.GetRecipiesFromIngridients("appless, flouR, sugar32", 2);
 
             Assert.AreEqual(listRecipes1,listRecipes2, "ingredients1: apples flour sugar \n ingredients: appless flouR sugar32");
 

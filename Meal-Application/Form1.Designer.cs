@@ -63,6 +63,7 @@
             this.radioButtonNutrients = new System.Windows.Forms.RadioButton();
             this.radioButtonIngredients = new System.Windows.Forms.RadioButton();
             this.textBoxIngredients = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.labelResultsNumber = new System.Windows.Forms.Label();
             this.recipeNumericUpDownSearch = new System.Windows.Forms.NumericUpDown();
             this.flowLayoutPanelListItems = new System.Windows.Forms.FlowLayoutPanel();
@@ -77,7 +78,8 @@
             this.textBoxCalories = new System.Windows.Forms.TextBox();
             this.labelCalories = new System.Windows.Forms.Label();
             this.labelMealPlan = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelapiKey = new System.Windows.Forms.Label();
+            this.textBoxApiKey = new System.Windows.Forms.TextBox();
             this.tabControlSearch.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -132,6 +134,8 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.Controls.Add(this.textBoxApiKey);
+            this.splitContainer1.Panel1.Controls.Add(this.labelapiKey);
             this.splitContainer1.Panel1.Controls.Add(this.groupBoxNutrients);
             this.splitContainer1.Panel1.Controls.Add(this.radioButtonNutrients);
             this.splitContainer1.Panel1.Controls.Add(this.radioButtonIngredients);
@@ -162,7 +166,7 @@
             this.groupBoxNutrients.Controls.Add(this.label3);
             this.groupBoxNutrients.Controls.Add(this.checkBoxCarbs);
             this.groupBoxNutrients.Controls.Add(this.labelProtein);
-            this.groupBoxNutrients.Location = new System.Drawing.Point(12, 113);
+            this.groupBoxNutrients.Location = new System.Drawing.Point(13, 178);
             this.groupBoxNutrients.Name = "groupBoxNutrients";
             this.groupBoxNutrients.Size = new System.Drawing.Size(296, 378);
             this.groupBoxNutrients.TabIndex = 37;
@@ -485,7 +489,7 @@
             // 
             this.radioButtonNutrients.AutoSize = true;
             this.radioButtonNutrients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonNutrients.Location = new System.Drawing.Point(15, 87);
+            this.radioButtonNutrients.Location = new System.Drawing.Point(13, 152);
             this.radioButtonNutrients.Name = "radioButtonNutrients";
             this.radioButtonNutrients.Size = new System.Drawing.Size(78, 20);
             this.radioButtonNutrients.TabIndex = 36;
@@ -498,7 +502,7 @@
             // 
             this.radioButtonIngredients.AutoSize = true;
             this.radioButtonIngredients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonIngredients.Location = new System.Drawing.Point(12, 22);
+            this.radioButtonIngredients.Location = new System.Drawing.Point(13, 87);
             this.radioButtonIngredients.Name = "radioButtonIngredients";
             this.radioButtonIngredients.Size = new System.Drawing.Size(92, 20);
             this.radioButtonIngredients.TabIndex = 35;
@@ -509,10 +513,20 @@
             // 
             // textBoxIngredients
             // 
-            this.textBoxIngredients.Location = new System.Drawing.Point(12, 47);
+            this.textBoxIngredients.Location = new System.Drawing.Point(13, 112);
             this.textBoxIngredients.Name = "textBoxIngredients";
             this.textBoxIngredients.Size = new System.Drawing.Size(296, 21);
             this.textBoxIngredients.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(23, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(132, 20);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Search Results";
             // 
             // labelResultsNumber
             // 
@@ -673,15 +687,22 @@
             this.labelMealPlan.TabIndex = 1;
             this.labelMealPlan.Text = "Meal Plan";
             // 
-            // label1
+            // labelapiKey
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 20);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Search Results";
+            this.labelapiKey.AutoSize = true;
+            this.labelapiKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelapiKey.Location = new System.Drawing.Point(13, 35);
+            this.labelapiKey.Name = "labelapiKey";
+            this.labelapiKey.Size = new System.Drawing.Size(57, 16);
+            this.labelapiKey.TabIndex = 39;
+            this.labelapiKey.Text = "Api Key:";
+            // 
+            // textBoxApiKey
+            // 
+            this.textBoxApiKey.Location = new System.Drawing.Point(13, 60);
+            this.textBoxApiKey.Name = "textBoxApiKey";
+            this.textBoxApiKey.Size = new System.Drawing.Size(296, 21);
+            this.textBoxApiKey.TabIndex = 40;
             // 
             // FormMealApp
             // 
@@ -778,6 +799,8 @@
         private System.Windows.Forms.RadioButton radioButtonNutrients;
         private System.Windows.Forms.RadioButton radioButtonIngredients;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelapiKey;
+        private System.Windows.Forms.TextBox textBoxApiKey;
     }
 }
 

@@ -12,7 +12,7 @@ namespace ClientApi
     {
         private static ClientAPI instance = null;
         private const string apiURL = "https://api.spoonacular.com";
-        private const string apiKey = "apiKey=7b137a9d00974ba4b92d25f4d51d11c6";
+        private string apiKey;//apiKey=7b137a9d00974ba4b92d25f4d51d11c6
         private HttpClient httpClient = null;
         private PathBuilder pathBuilder = null;
 
@@ -28,7 +28,7 @@ namespace ClientApi
                 .Add(new MediaTypeWithQualityHeaderValue("application/json"));
             
         }
-
+       
         public static ClientAPI GetInstance()
         {
             if(instance == null)
@@ -36,6 +36,10 @@ namespace ClientApi
                 instance = new ClientAPI();
             }
             return instance;
+        }
+        public string ApiKey
+        {
+            set { apiKey = "apiKey=" + value; }
         }
         public JArray SearchByIngredients(string ingredientQuery)
         {

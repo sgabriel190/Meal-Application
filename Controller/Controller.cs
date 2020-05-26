@@ -24,6 +24,10 @@ namespace ControllerNamespace
             clientAPI = ClientAPI.GetInstance();
         }
 
+        public void SetApiKey(string apiKey)
+        {
+            clientAPI.ApiKey = apiKey;
+        }
         public List<RecipeData> GetRecipiesFromIngridients(string inputIngredients, int numberOfRecipes)
         {
             List<RecipeData> listOfRecipies = new List<RecipeData>();

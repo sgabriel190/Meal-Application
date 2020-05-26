@@ -5,7 +5,7 @@ using System.Linq;
  * programului si eventuala extindere a functionalitatilor de parsare a query-urilorm de cautare, se foloseste 
  * aceasta implementare. Aceasta clasa primeste in constructor parametrii input si numberRecipes
  * care vor fi parsati intr-un singur string potrivit functiilor de cautare al API-ului.
- * Autor:
+ * Autor: Cotovanu Stefania
  */
 
 namespace ControllerNamespace

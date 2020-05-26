@@ -6,6 +6,7 @@
 * raspuns HTTP un obiect JSON cu toate informatiile necesare.
 * Autor: Strilciuc Gabriel
 */
+
 namespace ClientApi
 {
     public class PathBuilder

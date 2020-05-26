@@ -10,7 +10,7 @@
  * instructions: string
  * nutrients: string
  * ingredients: string
- * Autor:
+ * Autor: Georgiana Raschitor
  */
 
 namespace DataModel

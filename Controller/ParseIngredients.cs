@@ -3,7 +3,7 @@
  * programului si eventuala extindere a functionalitatilor de parsare a query-urilorm de cautare, se foloseste 
  * aceasta implementare. Aceasta clasa primeste in constructor parametrii inputIngredients si numberRecipes
  * care vor fi parsati intr-un singur string potrivit functiilor de cautare al API-ului.
- * Autor:
+ * Autor: Georgiana Raschitor
  */
 namespace ControllerNamespace
 {

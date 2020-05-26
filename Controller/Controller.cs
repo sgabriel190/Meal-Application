@@ -8,7 +8,7 @@ using System;
 * Clasa controller detine acces direct care toate functionalitatile aplicatiei,
 * prin urmare este singura clasa care comunica cu interfata si dirijeaza functionalitatile
 * claselor proiectate.
-* Autor: 
+* Autor: Georgiana Raschitor
 */
 
 namespace ControllerNamespace

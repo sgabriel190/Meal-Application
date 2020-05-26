@@ -9,6 +9,8 @@ namespace DataModel
         private string _description;
         private string _url;
         private string _instructions;
+        private string _nutrients;
+        private string _ingredients;
 
         public RecipeData()
         {      
@@ -51,6 +53,16 @@ namespace DataModel
         {
             get { return _url; }
             set { _url = value; }
+        }
+        public string Nutrients
+        {
+            get { return _nutrients; }
+            set { _nutrients = value; }
+        }
+        public string Ingredients
+        {
+            get { return _ingredients; }
+            set { _ingredients = value; }
         }
     }
 }

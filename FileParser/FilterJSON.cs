@@ -2,6 +2,11 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+/**
+ * Clasa FilterJSON are ca functionalitate filtrarea datelor dintr-un fisier/obiect JSON.
+ * Extrage datele dintr-un obiect/array JSON si le formateaza intr-un model de date stabilit.
+ * Autor:
+ */
 
 namespace FileParser
 {
@@ -18,11 +23,15 @@ namespace FileParser
         {
             this._objectJSON = objectJSON;
         }
+
+        // Metoda FilterData care extrage datele primare despre reteta
         public RecipeData FilterData()
         {
             return new RecipeData(Int32.Parse(_objectJSON.GetValue("id").ToString()), _objectJSON.GetValue("title").ToString(),
                  _objectJSON.GetValue("image").ToString(), "Source name: " + _objectJSON.GetValue("sourceName").ToString());
         }
+        
+        // Metoda FilterMultipleData extrage date dintr-un array JSON
         public List<RecipeData> FilterMultipleData()
         {
             List<RecipeData> dataList = new List<RecipeData>();
@@ -48,6 +57,8 @@ namespace FileParser
             }
             return dataList;
         }
+
+        // Metoda CompleteData completeaza un model de date incomplet cu informatii suplimentare
         public RecipeData CompleteData(RecipeData dataToBeCompleted)
         {
             if (_objectJSON.ContainsKey("instructions"))

@@ -98,7 +98,8 @@ namespace Meal_Application
             detailedItem.Title = recipe.Title;
             detailedItem.Image = recipe.ImageLocation;
             detailedItem.Info = recipe.Description;
-            detailedItem.Instructions = recipe.Instructions;
+            detailedItem.Instructions = recipe.Instructions + "\n\n"+ recipe.Nutrients;
+            detailedItem.Ingredients = recipe.Ingredients;
             detailedItem.URL = recipe.URL;
 
             button.Click += (s, ev) => { tabControlSearch.TabPages.Remove(tp); };

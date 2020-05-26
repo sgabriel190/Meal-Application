@@ -34,6 +34,7 @@
             this.linkLabel = new System.Windows.Forms.LinkLabel();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.panel = new System.Windows.Forms.Panel();
+            this.labelIngredients = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -64,8 +65,8 @@
             // 
             this.labelInstructions.AutoSize = true;
             this.labelInstructions.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInstructions.Location = new System.Drawing.Point(31, 295);
-            this.labelInstructions.MaximumSize = new System.Drawing.Size(900, 0);
+            this.labelInstructions.Location = new System.Drawing.Point(319, 282);
+            this.labelInstructions.MaximumSize = new System.Drawing.Size(650, 0);
             this.labelInstructions.Name = "labelInstructions";
             this.labelInstructions.Size = new System.Drawing.Size(84, 18);
             this.labelInstructions.TabIndex = 3;
@@ -102,12 +103,24 @@
             this.panel.Size = new System.Drawing.Size(261, 222);
             this.panel.TabIndex = 6;
             // 
+            // labelIngredients
+            // 
+            this.labelIngredients.AutoSize = true;
+            this.labelIngredients.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIngredients.Location = new System.Drawing.Point(31, 282);
+            this.labelIngredients.MaximumSize = new System.Drawing.Size(270, 0);
+            this.labelIngredients.Name = "labelIngredients";
+            this.labelIngredients.Size = new System.Drawing.Size(79, 18);
+            this.labelIngredients.TabIndex = 7;
+            this.labelIngredients.Text = "Ingredients";
+            // 
             // DetailedListItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.labelIngredients);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.linkLabel);
             this.Controls.Add(this.labelInstructions);
@@ -129,5 +142,6 @@
         private System.Windows.Forms.LinkLabel linkLabel;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.Label labelIngredients;
     }
 }

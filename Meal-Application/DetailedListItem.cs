@@ -22,6 +22,7 @@ namespace Meal_Application
         private string _img;
         private string _url;
         private string _instructions;
+        private string _ingredients;
 
         public string Title
         {
@@ -48,6 +49,11 @@ namespace Meal_Application
         {
             get { return _instructions; }
             set { _instructions = value; labelInstructions.Text = value; }
+        }
+        public string Ingredients
+        {
+            get { return _ingredients; }
+            set { _ingredients = value; labelIngredients.Text = value; }
         }
 
         private void linkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

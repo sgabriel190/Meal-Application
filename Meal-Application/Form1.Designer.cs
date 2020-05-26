@@ -67,7 +67,6 @@
             this.recipeNumericUpDownSearch = new System.Windows.Forms.NumericUpDown();
             this.flowLayoutPanelListItems = new System.Windows.Forms.FlowLayoutPanel();
             this.recipeSearchButton = new System.Windows.Forms.Button();
-            this.recipeTextBoxSearch = new System.Windows.Forms.TextBox();
             this.tabPageMealPlan = new System.Windows.Forms.TabPage();
             this.buttonGenerateMealPlan = new System.Windows.Forms.Button();
             this.flowLayoutPanelMealPlan = new System.Windows.Forms.FlowLayoutPanel();
@@ -78,6 +77,7 @@
             this.textBoxCalories = new System.Windows.Forms.TextBox();
             this.labelCalories = new System.Windows.Forms.Label();
             this.labelMealPlan = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControlSearch.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -139,11 +139,11 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.labelResultsNumber);
             this.splitContainer1.Panel2.Controls.Add(this.recipeNumericUpDownSearch);
             this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanelListItems);
             this.splitContainer1.Panel2.Controls.Add(this.recipeSearchButton);
-            this.splitContainer1.Panel2.Controls.Add(this.recipeTextBoxSearch);
             this.splitContainer1.Size = new System.Drawing.Size(1005, 586);
             this.splitContainer1.SplitterDistance = 316;
             this.splitContainer1.TabIndex = 0;
@@ -518,7 +518,7 @@
             // 
             this.labelResultsNumber.AutoSize = true;
             this.labelResultsNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelResultsNumber.Location = new System.Drawing.Point(413, 38);
+            this.labelResultsNumber.Location = new System.Drawing.Point(477, 35);
             this.labelResultsNumber.Name = "labelResultsNumber";
             this.labelResultsNumber.Size = new System.Drawing.Size(40, 26);
             this.labelResultsNumber.TabIndex = 35;
@@ -526,8 +526,8 @@
             // 
             // recipeNumericUpDownSearch
             // 
-            this.recipeNumericUpDownSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recipeNumericUpDownSearch.Location = new System.Drawing.Point(458, 42);
+            this.recipeNumericUpDownSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recipeNumericUpDownSearch.Location = new System.Drawing.Point(522, 37);
             this.recipeNumericUpDownSearch.Margin = new System.Windows.Forms.Padding(2);
             this.recipeNumericUpDownSearch.Maximum = new decimal(new int[] {
             50,
@@ -540,7 +540,7 @@
             0,
             0});
             this.recipeNumericUpDownSearch.Name = "recipeNumericUpDownSearch";
-            this.recipeNumericUpDownSearch.Size = new System.Drawing.Size(40, 22);
+            this.recipeNumericUpDownSearch.Size = new System.Drawing.Size(40, 24);
             this.recipeNumericUpDownSearch.TabIndex = 4;
             this.recipeNumericUpDownSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.recipeNumericUpDownSearch.Value = new decimal(new int[] {
@@ -561,19 +561,11 @@
             // 
             this.recipeSearchButton.Location = new System.Drawing.Point(567, 37);
             this.recipeSearchButton.Name = "recipeSearchButton";
-            this.recipeSearchButton.Size = new System.Drawing.Size(69, 29);
+            this.recipeSearchButton.Size = new System.Drawing.Size(69, 25);
             this.recipeSearchButton.TabIndex = 1;
             this.recipeSearchButton.Text = "Search";
             this.recipeSearchButton.UseVisualStyleBackColor = true;
             this.recipeSearchButton.Click += new System.EventHandler(this.recipeSearchButton_Click);
-            // 
-            // recipeTextBoxSearch
-            // 
-            this.recipeTextBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recipeTextBoxSearch.Location = new System.Drawing.Point(27, 40);
-            this.recipeTextBoxSearch.Name = "recipeTextBoxSearch";
-            this.recipeTextBoxSearch.Size = new System.Drawing.Size(375, 24);
-            this.recipeTextBoxSearch.TabIndex = 0;
             // 
             // tabPageMealPlan
             // 
@@ -681,6 +673,16 @@
             this.labelMealPlan.TabIndex = 1;
             this.labelMealPlan.Text = "Meal Plan";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(23, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(132, 20);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Search Results";
+            // 
             // FormMealApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -731,7 +733,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox textBoxIngredients;
         private System.Windows.Forms.Button recipeSearchButton;
-        private System.Windows.Forms.TextBox recipeTextBoxSearch;
         private System.Windows.Forms.NumericUpDown numericUpDownMaxFat;
         private System.Windows.Forms.Label labelMaxFat;
         private System.Windows.Forms.Label labelMinFat;
@@ -776,6 +777,7 @@
         private System.Windows.Forms.GroupBox groupBoxNutrients;
         private System.Windows.Forms.RadioButton radioButtonNutrients;
         private System.Windows.Forms.RadioButton radioButtonIngredients;
+        private System.Windows.Forms.Label label1;
     }
 }
 

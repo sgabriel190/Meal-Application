@@ -54,7 +54,7 @@
             // 
             this.labelInfo.AutoSize = true;
             this.labelInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInfo.Location = new System.Drawing.Point(319, 140);
+            this.labelInfo.Location = new System.Drawing.Point(319, 153);
             this.labelInfo.MaximumSize = new System.Drawing.Size(650, 0);
             this.labelInfo.Name = "labelInfo";
             this.labelInfo.Size = new System.Drawing.Size(32, 18);
@@ -79,10 +79,10 @@
             this.linkLabel.Location = new System.Drawing.Point(319, 110);
             this.linkLabel.MaximumSize = new System.Drawing.Size(650, 0);
             this.linkLabel.Name = "linkLabel";
-            this.linkLabel.Size = new System.Drawing.Size(73, 18);
+            this.linkLabel.Size = new System.Drawing.Size(65, 18);
             this.linkLabel.TabIndex = 5;
             this.linkLabel.TabStop = true;
-            this.linkLabel.Text = "linkLabel1";
+            this.linkLabel.Text = "linkLabel";
             this.linkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_LinkClicked);
             // 
             // pictureBox

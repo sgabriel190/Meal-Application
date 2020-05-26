@@ -21,7 +21,7 @@ namespace FileParser
         public RecipeData FilterData()
         {
             return new RecipeData(Int32.Parse(objectJSON.GetValue("id").ToString()), objectJSON.GetValue("title").ToString(),
-                 objectJSON.GetValue("image").ToString(), "Source name:" + objectJSON.GetValue("sourceName").ToString());
+                 objectJSON.GetValue("image").ToString(), "Source name: " + objectJSON.GetValue("sourceName").ToString());
         }
         public List<RecipeData> FilterMultipleData()
         {
@@ -61,7 +61,7 @@ namespace FileParser
             JObject nutrition = (JObject)objectJSON.GetValue("nutrition");
             JArray nutrients = (JArray)nutrition.GetValue("nutrients");
             JArray ingredients = (JArray)nutrition.GetValue("ingredients");
-            string nutrientsString = "", ingredientsString = "";
+            string nutrientsString = "Nutrients: \n", ingredientsString = "Ingredients: \n";
             foreach(JObject nutrient in nutrients)
             {
                 nutrientsString += nutrient.GetValue("title").ToString()+ ": "+

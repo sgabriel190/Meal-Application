@@ -58,6 +58,25 @@ namespace FileParser
             {
                 dataToBeCompleted.URL = objectJSON.GetValue("sourceUrl").ToString();
             }
+            JObject nutrition = (JObject)objectJSON.GetValue("nutrition");
+            JArray nutrients = (JArray)nutrition.GetValue("nutrients");
+            JArray ingredients = (JArray)nutrition.GetValue("ingredients");
+            string nutrientsString = "", ingredientsString = "";
+            foreach(JObject nutrient in nutrients)
+            {
+                nutrientsString += nutrient.GetValue("title").ToString()+ ": "+
+                    nutrient.GetValue("amount").ToString() +
+                    nutrient.GetValue("unit").ToString() + "| ";
+            }
+            foreach (JObject ingredient in ingredients)
+            {
+                ingredientsString += ingredient.GetValue("name").ToString()+", ";
+            }
+            ingredientsString.Substring(ingredientsString.Length - 2);
+            nutrientsString.Substring(nutrientsString.Length - 2);
+            dataToBeCompleted.Nutrients = nutrientsString;
+            dataToBeCompleted.Ingredients = ingredientsString;
+
             return dataToBeCompleted;
         }
     }

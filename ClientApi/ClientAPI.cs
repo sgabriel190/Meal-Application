@@ -69,85 +69,66 @@ namespace ClientApi
 
         private JArray ReturnJsonArrayFromResponse(HttpResponseMessage response)
         {
+            JArray json = null;
             if (response.IsSuccessStatusCode)
             {
                 string dataObject = response.Content.ReadAsStringAsync().Result;
-                JArray json = JArray.Parse(dataObject);
+                json = JArray.Parse(dataObject);
                 return json;
             }
             else
             {
-                if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                {
-                    throw new System.Exception("HTTP not found with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
-                }
-                if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
-                {
-                    throw new System.Exception("HTTP forbidden with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
-                }
-                if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
-                {
-                    throw new System.Exception("HTTP bad request with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
-                }
-                if (response.StatusCode == System.Net.HttpStatusCode.GatewayTimeout)
-                {
-                    throw new System.Exception("HTTP gateway timeout with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
-                }
-                if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
-                {
-                    throw new System.Exception("HTTP internal server error with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
-                }
-                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-                {
-                    throw new System.Exception("HTTP unauthorized error with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString()
-                        + Environment.NewLine + "Please create an api key!"
-                        + Environment.NewLine + " Create an account for free and get your key: https://spoonacular.com/food-api");
-                }
-                throw new System.Exception("HTTP unknown error with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString()
-                        + Environment.NewLine + "Please change the api key!"
-                        + Environment.NewLine + " Create an account for free here: https://spoonacular.com/food-api");
+                CheckErrorMessage(response);
             }
+            return json;
         }
         private JObject ReturnJsonObjectFromResponse(HttpResponseMessage response)
         {
+            JObject json = null;
             if (response.IsSuccessStatusCode)
             {
                 string dataObject = response.Content.ReadAsStringAsync().Result;
-                JObject json = JObject.Parse(dataObject);
+                json = JObject.Parse(dataObject);
                 return json;
             }
             else
             {
-                if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                {
-                    throw new System.Exception("HTTP not found with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
-                }
-                if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
-                {
-                    throw new System.Exception("HTTP forbidden with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
-                }
-                if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
-                {
-                    throw new System.Exception("HTTP bad request with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
-                }
-                if (response.StatusCode == System.Net.HttpStatusCode.GatewayTimeout)
-                {
-                    throw new System.Exception("HTTP gateway timeout with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
-                }
-                if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
-                {
-                    throw new System.Exception("HTTP internal server error with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
-                }
-                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-                {
-                    throw new System.Exception("HTTP unauthorized error with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString()
-                        + Environment.NewLine + "Please create an api key!" 
-                        + Environment.NewLine + " Create an account for free and get your key: https://spoonacular.com/food-api");
-                }
-                throw new System.Exception("HTTP unknown error with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString()
-                        + Environment.NewLine + "Please change the api key!"
-                        + Environment.NewLine + " Create an account for free here: https://spoonacular.com/food-api");
+                CheckErrorMessage(response);
             }
+            return json;
+        }
+
+        private void CheckErrorMessage(HttpResponseMessage response)
+        {
+            if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                throw new System.Exception("HTTP not found with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
+            }
+            if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
+            {
+                throw new System.Exception("HTTP forbidden with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
+            }
+            if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+            {
+                throw new System.Exception("HTTP bad request with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
+            }
+            if (response.StatusCode == System.Net.HttpStatusCode.GatewayTimeout)
+            {
+                throw new System.Exception("HTTP gateway timeout with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
+            }
+            if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
+            {
+                throw new System.Exception("HTTP internal server error with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString());
+            }
+            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+            {
+                throw new System.Exception("HTTP unauthorized error with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString()
+                    + Environment.NewLine + "Please create an api key!"
+                    + Environment.NewLine + " Create an account for free and get your key: https://spoonacular.com/food-api");
+            }
+            throw new System.Exception("HTTP unknown error with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString()
+                    + Environment.NewLine + "Please change the api key!"
+                    + Environment.NewLine + " Create an account for free here: https://spoonacular.com/food-api");
         }
     }
 }

@@ -4,34 +4,34 @@ namespace ControllerNamespace
 {
     class ParseMealGenerate : IParse
     {
-        private string diet;
-        private int targetCalories;
-        private string excludeInput;
+        private string _diet;
+        private int _targetCalories;
+        private string _excludeInput;
 
         public ParseMealGenerate(int targetCalories, string diet, string excludeInput)
         {
-            this.targetCalories = targetCalories;
-            this.diet = diet;
-            this.excludeInput = excludeInput;
+            this._targetCalories = targetCalories;
+            this._diet = diet;
+            this._excludeInput = excludeInput;
         }
 
         public string CreateQuery()
         {
             string query = "";
 
-            if(targetCalories != 0)
+            if(_targetCalories != 0)
             {
-                query += $"&targetCalories={targetCalories}";
+                query += $"&targetCalories={_targetCalories}";
             }
 
-            if (excludeInput != "")
+            if (_excludeInput != "")
             {
                 query += "&";
                 int i;
                 string[] words;
 
-                excludeInput = excludeInput.Replace(" ", "");
-                words = excludeInput.Split(',');
+                _excludeInput = _excludeInput.Replace(" ", "");
+                words = _excludeInput.Split(',');
 
                 for (i = 0; i < words.Length - 1; i++)
                 {
@@ -40,9 +40,9 @@ namespace ControllerNamespace
                 query += words[i];
             }
 
-            if (diet != "")
+            if (_diet != "")
             {
-                query += "&diet=" + diet;
+                query += "&diet=" + _diet;
             }
 
             return query;

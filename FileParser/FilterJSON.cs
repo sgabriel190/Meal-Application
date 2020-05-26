@@ -7,26 +7,26 @@ namespace FileParser
 {
     public class FilterJSON : IFilter
     {
-        private JObject objectJSON;
-        private JArray arrayJSON;
+        private JObject _objectJSON;
+        private JArray _arrayJSON;
 
         public FilterJSON(JArray arrayJSON)
         {
-            this.arrayJSON = arrayJSON;
+            this._arrayJSON = arrayJSON;
         }
         public FilterJSON(JObject objectJSON)
         {
-            this.objectJSON = objectJSON;
+            this._objectJSON = objectJSON;
         }
         public RecipeData FilterData()
         {
-            return new RecipeData(Int32.Parse(objectJSON.GetValue("id").ToString()), objectJSON.GetValue("title").ToString(),
-                 objectJSON.GetValue("image").ToString(), "Source name: " + objectJSON.GetValue("sourceName").ToString());
+            return new RecipeData(Int32.Parse(_objectJSON.GetValue("id").ToString()), _objectJSON.GetValue("title").ToString(),
+                 _objectJSON.GetValue("image").ToString(), "Source name: " + _objectJSON.GetValue("sourceName").ToString());
         }
         public List<RecipeData> FilterMultipleData()
         {
             List<RecipeData> dataList = new List<RecipeData>();
-            foreach (JObject JSONobj in arrayJSON)
+            foreach (JObject JSONobj in _arrayJSON)
             {
                 RecipeData dataCreated = new RecipeData();
 
@@ -50,15 +50,15 @@ namespace FileParser
         }
         public RecipeData CompleteData(RecipeData dataToBeCompleted)
         {
-            if (objectJSON.ContainsKey("instructions"))
+            if (_objectJSON.ContainsKey("instructions"))
             {
-                dataToBeCompleted.Instructions = objectJSON.GetValue("instructions").ToString();
+                dataToBeCompleted.Instructions = _objectJSON.GetValue("instructions").ToString();
             }
-            if (objectJSON.ContainsKey("sourceUrl"))
+            if (_objectJSON.ContainsKey("sourceUrl"))
             {
-                dataToBeCompleted.URL = objectJSON.GetValue("sourceUrl").ToString();
+                dataToBeCompleted.URL = _objectJSON.GetValue("sourceUrl").ToString();
             }
-            JObject nutrition = (JObject)objectJSON.GetValue("nutrition");
+            JObject nutrition = (JObject)_objectJSON.GetValue("nutrition");
             JArray nutrients = (JArray)nutrition.GetValue("nutrients");
             JArray ingredients = (JArray)nutrition.GetValue("ingredients");
             string nutrientsString = "Nutrients: \n", ingredientsString = "Ingredients: \n";

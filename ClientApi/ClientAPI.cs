@@ -45,21 +45,29 @@ namespace ClientApi
         {
             string path = _pathBuilder.BuildPathIngredients(_apiKey, ingredientQuery);
             HttpResponseMessage response = _httpClient.GetAsync(path).Result;
-            if(response.IsSuccessStatusCode)
-            {
-                string dataObject = response.Content.ReadAsStringAsync().Result;
-                JArray json = JArray.Parse(dataObject);
-                return json;
-            }
-            else
-            {
-                throw new System.Exception("HTTP error");
-            }
+            return ReturnJsonArrayFromResponse(response);
         }
         public JArray SearchByNutrients(string nutrientsQuery)
         {
             string path = _pathBuilder.BuildPathNutrients(_apiKey, nutrientsQuery);
             HttpResponseMessage response = _httpClient.GetAsync(path).Result;
+            return ReturnJsonArrayFromResponse(response);
+        }
+        public JObject GenerateMealPlan(string mealPlannerQuery)
+        {
+            string path = _pathBuilder.BuildPathGenerateMealPlan(_apiKey, mealPlannerQuery);
+            HttpResponseMessage response = _httpClient.GetAsync(path).Result;
+            return ReturnJsonObjectFromResponse(response);
+        }
+        public JObject GetById(int id)
+        {
+            string path = _pathBuilder.BuildPathInformationId(_apiKey, id);
+            HttpResponseMessage response = _httpClient.GetAsync(path).Result;
+            return ReturnJsonObjectFromResponse(response);
+        }
+
+        private JArray ReturnJsonArrayFromResponse(HttpResponseMessage response)
+        {
             if (response.IsSuccessStatusCode)
             {
                 string dataObject = response.Content.ReadAsStringAsync().Result;
@@ -68,13 +76,31 @@ namespace ClientApi
             }
             else
             {
-                throw new System.Exception("HTTP error");
+                if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    throw new System.Exception("HTTP not found with status code: " + response.StatusCode);
+                }
+                if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
+                {
+                    throw new System.Exception("HTTP forbidden with status code: " + response.StatusCode);
+                }
+                if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                {
+                    throw new System.Exception("HTTP bad request with status code: " + response.StatusCode);
+                }
+                if (response.StatusCode == System.Net.HttpStatusCode.GatewayTimeout)
+                {
+                    throw new System.Exception("HTTP gateway timeout with status code: " + response.StatusCode);
+                }
+                if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
+                {
+                    throw new System.Exception("HTTP internal server error with status code: " + response.StatusCode);
+                }
+                throw new System.Exception("HTTP unknown error error with status code: " + response.StatusCode);
             }
         }
-        public JObject GenerateMealPlan(string mealPlannerQuery)
+        private JObject ReturnJsonObjectFromResponse(HttpResponseMessage response)
         {
-            string path = _pathBuilder.BuildPathGenerateMealPlan(_apiKey, mealPlannerQuery);
-            HttpResponseMessage response = _httpClient.GetAsync(path).Result;
             if (response.IsSuccessStatusCode)
             {
                 string dataObject = response.Content.ReadAsStringAsync().Result;
@@ -83,22 +109,27 @@ namespace ClientApi
             }
             else
             {
-                throw new System.Exception("HTTP error");
-            }
-        }
-        public JObject GetById(int id)
-        {
-            string path = _pathBuilder.BuildPathInformationId(_apiKey, id);
-            HttpResponseMessage response = _httpClient.GetAsync(path).Result;
-            if (response.IsSuccessStatusCode)
-            {
-                string dataObject = response.Content.ReadAsStringAsync().Result;
-                JObject json = JObject.Parse(dataObject);
-                return json;
-            }
-            else
-            {
-                throw new System.Exception("HTTP error");
+                if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    throw new System.Exception("HTTP not found with status code: " + response.StatusCode);
+                }
+                if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
+                {
+                    throw new System.Exception("HTTP forbidden with status code: " + response.StatusCode);
+                }
+                if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                {
+                    throw new System.Exception("HTTP bad request with status code: " + response.StatusCode);
+                }
+                if (response.StatusCode == System.Net.HttpStatusCode.GatewayTimeout)
+                {
+                    throw new System.Exception("HTTP gateway timeout with status code: " + response.StatusCode);
+                }
+                if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
+                {
+                    throw new System.Exception("HTTP internal server error with status code: " + response.StatusCode);
+                }
+                throw new System.Exception("HTTP unknown error error with status code: " + response.StatusCode);
             }
         }
     }

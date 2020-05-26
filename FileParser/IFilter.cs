@@ -6,7 +6,7 @@ using System.Collections.Generic;
  * Functionalitatea acestui sablon este de a extrage date dintr-un format specific JSON/XML intr-un model de reprezentare
  * intern.
  * Contine trei metode care definesc ulterioare clase specifice: FilterData, CompleteData si FilterMultipleData.
- * Autor:
+ * Autor: Strilciuc Gabriel
  */
 
 namespace FileParser

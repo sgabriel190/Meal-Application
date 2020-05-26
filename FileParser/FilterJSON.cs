@@ -5,7 +5,7 @@ using System.Collections.Generic;
 /**
  * Clasa FilterJSON are ca functionalitate filtrarea datelor dintr-un fisier/obiect JSON.
  * Extrage datele dintr-un obiect/array JSON si le formateaza intr-un model de date stabilit.
- * Autor:
+ * Autor: Strilciuc Gabriel
  */
 
 namespace FileParser

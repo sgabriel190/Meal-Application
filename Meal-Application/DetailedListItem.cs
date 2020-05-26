@@ -10,13 +10,18 @@ using System.Windows.Forms;
 
 namespace Meal_Application
 {
+    /**
+    * Definire UserControl DetailedListItem, utilizat pentru a dispune pe interfata retetele complete.
+    * Un astfel de control va fi creat la deschiderea unui nou tab.
+    * Autor: Panainte Ancuta
+    */
     public partial class DetailedListItem : UserControl
     {
         public DetailedListItem()
         {
             InitializeComponent();
         }
-
+        // Campuri care vor fi populate cu atributele din RecipeData
         private string _title;
         private string _info;
         private string _img;
@@ -56,6 +61,7 @@ namespace Meal_Application
             set { _ingredients = value; labelIngredients.Text = value; }
         }
 
+        // Metoda de callback pentru deschiderea linkului
         private void linkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabel.LinkVisited = true;

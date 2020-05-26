@@ -72,8 +72,8 @@ namespace FileParser
             {
                 ingredientsString += ingredient.GetValue("name").ToString()+", ";
             }
-            ingredientsString.Substring(ingredientsString.Length - 2);
-            nutrientsString.Substring(nutrientsString.Length - 2);
+            ingredientsString = ingredientsString.Substring(0, ingredientsString.Length - 2);
+            nutrientsString = nutrientsString.Substring(0, nutrientsString.Length - 2);
             dataToBeCompleted.Nutrients = nutrientsString;
             dataToBeCompleted.Ingredients = ingredientsString;
 

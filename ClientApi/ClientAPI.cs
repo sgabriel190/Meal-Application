@@ -30,8 +30,10 @@ namespace ClientApi
             //Instantiere si setari client HTTP
             _httpClient = new HttpClient();
             _pathBuilder = new PathBuilder();
+
             _httpClient.BaseAddress = new System.Uri(_apiURL);
             _httpClient.DefaultRequestHeaders.Accept.Clear();
+
             _httpClient.DefaultRequestHeaders
                 .Accept
                 .Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -119,7 +121,7 @@ namespace ClientApi
                 json = JArray.Parse(dataObject);
                 return json;
             }
-            else
+            else // In cazul in care raspunsul nu este unul OK se incearca identificarea mesajului de eroare http
             {
                 CheckErrorMessage(response);
             }
@@ -140,7 +142,7 @@ namespace ClientApi
                 json = JObject.Parse(dataObject);
                 return json;
             }
-            else
+            else // In cazul in care raspunsul nu este unul OK se incearca identificarea mesajului de eroare http
             {
                 CheckErrorMessage(response);
             }
@@ -179,6 +181,8 @@ namespace ClientApi
                     + Environment.NewLine + "Please create an api key!"
                     + Environment.NewLine + " Create an account for free and get your key: https://spoonacular.com/food-api");
             }
+
+            // Intr-un caz care nu este acoperit de codurile HTTP de mai sus se transmite un mesaj general.
             throw new System.Exception("HTTP unknown error with status code: " + response.StatusCode + ": " + ((int)response.StatusCode).ToString()
                     + Environment.NewLine + "Please change the api key!"
                     + Environment.NewLine + " Create an account for free here: https://spoonacular.com/food-api");

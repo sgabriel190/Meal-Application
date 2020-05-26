@@ -1,4 +1,10 @@
-﻿
+﻿/**
+ * Clasa ParseIngredients reprezinta o implementare a interfetei IParse. Deoarece este gandita flexibilitatea
+ * programului si eventuala extindere a functionalitatilor de parsare a query-urilorm de cautare, se foloseste 
+ * aceasta implementare. Aceasta clasa primeste in constructor parametrii inputIngredients si numberRecipes
+ * care vor fi parsati intr-un singur string potrivit functiilor de cautare al API-ului.
+ * Autor:
+ */
 namespace ControllerNamespace
 {
     class ParseIngredients : IParse
@@ -12,6 +18,7 @@ namespace ControllerNamespace
             _number = numberRecipes;
         }
 
+        // Metoda CreateQuery implementeaza unica functionalitate a clasei: de a parsa parametrii intr-un query.
         public string CreateQuery()
         {
             string query = "ingredients=";

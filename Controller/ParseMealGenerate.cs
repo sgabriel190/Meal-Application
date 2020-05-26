@@ -1,4 +1,10 @@
-﻿
+﻿/**
+ * Clasa ParseMealGenerate reprezinta o implementare a interfetei IParse. Deoarece este gandita flexibilitatea
+ * programului si eventuala extindere a functionalitatilor de parsare a query-urilorm de cautare, se foloseste 
+ * aceasta implementare. Aceasta clasa primeste in constructor parametrii targetCalories, diet si excludeInput
+ * care vor fi parsati intr-un singur string potrivit functiilor de cautare al API-ului.
+ * Autor:
+ */
 
 namespace ControllerNamespace
 {
@@ -15,6 +21,7 @@ namespace ControllerNamespace
             this._excludeInput = excludeInput;
         }
 
+        // Metoda CreateQuery implementeaza unica functionalitate a clasei: de a parsa parametrii intr-un query.
         public string CreateQuery()
         {
             string query = "";

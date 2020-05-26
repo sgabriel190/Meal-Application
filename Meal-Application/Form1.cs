@@ -5,6 +5,11 @@ using System.Windows.Forms;
 using ControllerNamespace;
 using DataModel;
 using Meal_Application.Properties;
+/**
+ * Clasa FormMealApp defineste interfata impreuna cu functionalitatile oferite de aceasta(callback-uri).
+ * Interfata este realizata sub modelul de Windows Form App oferit in Visual Studio.
+ * Autor: Panainte Ancuta
+ */
 
 namespace Meal_Application
 {
@@ -15,7 +20,7 @@ namespace Meal_Application
         private List<RecipeData> _recipesList = null;
         private List<RecipeData> _generatedMealList = null;
 
-
+        // Constructorul ce initializeaza interfata
         public FormMealApp()
         {
             InitializeComponent();
@@ -85,6 +90,8 @@ namespace Meal_Application
             else
                 groupBoxNutrients.Enabled = false;
         }
+
+        // Metoda pentru adaugarea unui tab nou 
         private void AddNewTab(RecipeData recipe)
         {
             recipe = _controller.GetCompleteRecipe(recipe);
@@ -115,7 +122,8 @@ namespace Meal_Application
             tabControlSearch.TabPages.Add(tp);
             tabControlSearch.SelectedTab = tp;
         }
-    
+
+        // Metoda refreshPreviewList actualizeaza lista de retete din tabul Search
         private void refreshPreviewList()
         {
             _previewList = new ListItem[_recipesList.Count];
@@ -133,6 +141,7 @@ namespace Meal_Application
             }
         }
 
+        // Metoda refreshPreviewMealList actualizeaza lista de retete din tabul Meal Plan
         private void refreshPreviewMealList()
         {
 
@@ -152,6 +161,8 @@ namespace Meal_Application
                 flowLayoutPanelMealPlan.Controls.Add(_previewList[i]);
             }
         }
+
+        // Metoda de callback pentru butonul Search
         private void recipeSearchButton_Click(object sender, EventArgs e)
         {
             flowLayoutPanelListItems.Controls.Clear();
@@ -226,7 +237,8 @@ namespace Meal_Application
                 }
             }
         }
-      
+
+        // Metoda de callback pentru butonul Generate din tabul Meal Plan
         private void buttonGenerateMealPlan_Click(object sender, EventArgs e)
         {
             flowLayoutPanelMealPlan.Controls.Clear();
@@ -254,6 +266,7 @@ namespace Meal_Application
             }
         }
 
+        // Metoda de callback pentru butonul Change din tabul Search pentru actualizarea api keyului
         private void buttonChangeApiKey_Click(object sender, EventArgs e)
         {
             _controller.SetApiKey(textBoxApiKey.Text);
@@ -280,12 +293,5 @@ namespace Meal_Application
                 + "\n\n" + "(c) 2020 Proiect");
         }
 
-        /*
-         private void buttonHelp_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Meal Plan based on preference and diet type." + "\n\n" + "Add ingredients and nutriens to get personalized recipes."
-                + "\n\n" + "(c) 2020 Proiect 1308B");
-        }
-        */
     }
 }

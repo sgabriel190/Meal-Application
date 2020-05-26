@@ -10,10 +10,7 @@ using Newtonsoft.Json.Linq;
 
 namespace ClientApi
 {
-    /**
-     *  Clasa ClientAPI contine un client HTTP care permite aplicatiei sa comunice cu serverul API 
-     * folosidu-i functiile puse la dispozitie pentru a dispune de datele necesare.
-     */
+
     public class ClientAPI
     {
         private static ClientAPI _instance = null;

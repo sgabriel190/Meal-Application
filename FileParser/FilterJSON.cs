@@ -66,11 +66,12 @@ namespace FileParser
             {
                 nutrientsString += nutrient.GetValue("title").ToString()+ ": "+
                     nutrient.GetValue("amount").ToString() +
-                    nutrient.GetValue("unit").ToString() + "| ";
+                    nutrient.GetValue("unit").ToString() + " | ";
             }
             foreach (JObject ingredient in ingredients)
             {
-                ingredientsString += ingredient.GetValue("name").ToString()+", ";
+                ingredientsString += ingredient.GetValue("name").ToString()+ ": "+
+                    ingredient.GetValue("amount").ToString()+ ingredient.GetValue("unit").ToString()+Environment.NewLine;
             }
             ingredientsString = ingredientsString.Substring(0, ingredientsString.Length - 2);
             nutrientsString = nutrientsString.Substring(0, nutrientsString.Length - 2);

@@ -4,6 +4,11 @@ using System.Windows.Forms;
 
 namespace Meal_Application
 {
+    /**
+    * Definire UserControl ListItem, utilizat pentru a dispune pe interfata un preview al retetelor.
+    * Va fi populat cu datele minime ale RecipeData
+    * Autor: Panainte Ancuta
+    */
     public partial class ListItem : UserControl
     {
         public ListItem()
@@ -43,6 +48,7 @@ namespace Meal_Application
             get { return _separator; }
             set { _separator= value; panelSeparator.Width = value; }
         }
+        // Adaugare EventHandler pentru deschidere tab nou la click pe imagine sau titlu
         public EventHandler ClickEvent
         {
             set { _eh = value; pictureBoxListItem.Click += value; labelListItemTitle.Click += value;  }

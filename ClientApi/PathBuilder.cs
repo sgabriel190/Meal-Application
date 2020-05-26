@@ -28,7 +28,7 @@ namespace ClientApi
         public string BuildPathInformationId(string apiKey, int id)
         {
             string path = $"recipes/{id}/information";
-            path += "?" + apiKey;
+            path += "?" + apiKey + "&includeNutrition=true";
             return path;
         }
         public string BuildPathGenerateMealPlan(string apiKey, string mealPlannerQuery)

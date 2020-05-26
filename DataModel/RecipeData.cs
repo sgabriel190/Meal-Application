@@ -1,4 +1,18 @@
-﻿
+﻿/**
+ * Clasa RecipeData reprezinta un model de data convenabil aplicatiei. Datele aceste clase sunt populate
+ * conform raspunsurilor primite de la API ale retetelor.
+ * Datele folosite pentru retete sunt:
+ * id: int
+ * title: string
+ * imgLocation: string
+ * description: string
+ * url: string
+ * instructions: string
+ * nutrients: string
+ * ingredients: string
+ * Autor:
+ */
+
 namespace DataModel
 {
     public class RecipeData
@@ -12,6 +26,7 @@ namespace DataModel
         private string _nutrients;
         private string _ingredients;
 
+
         public RecipeData()
         {      
         }
@@ -24,6 +39,9 @@ namespace DataModel
             _description = description;
         }
 
+        /**
+         * Definirea metodelor getter si setter pentru atributele clasei
+         */
         public string Instructions
         {
             get { return _instructions; }

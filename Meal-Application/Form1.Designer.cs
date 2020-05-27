@@ -228,6 +228,11 @@
             // numericUpDownMinCalories
             // 
             this.numericUpDownMinCalories.Location = new System.Drawing.Point(35, 22);
+            this.numericUpDownMinCalories.Maximum = new decimal(new int[] {
+            800,
+            0,
+            0,
+            0});
             this.numericUpDownMinCalories.Name = "numericUpDownMinCalories";
             this.numericUpDownMinCalories.Size = new System.Drawing.Size(95, 21);
             this.numericUpDownMinCalories.TabIndex = 13;
@@ -782,7 +787,7 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 

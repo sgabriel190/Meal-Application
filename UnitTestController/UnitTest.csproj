@@ -64,7 +64,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTestClientAPI.cs" />
+    <Compile Include="TestUnitClassAPIClass.cs" />
     <Compile Include="UnitTestContriollerClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

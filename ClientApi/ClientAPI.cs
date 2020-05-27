@@ -16,7 +16,7 @@ namespace ClientApi
         private static ClientAPI _instance = null;
 
         private const string _apiURL = "https://api.spoonacular.com";
-        private string _apiKey = "apiKey=a3a2299445e34aef82762e4fa925d413";
+        private string _apiKey = "apiKey=7b137a9d00974ba4b92d25f4d51d11c6";
 
         private HttpClient _httpClient = null;
         private PathBuilder _pathBuilder = null;

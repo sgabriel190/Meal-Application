@@ -39,44 +39,72 @@ namespace DataModel
             _description = description;
         }
 
-        /**
-         * Definirea metodelor getter si setter pentru atributele clasei
-         */
+        /// <summary>
+        /// Definirea functiilor getter si setter pentru campul Instructions.
+        /// </summary>
         public string Instructions
         {
             get { return _instructions; }
             set { _instructions = value; }
         }
+
+        /// <summary>
+        /// Definirea functiilor getter si setter pentru campul ID.
+        /// </summary>
         public int ID
         {
             get { return _id; }
             set { _id = value; }
         }
+
+        /// <summary>
+        /// Definirea functiilor getter si setter pentru campul Title.
+        /// </summary>
         public string Title
         {
             get { return _title; }
             set { _title = value; }
         }
+
+        /// <summary>
+        /// Definirea functiilor getter si setter pentru campul ImageLocation.
+        /// </summary>
         public string ImageLocation
         {
             get { return _imgLocation; }
             set { _imgLocation = value; }
         }
+
+        /// <summary>
+        /// Definirea functiilor getter si setter pentru campul Description.
+        /// </summary>
         public string Description
         {
             get { return _description; }
             set { _description = value; }
         }
+
+        /// <summary>
+        /// Definirea functiilor getter si setter pentru campul URL.
+        /// </summary>
         public string URL
         {
             get { return _url; }
             set { _url = value; }
         }
+
+        /// <summary>
+        /// Definirea functiilor getter si setter pentru campul Nutrients.
+        /// </summary>
         public string Nutrients
         {
             get { return _nutrients; }
             set { _nutrients = value; }
         }
+
+        /// <summary>
+        /// Definirea functiilor getter si setter pentru campul Ingredients.
+        /// </summary>
         public string Ingredients
         {
             get { return _ingredients; }

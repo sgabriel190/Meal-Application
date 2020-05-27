@@ -11,7 +11,12 @@ namespace ClientApi
 {
     public class PathBuilder
     {
-        // Metoda care construieste resursa specifica functiei SearchByIngredients
+        /// <summary>
+        /// Metoda care construieste resursa specifica functiei SearchByIngredients
+        /// </summary>
+        /// <param name="apiKey">String ce reprezinta api key-ul sub forma de parametru.</param>
+        /// <param name="ingredientsQuery">String ce reprezinta un query cu parametrii dati de utilizator.</param>
+        /// <returns>URI-ul complet pentru accesarea functiei API.</returns>
         public string BuildPathIngredients(string apiKey, string ingredientsQuery)
         {
             string path = "recipes/findByIngredients";
@@ -19,7 +24,12 @@ namespace ClientApi
             return path;
         }
 
-        // Metoda care construieste resursa specifica functiei SearchByNutrients
+        /// <summary>
+        /// Metoda care construieste resursa specifica functiei SearchByNutrients
+        /// </summary>
+        /// <param name="apiKey">String ce reprezinta api key-ul sub forma de parametru.</param>
+        /// <param name="nutrientsQuery">String ce reprezinta un query cu parametrii dati de utilizator.</param>
+        /// <returns>URI-ul complet pentru accesarea functiei API.</returns>
         public string BuildPathNutrients(string apiKey, string nutrientsQuery)
         {
             string path = "recipes/findByNutrients";
@@ -27,7 +37,12 @@ namespace ClientApi
             return path;
         }
 
-        // Metoda care construieste resursa specifica functiei GetRecipeInformation
+        /// <summary>
+        /// Metoda care construieste resursa specifica functiei GetRecipeInformation
+        /// </summary>
+        /// <param name="apiKey">String ce reprezinta api key-ul sub forma de parametru.</param>
+        /// <param name="id">String ce reprezinta un query cu parametrii dati de utilizator.</param>
+        /// <returns>URI-ul complet pentru accesarea functiei API.</returns>
         public string BuildPathInformationId(string apiKey, int id)
         {
             string path = $"recipes/{id}/information";
@@ -35,7 +50,12 @@ namespace ClientApi
             return path;
         }
 
-        // Metoda care construieste resursa specifica functiei GenerateMealPlan
+        /// <summary>
+        /// Metoda care construieste resursa specifica functiei GenerateMealPlan
+        /// </summary>
+        /// <param name="apiKey">String ce reprezinta api key-ul sub forma de parametru.</param>
+        /// <param name="mealPlannerQuery">String ce reprezinta un query cu parametrii dati de utilizator.</param>
+        /// <returns>URI-ul complet pentru accesarea functiei API.</returns>
         public string BuildPathGenerateMealPlan(string apiKey, string mealPlannerQuery)
         {
             string path = "mealplanner/generate";

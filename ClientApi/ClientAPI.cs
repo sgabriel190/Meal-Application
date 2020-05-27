@@ -21,7 +21,9 @@ namespace ClientApi
         private HttpClient _httpClient = null;
         private PathBuilder _pathBuilder = null;
 
-        // Constructor privat pentru realizarea sablonului de singleton
+        /// <summary>
+        /// Constructor privat pentru realizarea sablonului de singleton
+        /// </summary>
         private ClientAPI()
         {
             //Instantiere si setari client HTTP
@@ -36,8 +38,11 @@ namespace ClientApi
                 .Add(new MediaTypeWithQualityHeaderValue("application/json"));
             
         }
-       
-        // Metoda publica pentru a accesa unica instanta de clientAPI din aplicatie
+
+        /// <summary>
+        /// Metoda publica pentru a accesa unica instanta de clientAPI din aplicatie
+        /// </summary>
+        /// <returns>Instanta unica de clasa ClientAPI.</returns>
         public static ClientAPI GetInstance()
         {
             if(_instance == null)
@@ -46,18 +51,23 @@ namespace ClientApi
             }
             return _instance;
         }
-        // Metoda setter pentru atributul apiKey
+
+        /// <summary>
+        /// Metoda setter pentru atributul apiKey
+        /// </summary>
         public string ApiKey
         {
             set { _apiKey = "apiKey=" + value; }
         }
 
-        /**
-         * Metoda SearchByIngredients primeste ca parametru un query URI si foloseste clientul HTTP 
-         * definit local in clasa pentru a apela functiile API-ului prin protocolul HTTP.
-         *** Query-ul contine parametrii necesari functiei de cautare bazata pe ingrediente.
-         * Aceasta clasa returneaza un JArray, continut de raspunsul HTTP primit de la API.
-         */
+        /// <summary>
+        /// Metoda SearchByIngredients primeste ca parametru un query URI si foloseste clientul HTTP 
+        /// definit local in clasa pentru a apela functiile API-ului prin protocolul HTTP.
+        /// Query-ul contine parametrii necesari functiei de cautare bazata pe ingrediente.
+        /// Aceasta clasa returneaza un JArray, continut de raspunsul HTTP primit de la API.
+        /// </summary>
+        /// <param name="ingredientQuery">Un query parsat de un modul separat, cu date introduse de utilizator.</param>
+        /// <returns>Un array JSON ce contine o lista de retete care se incadreaza in parametrii din query.</returns>
         public JArray SearchByIngredients(string ingredientQuery)
         {
             string path = _pathBuilder.BuildPathIngredients(_apiKey, ingredientQuery);
@@ -65,12 +75,14 @@ namespace ClientApi
             return ReturnJsonArrayFromResponse(response);
         }
 
-        /**
-         * Metoda SearchByNutrients primeste ca parametru un query URI si foloseste clientul HTTP 
-         * definit local in clasa pentru a apela functiile API-ului prin protocolul HTTP.
-         *** Query-ul contine parametrii necesari functiei de cautare bazata pe nutrienti.
-         * Aceasta clasa returneaza un JArray, continut de raspunsul HTTP primit de la API.
-         */
+        /// <summary>
+        /// Metoda SearchByNutrients primeste ca parametru un query URI si foloseste clientul HTTP 
+        /// definit local in clasa pentru a apela functiile API-ului prin protocolul HTTP.
+        /// Query-ul contine parametrii necesari functiei de cautare bazata pe nutrienti.
+        /// Aceasta clasa returneaza un JArray, continut de raspunsul HTTP primit de la API.
+        /// </summary>
+        /// <param name="nutrientsQuery">Un query parsat de un modul separat, cu date introduse de utilizator.</param>
+        /// <returns>Un array JSON ce contine o lista de retete care se incadreaza in parametrii din query.</returns>
         public JArray SearchByNutrients(string nutrientsQuery)
         {
             string path = _pathBuilder.BuildPathNutrients(_apiKey, nutrientsQuery);
@@ -78,12 +90,14 @@ namespace ClientApi
             return ReturnJsonArrayFromResponse(response);
         }
 
-        /**
-         * Metoda GenerateMealPlan primeste ca parametru un query URI si foloseste clientul HTTP 
-         * definit local in clasa pentru a apela functiile API-ului prin protocolul HTTP.
-         *** Query-ul contine parametrii necesari functiei de generare a unui plan alimentar bazat pe un numar de parametrii.
-         * Aceasta clasa returneaza un JObject, continut de raspunsul HTTP primit de la API.
-         */
+        /// <summary>
+        /// Metoda GenerateMealPlan primeste ca parametru un query URI si foloseste clientul HTTP 
+        /// definit local in clasa pentru a apela functiile API-ului prin protocolul HTTP.
+        /// Query-ul contine parametrii necesari functiei de generare a unui plan alimentar bazat pe un numar de parametrii.
+        /// Aceasta clasa returneaza un JObject, continut de raspunsul HTTP primit de la API.
+        /// </summary>
+        /// <param name="mealPlannerQuery">Un query parsat de un modul separat, cu date introduse de utilizator.</param>
+        /// <returns>Un obiect JSON ce contine lista de retete recomandate ce se incadreaza in query-ul trimis API-ului.</returns>
         public JObject GenerateMealPlan(string mealPlannerQuery)
         {
             string path = _pathBuilder.BuildPathGenerateMealPlan(_apiKey, mealPlannerQuery);
@@ -91,12 +105,14 @@ namespace ClientApi
             return ReturnJsonObjectFromResponse(response);
         }
 
-        /**
-         * Metoda GetById primeste ca parametru un query URI si foloseste clientul HTTP 
-         * definit local in clasa pentru a apela functiile API-ului prin protocolul HTTP.
-         *** Query-ul contine parametrii necesari functiei de returnare a unei retete complete, bazat pe id.
-         * Aceasta clasa returneaza un JObject, continut de raspunsul HTTP primit de la API.
-         */
+        /// <summary>
+        /// Metoda GetById primeste ca parametru un query URI si foloseste clientul HTTP 
+        /// definit local in clasa pentru a apela functiile API-ului prin protocolul HTTP.
+        /// Query-ul contine parametrii necesari functiei de returnare a unei retete complete, bazat pe id.
+        /// Aceasta clasa returneaza un JObject, continut de raspunsul HTTP primit de la API.
+        /// </summary>
+        /// <param name="id">Reprezinta id-ul retetei cautate de catre utilizator.</param>
+        /// <returns>Un obiect JSON ce contine datele necesare retetei.</returns>
         public JObject GetById(int id)
         {
             string path = _pathBuilder.BuildPathInformationId(_apiKey, id);
@@ -104,11 +120,13 @@ namespace ClientApi
             return ReturnJsonObjectFromResponse(response);
         }
 
-        /**
-         * Metoda ReturnJsonArrayFromResponse primeste ca parametru raspunsul oferit de catre API aplicatiei
-         * si pe baza acesuia, daca codul HTTP este unul de succes, se extrage din continut un array JSON.
-         * Acest array este trimis ulterior aplicatiei pentru a pregatii datele datele necesare.
-         */
+        /// <summary>
+        /// Metoda ReturnJsonArrayFromResponse primeste ca parametru raspunsul oferit de catre API aplicatiei
+        /// si pe baza acesuia, daca codul HTTP este unul de succes, se extrage din continut un array JSON.
+        /// Acest array este trimis ulterior aplicatiei pentru a pregatii datele datele necesare.
+        /// </summary>
+        /// <param name="response">Raspunsul HTTP oferit de care API.</param>
+        /// <returns>Un array JSON ce contine raspunsul potrivit query-ului trimis spre API.</returns>
         private JArray ReturnJsonArrayFromResponse(HttpResponseMessage response)
         {
             JArray json = null;
@@ -125,11 +143,13 @@ namespace ClientApi
             return json;
         }
 
-        /**
-         * Metoda ReturnJsonObjectFromResponse primeste ca parametru raspunsul oferit de catre API aplicatiei
-         * si pe baza acesuia, daca codul HTTP este unul de succes, se extrage din continut un obiect JSON.
-         * Acest obiect este trimis ulterior aplicatiei pentru a pregatii datele datele necesare.
-         */
+        /// <summary>
+        /// <p>Metoda ReturnJsonObjectFromResponse primeste ca parametru raspunsul oferit de catre API aplicatiei
+        /// si pe baza acesuia, daca codul HTTP este unul de succes, se extrage din continut un obiect JSON.</p>
+        /// <p>Acest obiect este trimis ulterior aplicatiei pentru a pregatii datele datele necesare.</p>
+        /// </summary>
+        /// <param name="response">Raspunsul HTTP oferit de care API.</param>
+        /// <returns>Un obiect JSON ce contine datele necesare retetei.</returns>
         private JObject ReturnJsonObjectFromResponse(HttpResponseMessage response)
         {
             JObject json = null;
@@ -146,10 +166,11 @@ namespace ClientApi
             return json;
         }
 
-        /**
-         * Metoda CheckErrorMessage este o functie de tip helper. Aceasta incearca sa decida, in cazul in care raspunsul 
-         * HTTP nu are un cod de succes 2xx, in care dintre situatiile de eroare se afla si trimite o exceptie catre interfata.
-         */
+        /// <summary>
+        /// Metoda CheckErrorMessage este o functie de tip helper. Aceasta incearca sa decida, in cazul in care raspunsul 
+        /// HTTP nu are un cod de succes 2xx, in care dintre situatiile de eroare se afla si trimite o exceptie catre interfata.
+        /// </summary>
+        /// <param name="response">Reprezinta raspunsul HTTP oferit de API.</param>
         private void CheckErrorMessage(HttpResponseMessage response)
         {
             if (response.StatusCode == System.Net.HttpStatusCode.NotFound)

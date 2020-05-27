@@ -21,7 +21,10 @@ namespace ControllerNamespace
             _number = numberRecipes;
         }
 
-        // Metoda CreateQuery implementeaza unica functionalitate a clasei: de a parsa parametrii intr-un query.
+        /// <summary>
+        /// Metoda CreateQuery implementeaza unica functionalitate a clasei: de a parsa parametrii intr-un query.
+        /// </summary>
+        /// <returns>Un string ce reprezinta query-ul.</returns>
         public string CreateQuery()
         {
             string query = "nutrients=";

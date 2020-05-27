@@ -24,14 +24,20 @@ namespace FileParser
             this._objectJSON = objectJSON;
         }
 
-        // Metoda FilterData care extrage datele primare despre reteta
+        /// <summary>
+        /// Metoda FilterData care extrage datele primare despre reteta. Pentru afisarea completa se vor completa datele ulterior.
+        /// </summary>
+        /// <returns>Un model de data pentru retete, cu informatii minime.</returns>
         public RecipeData FilterData()
         {
             return new RecipeData(Int32.Parse(_objectJSON.GetValue("id").ToString()), _objectJSON.GetValue("title").ToString(),
                  _objectJSON.GetValue("image").ToString(), "Source name: " + _objectJSON.GetValue("sourceName").ToString());
         }
-        
-        // Metoda FilterMultipleData extrage date dintr-un array JSON
+
+        /// <summary>
+        /// Metoda FilterMultipleData extrage date dintr-un array JSON. Pentru afisarea completa se vor completa datele ulterior.
+        /// </summary>
+        /// <returns>O lista de retete sub forma modelului utilizat, ce contine informatii minime.</returns>
         public List<RecipeData> FilterMultipleData()
         {
             List<RecipeData> dataList = new List<RecipeData>();
@@ -58,7 +64,11 @@ namespace FileParser
             return dataList;
         }
 
-        // Metoda CompleteData completeaza un model de date incomplet cu informatii suplimentare
+        /// <summary>
+        /// Metoda CompleteData completeaza un model de date incomplet cu informatii suplimentare
+        /// </summary>
+        /// <param name="dataToBeCompleted">Un model de data pentru retete, cu informatii minime.</param>
+        /// <returns>Un model de data pentru retete, cu informatii complete.</returns>
         public RecipeData CompleteData(RecipeData dataToBeCompleted)
         {
             if (_objectJSON.ContainsKey("instructions"))

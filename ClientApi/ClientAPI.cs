@@ -61,10 +61,10 @@ namespace ClientApi
         }
 
         /// <summary>
-        /// Metoda SearchByIngredients primeste ca parametru un query URI si foloseste clientul HTTP 
-        /// definit local in clasa pentru a apela functiile API-ului prin protocolul HTTP.
-        /// Query-ul contine parametrii necesari functiei de cautare bazata pe ingrediente.
-        /// Aceasta clasa returneaza un JArray, continut de raspunsul HTTP primit de la API.
+        /// <p>Metoda SearchByIngredients primeste ca parametru un query URI si foloseste clientul HTTP 
+        /// definit local in clasa pentru a apela functiile API-ului prin protocolul HTTP.</p>
+        /// <p>Query-ul contine parametrii necesari functiei de cautare bazata pe ingrediente.
+        /// Aceasta clasa returneaza un JArray, continut de raspunsul HTTP primit de la API.</p>
         /// </summary>
         /// <param name="ingredientQuery">Un query parsat de un modul separat, cu date introduse de utilizator.</param>
         /// <returns>Un array JSON ce contine o lista de retete care se incadreaza in parametrii din query.</returns>
@@ -76,10 +76,10 @@ namespace ClientApi
         }
 
         /// <summary>
-        /// Metoda SearchByNutrients primeste ca parametru un query URI si foloseste clientul HTTP 
-        /// definit local in clasa pentru a apela functiile API-ului prin protocolul HTTP.
-        /// Query-ul contine parametrii necesari functiei de cautare bazata pe nutrienti.
-        /// Aceasta clasa returneaza un JArray, continut de raspunsul HTTP primit de la API.
+        /// <p>Metoda SearchByNutrients primeste ca parametru un query URI si foloseste clientul HTTP 
+        /// definit local in clasa pentru a apela functiile API-ului prin protocolul HTTP.</p>
+        /// <p>Query-ul contine parametrii necesari functiei de cautare bazata pe nutrienti.</p>
+        /// <p>Aceasta clasa returneaza un JArray, continut de raspunsul HTTP primit de la API.</p>
         /// </summary>
         /// <param name="nutrientsQuery">Un query parsat de un modul separat, cu date introduse de utilizator.</param>
         /// <returns>Un array JSON ce contine o lista de retete care se incadreaza in parametrii din query.</returns>
@@ -91,10 +91,10 @@ namespace ClientApi
         }
 
         /// <summary>
-        /// Metoda GenerateMealPlan primeste ca parametru un query URI si foloseste clientul HTTP 
-        /// definit local in clasa pentru a apela functiile API-ului prin protocolul HTTP.
-        /// Query-ul contine parametrii necesari functiei de generare a unui plan alimentar bazat pe un numar de parametrii.
-        /// Aceasta clasa returneaza un JObject, continut de raspunsul HTTP primit de la API.
+        /// <p>Metoda GenerateMealPlan primeste ca parametru un query URI si foloseste clientul HTTP 
+        /// definit local in clasa pentru a apela functiile API-ului prin protocolul HTTP.</p>
+        /// <p>Query-ul contine parametrii necesari functiei de generare a unui plan alimentar bazat pe un numar de parametrii.
+        /// Aceasta clasa returneaza un JObject, continut de raspunsul HTTP primit de la API.</p>
         /// </summary>
         /// <param name="mealPlannerQuery">Un query parsat de un modul separat, cu date introduse de utilizator.</param>
         /// <returns>Un obiect JSON ce contine lista de retete recomandate ce se incadreaza in query-ul trimis API-ului.</returns>
@@ -106,10 +106,10 @@ namespace ClientApi
         }
 
         /// <summary>
-        /// Metoda GetById primeste ca parametru un query URI si foloseste clientul HTTP 
-        /// definit local in clasa pentru a apela functiile API-ului prin protocolul HTTP.
-        /// Query-ul contine parametrii necesari functiei de returnare a unei retete complete, bazat pe id.
-        /// Aceasta clasa returneaza un JObject, continut de raspunsul HTTP primit de la API.
+        /// <p>Metoda GetById primeste ca parametru un query URI si foloseste clientul HTTP 
+        /// definit local in clasa pentru a apela functiile API-ului prin protocolul HTTP.</p>
+        /// <p>Query-ul contine parametrii necesari functiei de returnare a unei retete complete, bazat pe id.
+        /// Aceasta clasa returneaza un JObject, continut de raspunsul HTTP primit de la API.</p>
         /// </summary>
         /// <param name="id">Reprezinta id-ul retetei cautate de catre utilizator.</param>
         /// <returns>Un obiect JSON ce contine datele necesare retetei.</returns>
@@ -121,9 +121,9 @@ namespace ClientApi
         }
 
         /// <summary>
-        /// Metoda ReturnJsonArrayFromResponse primeste ca parametru raspunsul oferit de catre API aplicatiei
-        /// si pe baza acesuia, daca codul HTTP este unul de succes, se extrage din continut un array JSON.
-        /// Acest array este trimis ulterior aplicatiei pentru a pregatii datele datele necesare.
+        /// <p>Metoda ReturnJsonArrayFromResponse primeste ca parametru raspunsul oferit de catre API aplicatiei
+        /// si pe baza acesuia, daca codul HTTP este unul de succes, se extrage din continut un array JSON.</p>
+        /// <p>Acest array este trimis ulterior aplicatiei pentru a pregatii datele datele necesare.</p>
         /// </summary>
         /// <param name="response">Raspunsul HTTP oferit de care API.</param>
         /// <returns>Un array JSON ce contine raspunsul potrivit query-ului trimis spre API.</returns>

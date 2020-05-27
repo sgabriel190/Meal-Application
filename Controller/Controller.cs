@@ -25,18 +25,21 @@ namespace ControllerNamespace
             _clientAPI = ClientAPI.GetInstance();
         }
 
-        // Metoda setter pentru a seta un apiKey introdus de utilizator
+        /// <summary>
+        /// Metoda setter pentru a seta un apiKey introdus de utilizator
+        /// </summary>
+        /// <param name="apiKey">Reprezinta inputul de tip string introdus de utilizator pe interfata.</param>
         public void SetApiKey(string apiKey)
         {
             _clientAPI.ApiKey = apiKey;
         }
 
-        /**
-         * Metoda GetRecipiesFromIngridients primeste doi parametrii: inputIngrdients(defineste inputul de ingrediente definit de catre 
-         * utilizator) si numberOfRecipes(valoarea numerica oferita de utilizator ce reprezinta numarul de retete cautate de api).
-         * Se utilizeaza clasele ClientAPI, ParseIngredients si FilterJSON pentru a obtine o lista de retete potrivit modelului de date
-         * RecipeData.
-         */
+        /// <summary>
+        /// Se utilizeaza clasele ClientAPI, ParseIngredients si FilterJSON pentru a obtine o lista de retete potrivit modelului de date RecipeData.
+        /// </summary>
+        /// <param name="inputIngredients">defineste inputul de ingrediente definit de catre utilizator.</param>
+        /// <param name="numberOfRecipes">valoarea numerica oferita de utilizator ce reprezinta numarul de retete cautate de api.</param>
+        /// <returns>O lista de modele de date, pregatite pentru preview, rezultate in urma cautarii</returns>
         public List<RecipeData> GetRecipiesFromIngridients(string inputIngredients, int numberOfRecipes)
         {
             List<RecipeData> listOfRecipies = new List<RecipeData>();
@@ -51,12 +54,13 @@ namespace ControllerNamespace
             return listOfRecipies;
         }
 
-        /**
-         * Metoda GetRecipesMealPlan primeste trei parametrii: targetCalories(reprezinta valoarea numerica introdusa de utilizator
-         * pentru numarul de calorii in care sa se incadreze planul), diet(defineste dieta aleasa de utilizator; aceasta poate sa lipseasca)
-         * si exclude(un input de tip string care mentioneaza ce sa fie exclus din plan).
-         * Se utilizeaza clasele ClientAPI, ParseIngredients si FilterJSON pentru a obtine o lista de retete potrivit modelului de date RecipeData.
-         */
+        /// <summary>
+        /// Se utilizeaza clasele ClientAPI, ParseIngredients si FilterJSON pentru a obtine o lista de retete potrivit modelului de date RecipeData.
+        /// </summary>
+        /// <param name="targetCalories">Reprezinta valoarea numerica introdusa de utilizator pentru numarul de calorii in care sa se incadreze planul.</param>
+        /// <param name="diet">Defineste dieta aleasa de utilizator; aceasta poate sa lipseasca.</param>
+        /// <param name="exclude">Un input de tip string care mentioneaza ce sa fie exclus din plan.</param>
+        /// <returns>O lista de modele de date, pregatite pentru preview, rezultate in urma cautarii</returns>
         public List<RecipeData> GetRecipesMealPlan(int targetCalories, string diet, string exclude)
         {
             List<RecipeData> listOfRecipies = new List<RecipeData>();
@@ -77,12 +81,14 @@ namespace ControllerNamespace
             return listOfRecipies;
         }
 
-        /**
-         * Metoda GetRecipiesFromNutrients primeste doi parametrii: inputedNutrients(este reprezentat ca un dictionar ce contine valorile minime si maxime 
-         * pentru categoriile alese dintre nutrientii pusi la dispozitie pe interfata) si numberOfRecipes(reprezinta o valoare introdusa de utilizator 
-         * care sugereaza numarul de retete care sa fie inclus in cautare).
-         * Se utilizeaza clasele ClientAPI, ParseIngredients si FilterJSON pentru a obtine o lista de retete potrivit modelului de date RecipeData.
-         */
+        /// <summary>
+        /// Se utilizeaza clasele ClientAPI, ParseIngredients si FilterJSON pentru a obtine o lista de retete potrivit modelului de date RecipeData.
+        /// </summary>
+        /// <param name="inputedNutrients">Este reprezentat ca un dictionar ce contine valorile minime si maxime 
+        /// pentru categoriile alese dintre nutrientii pusi la dispozitie pe interfata.</param>
+        /// <param name="numberOfRecipes">Reprezinta o valoare introdusa de utilizator 
+        /// care sugereaza numarul de retete care sa fie inclus in cautare.</param>
+        /// <returns>O lista de modele de date, pregatite pentru preview, rezultate in urma cautarii.</returns>
         public List<RecipeData> GetRecipiesFromNutrients(Dictionary<string, int> inputedNutrients, int numberOfRecipes)
         {
             List<RecipeData> listOfRecipies = new List<RecipeData>();
@@ -98,11 +104,11 @@ namespace ControllerNamespace
             return listOfRecipies;
         }
 
-        /**
-         * Metoda GetCompleteRecipe primeste un parametru: dataModel(reprezinta un model de data pentru retete care nu este complet si urmeaza
-         * sa fie completat).
-         * Se utilizeaza clasele ClientAPI, ParseIngredients si FilterJSON pentru a obtine o reteta completa conform modelului de date RecipeData.
-         */
+        /// <summary>
+        /// Se utilizeaza clasele ClientAPI, ParseIngredients si FilterJSON pentru a obtine o reteta completa conform modelului de date RecipeData.
+        /// </summary>
+        /// <param name="dataModel">Reprezinta un model de data pentru retete care nu este complet si urmeaza sa fie completat</param>
+        /// <returns>Un model de date pentru reteke folosite la afisarea completa</returns>
         public RecipeData GetCompleteRecipe(RecipeData dataModel)
         {
             JObject searchResult = _clientAPI.GetById(dataModel.ID);

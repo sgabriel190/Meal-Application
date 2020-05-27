@@ -20,7 +20,9 @@ namespace Meal_Application
         private List<RecipeData> _recipesList = null;
         private List<RecipeData> _generatedMealList = null;
 
-        // Constructorul ce initializeaza interfata
+        /// <summary>
+        /// Constructorul ce initializeaza interfata
+        /// </summary>
         public FormMealApp()
         {
             InitializeComponent();
@@ -91,7 +93,10 @@ namespace Meal_Application
                 groupBoxNutrients.Enabled = false;
         }
 
-        // Metoda pentru adaugarea unui tab nou 
+        /// <summary>
+        /// Metoda pentru adaugarea unui tab nou 
+        /// </summary>
+        /// <param name="recipe"></param>
         private void AddNewTab(RecipeData recipe)
         {
             recipe = _controller.GetCompleteRecipe(recipe);
@@ -123,7 +128,9 @@ namespace Meal_Application
             tabControlSearch.SelectedTab = tp;
         }
 
-        // Metoda refreshPreviewList actualizeaza lista de retete din tabul Search
+        /// <summary>
+        /// Metoda refreshPreviewList actualizeaza lista de retete din tabul Search
+        /// </summary>
         private void refreshPreviewList()
         {
             _previewList = new ListItem[_recipesList.Count];
@@ -141,7 +148,9 @@ namespace Meal_Application
             }
         }
 
-        // Metoda refreshPreviewMealList actualizeaza lista de retete din tabul Meal Plan
+        /// <summary>
+        /// Metoda refreshPreviewMealList actualizeaza lista de retete din tabul Meal Plan
+        /// </summary>
         private void refreshPreviewMealList()
         {
 
@@ -162,7 +171,9 @@ namespace Meal_Application
             }
         }
 
-        // Metoda de callback pentru butonul Search
+        /// <summary>
+        /// Metoda de callback pentru butonul Search
+        /// </summary>
         private void recipeSearchButton_Click(object sender, EventArgs e)
         {
             flowLayoutPanelListItems.Controls.Clear();
@@ -238,7 +249,9 @@ namespace Meal_Application
             }
         }
 
-        // Metoda de callback pentru butonul Generate din tabul Meal Plan
+        /// <summary>
+        /// Metoda de callback pentru butonul Generate din tabul Meal Plan
+        /// </summary>
         private void buttonGenerateMealPlan_Click(object sender, EventArgs e)
         {
             flowLayoutPanelMealPlan.Controls.Clear();
@@ -266,7 +279,9 @@ namespace Meal_Application
             }
         }
 
-        // Metoda de callback pentru butonul Change din tabul Search pentru actualizarea api keyului
+        /// <summary>
+        /// //Metoda de callback pentru butonul Change din tabul Search pentru actualizarea api keyului
+        /// </summary>
         private void buttonChangeApiKey_Click(object sender, EventArgs e)
         {
             _controller.SetApiKey(textBoxApiKey.Text);

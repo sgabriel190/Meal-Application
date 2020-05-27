@@ -1,27 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Meal_Application
-{
-    /**
+﻿using System.Windows.Forms;
+/**
     * Definire UserControl DetailedListItem, utilizat pentru a dispune pe interfata retetele complete.
     * Un astfel de control va fi creat la deschiderea unui nou tab.
     * Autor: Panainte Ancuta
     */
+
+namespace Meal_Application
+{
+    
     public partial class DetailedListItem : UserControl
     {
         public DetailedListItem()
         {
             InitializeComponent();
         }
-        // Campuri care vor fi populate cu atributele din RecipeData
+        
         private string _title;
         private string _info;
         private string _img;
@@ -29,39 +22,63 @@ namespace Meal_Application
         private string _instructions;
         private string _ingredients;
 
+        /// <summary>
+        /// Camp care va fi populat cu atributele din RecipeData.
+        /// </summary>
         public string Title
         {
             get { return _title; }
             set { _title = value; labelTitle.Text = value; }
         }
+
+        /// <summary>
+        /// Camp care va fi populat cu atributele din RecipeData.
+        /// </summary>
         public string Info
         {
             get { return _info; }
             set { _info = value; labelInfo.Text = value; }
         }
 
+        /// <summary>
+        /// Camp care va fi populat cu atributele din RecipeData.
+        /// </summary>
         public string Image
         {
             get { return _img; }
             set { _img = value; pictureBox.ImageLocation = value; }
         }
+
+        /// <summary>
+        /// Camp care va fi populat cu atributele din RecipeData.
+        /// </summary>
         public string URL
         {
             get { return _url; }
             set { _url = value; linkLabel.Text = value; }
         }
+
+        /// <summary>
+        /// Camp care va fi populat cu atributele din RecipeData.
+        /// </summary>
         public string Instructions
         {
             get { return _instructions; }
             set { _instructions = value; labelInstructions.Text = value; }
         }
+
+        /// <summary>
+        /// Camp care va fi populat cu atributele din RecipeData.
+        /// </summary>
         public string Ingredients
         {
             get { return _ingredients; }
             set { _ingredients = value; labelIngredients.Text = value; }
         }
 
-        // Metoda de callback pentru deschiderea linkului
+        /// <summary>
+        /// Metoda de callback pentru deschiderea linkului
+        /// </summary>
         private void linkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabel.LinkVisited = true;
